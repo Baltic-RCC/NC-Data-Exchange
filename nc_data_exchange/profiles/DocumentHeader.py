@@ -2,7 +2,7 @@ import uuid
 from datetime import datetime
 from pydantic import BaseModel, Field, field_serializer
 from typing import Optional, List
-from nc_csa_profiles.profiles.Enumerations import ProfileKeywords
+from nc_data_exchange.profiles.Enumerations import ProfileKeywords
 
 """
 Version 2.3.1
@@ -35,7 +35,7 @@ class Model(BaseModel):
     applicationSoftware: Optional[str] = "BALTIC RCC CUSTOM"
 
     # ns:prov
-    wasGeneratedBy: Optional[str] = None  # {PROCESS}-{TIMEFRAME}-{RUN}-{PROFILE_KEYWORD} ex. "CSA-1D-1"
+    wasGeneratedBy: Optional[str] = None  # {PROCESS}-{TIMEFRAME}-{RUN}-{PROFILE_KEYWORD} ex. "CSA-1D-08-SAR"
 
     # ns:md
     scenarioTime: Optional[str] = None

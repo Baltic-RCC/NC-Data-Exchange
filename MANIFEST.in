@@ -1,1 +1,7 @@
-include src/rdfs/*
+graft nc_data_exchange/profiles
+graft nc_data_exchange/rdfs
+graft tests
+graft docs
+
+exclude nc_data_exchange/common_input_profile.py
+exclude nc_data_exchange/propose_remedial_action.py
