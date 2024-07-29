@@ -1,0 +1,658 @@
+{
+    "AS": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "as": "https://ap.cim4.eu/AvailabilitySchedule#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "file://CIM100_CGMES31v01_501-20v02_NC23v62_MM10v01.eap",
+            "creator": "ENTSO-E CIM WG NC project",
+            "description": "This vocabulary is describing the availability schedule profile.",
+            "identifier": "urn:uuid:8d128e35-86c7-4d67-b2dd-93229bf1005a",
+            "keyword": "AS",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-03-20",
+            "priorVersion": "http://entsoe.eu/ns/CIM/AvailabilitySchedule-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Availability schedule vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/AvailabilitySchedule/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "AvailabilityRemedialActionScheme": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability remedial action scheme serves for associating a remedial action scheme with an availability schedule. For instance, taking in or out of service a SIPS / SPS due to communication issue, in combination with other availability functions with the same availability schedule.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilityPowerSystemFunction.AvailabilityGroup",
+                "AvailabilityPowerSystemFunction.AvailabilitySchedule",
+                "AvailabilityPowerSystemFunction.kind",
+                "AvailabilityRemedialActionScheme.RemedialActionScheme"
+            ]
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "IdentifiedObject.description": {
+            "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "IdentifiedObject.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "IdentifiedObject.name": {
+            "description": "The name is any free human readable and possibly non unique text naming the object.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AvailabilityPowerSystemFunction.AvailabilityGroup": {
+            "description": "Grouping for all availability power system functions (controlled by all relevant system operators) that have the same availability schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AvailabilityGroup"
+        },
+        "AvailabilityPowerSystemFunction.AvailabilitySchedule": {
+            "description": "Availability schedule for this availability power system function.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AvailabilitySchedule"
+        },
+        "AvailabilityFunctionKind.inService": {
+            "description": "Function is in service.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityFunctionKind.outOfService": {
+            "description": "Function is out-of-service.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityFunctionKind.underTesting": {
+            "description": "Function is under testing and need to expect unscheduled availability.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityPowerSystemFunction.kind": {
+            "description": "Kind of availability that affect the power system function.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncAvailabilityFunctionKind",
+            "values": [
+                "AvailabilityFunctionKind.inService",
+                "AvailabilityFunctionKind.outOfService",
+                "AvailabilityFunctionKind.underTesting"
+            ]
+        },
+        "AvailabilityRemedialActionScheme.RemedialActionScheme": {
+            "description": "Remedial action scheme that is affected by the availability given by this availability remedial action scheme.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionScheme"
+        },
+        "AvailabilitySchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A given (un)availability schedule with a given status and cause that include multiple equipment that need to follow the same scheduling periods.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilitySchedule.ActualSchedule",
+                "AvailabilitySchedule.DependentOnSchedule",
+                "AvailabilitySchedule.GridStateAlterationCollection",
+                "AvailabilitySchedule.PlannedSchedule",
+                "AvailabilitySchedule.PrioritySchedule",
+                "AvailabilitySchedule.RemedialAction",
+                "AvailabilitySchedule.cancelledDateTime",
+                "AvailabilitySchedule.causeDescription",
+                "AvailabilitySchedule.causeKind",
+                "AvailabilitySchedule.daytimeRestitutionDuration",
+                "AvailabilitySchedule.eveningRestitutionDuration",
+                "AvailabilitySchedule.maxRestitutionDuration",
+                "AvailabilitySchedule.priority",
+                "AvailabilitySchedule.weekendRestitutionDuration"
+            ]
+        },
+        "AvailabilitySchedule.ActualSchedule": {
+            "description": "Actual schedule that relates to this availability schedule; used for ex-post reporting and analysis (e.g., to compare planned vs. actual).",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#EventSchedule"
+        },
+        "AvailabilitySchedule.DependentOnSchedule": {
+            "description": "(Un)availability schedule requested by one operator may require another operator to request their (un)availability schedule. This association is linking the schedules so that the dependency is clear.  ",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AvailabilitySchedule"
+        },
+        "AvailabilitySchedule.GridStateAlterationCollection": {
+            "description": "The grid state alteration collection that has this availability schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlterationCollection"
+        },
+        "AvailabilitySchedule.PlannedSchedule": {
+            "description": "Planned schedule that relates to this availability schedule used for planning availability (e.g., to compare planned vs. actual).",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#EventSchedule"
+        },
+        "AvailabilitySchedule.PrioritySchedule": {
+            "description": "Priority schedule. This is the schedule that has the highest priority and the only valid if not cancelled.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AvailabilitySchedule"
+        },
+        "AvailabilitySchedule.RemedialAction": {
+            "description": "Remedial action that is cancelling this availability schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AvailabilityRemedialAction"
+        },
+        "DateTime": {
+            "description": "Date and time as \"yyyy-mm-ddThh:mm:ss.sss\", which conforms with ISO 8601. UTC time zone is specified as \"yyyy-mm-ddThh:mm:ss.sssZ\". A local timezone relative UTC is specified as \"yyyy-mm-ddThh:mm:ss.sss-hh:mm\". The second component (shown here as \"ss.sss\") could have any number of digits in its fractional part to allow any kind of precision beyond seconds.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AvailabilitySchedule.cancelledDateTime": {
+            "description": "The date and time the (un)availability schedule were cancelled . ",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "DateTime"
+        },
+        "AvailabilitySchedule.causeDescription": {
+            "description": "A cause description for a cause kind. In case of CauseKind equals other, description or a reference of the cause of the (un)availability schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AvailabilityScheduleCauseKind.commissioning": {
+            "description": "The cause is due to a commissioning.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.other": {
+            "description": "The cause is of other kind.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.decommissioning": {
+            "description": "The cause is due to a decommissioning.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.functionalControl": {
+            "description": "The cause is due to a functional control (in &amp; out).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.environmentalCondition": {
+            "description": "The cause is due to an environmental condition. This can lead to exceptional margin and limits.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.maintenance": {
+            "description": "The cause is due to a maintenance.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.refurbishment": {
+            "description": "The cause is due to a refurbishment, either upgrade or downgrade.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilityScheduleCauseKind.worksInProximity": {
+            "description": "The cause is due to a works in proximity.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AvailabilitySchedule.causeKind": {
+            "description": "Kind of cause for the availability schedule.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncAvailabilityScheduleCauseKind",
+            "values": [
+                "AvailabilityScheduleCauseKind.commissioning",
+                "AvailabilityScheduleCauseKind.other",
+                "AvailabilityScheduleCauseKind.decommissioning",
+                "AvailabilityScheduleCauseKind.functionalControl",
+                "AvailabilityScheduleCauseKind.environmentalCondition",
+                "AvailabilityScheduleCauseKind.maintenance",
+                "AvailabilityScheduleCauseKind.refurbishment",
+                "AvailabilityScheduleCauseKind.worksInProximity"
+            ]
+        },
+        "Duration": {
+            "description": "Duration as \"PnYnMnDTnHnMnS\" which conforms to ISO 8601, where nY expresses a number of years, nM a number of months, nD a number of days. The letter T separates the date expression from the time expression and, after it, nH identifies a number of hours, nM a number of minutes and nS a number of seconds. The number of seconds could be expressed as a decimal number, but all other numbers are integers.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AvailabilitySchedule.daytimeRestitutionDuration": {
+            "description": "The time required to take the out-of-service equipment back into service during daytime. This includes the start-up time for generating units.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "AvailabilitySchedule.eveningRestitutionDuration": {
+            "description": "The time required to take the out-of-service equipment back into service after office hours. This includes the start-up time for generating units.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "AvailabilitySchedule.maxRestitutionDuration": {
+            "description": "The maximum time required to take the out-of-service equipment back into service. This includes the start-up time for generating units.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "Integer": {
+            "description": "An integer number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AvailabilitySchedule.priority": {
+            "description": "Value 0 means ignore priority. 1 means the highest priority, 2 is the second highest priority.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Integer"
+        },
+        "AvailabilitySchedule.weekendRestitutionDuration": {
+            "description": "The time required to take the out-of-service equipment back into service in the weekend or during bank holidays. This includes the start-up time for generating units.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "AvailabilityExceptionalLimit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability exceptional limit serves for associating an operational limit restriction with an availability schedule. For instance, enabling or disabling the current limit on ACLineSegment terminal in combination with other availability functions with the same availability schedule or de-rating due to fault.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilityExceptionalLimit.OperationalLimit",
+                "AvailabilityExceptionalLimit.value",
+                "AvailabilityPowerSystemFunction.AvailabilityGroup",
+                "AvailabilityPowerSystemFunction.AvailabilitySchedule",
+                "AvailabilityPowerSystemFunction.kind"
+            ]
+        },
+        "AvailabilityExceptionalLimit.OperationalLimit": {
+            "description": "Operational limit that is constrained by this availability exceptional limit.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#OperationalLimit"
+        },
+        "Float": {
+            "description": "A floating point number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AvailabilityExceptionalLimit.value": {
+            "description": "Value for the referred operational limit.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "EventTimePoint": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Event valid for a given point in time.",
+            "parameters": [
+                "EventTimePoint.EventSchedule",
+                "EventTimePoint.atTime",
+                "EventTimePoint.isActive"
+            ]
+        },
+        "EventTimePoint.EventSchedule": {
+            "description": "Time series the time point values belongs to.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#EventSchedule"
+        },
+        "EventTimePoint.atTime": {
+            "description": "The time the data is valid for.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "DateTime"
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "EventTimePoint.isActive": {
+            "description": "True, if the event is occurring (Active) at this time point. Otherwise false.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "AvailabilityEquipment": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability equipment serves for associating an equipment with an availability schedule. For instance, putting in or out of service an ACLineSegment in combination with other availability functions with the same availability schedule.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilityEquipment.Equipment",
+                "AvailabilityPowerSystemFunction.AvailabilityGroup",
+                "AvailabilityPowerSystemFunction.AvailabilitySchedule",
+                "AvailabilityPowerSystemFunction.kind"
+            ]
+        },
+        "AvailabilityEquipment.Equipment": {
+            "description": "Equipment that is affected by the availability given by this availability equipment.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Equipment"
+        },
+        "AvailabilityEnabled": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability enabled is enabling or disabling grid state alteration (e.g. tap position action) or assessed element that is related to the availability schedule. For instance, the cancellation of availability schedule can lead to changes in the  assessed element. This is done by enabling one assessment and disabling another.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilityEnabled.AssessedElement",
+                "AvailabilityEnabled.GridStateAlteration",
+                "AvailabilityEnabled.enabled",
+                "AvailabilityPowerSystemFunction.AvailabilityGroup",
+                "AvailabilityPowerSystemFunction.AvailabilitySchedule",
+                "AvailabilityPowerSystemFunction.kind"
+            ]
+        },
+        "AvailabilityEnabled.AssessedElement": {
+            "description": "Assessed element that is affected by the availability given by this availability enabling.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AssessedElement"
+        },
+        "AvailabilityEnabled.GridStateAlteration": {
+            "description": "Grid state alteration that is affected by the availability given by this availability enabling.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlteration"
+        },
+        "AvailabilityEnabled.enabled": {
+            "description": "Instruction to enable or disable alteration and assessment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "EventSchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Time series represent irregular event described by event points in time.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BaseTimeSeries.interpolationKind",
+                "BaseTimeSeries.kind"
+            ]
+        },
+        "TimeSeriesInterpolationKind.previous": {
+            "description": "The value between two time points is set to previous value.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "BaseTimeSeries.interpolationKind": {
+            "description": "Kind of interpolation done between time point.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncTimeSeriesInterpolationKind",
+            "values": [
+                "TimeSeriesInterpolationKind.previous"
+            ]
+        },
+        "BaseTimeSeriesKind.schedule": {
+            "description": "Time series is schedule data. The values represent the result of a committed and plan forecast data that has been through a quality control and could incur penalty when not followed.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "BaseTimeSeriesKind.actual": {
+            "description": "Time series is actual data. The values represent measured or calculated values that represent the actual behaviour. ",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "BaseTimeSeries.kind": {
+            "description": "Kind of base time series.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncBaseTimeSeriesKind",
+            "values": [
+                "BaseTimeSeriesKind.schedule",
+                "BaseTimeSeriesKind.actual"
+            ]
+        },
+        "AvailabilityContainer": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability container serves for associating an equipment container with an availability schedule. For instance, putting in or out of service all the equipment inside a Line or a Bay in combination with other availability functions with the same availability schedule.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilityContainer.EquipmentContainer",
+                "AvailabilityPowerSystemFunction.AvailabilityGroup",
+                "AvailabilityPowerSystemFunction.AvailabilitySchedule",
+                "AvailabilityPowerSystemFunction.kind"
+            ]
+        },
+        "AvailabilityContainer.EquipmentContainer": {
+            "description": "Equipment container that is affected by the availability given by this availability container.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#EquipmentContainer"
+        },
+        "AvailabilityGroup": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Container to link relevant equipment that is affected by (un)availability schedule across availability coordinator (e.g. TSO-TSO, TSO-DSO or DSO-DSO).",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        }
+    }
+}

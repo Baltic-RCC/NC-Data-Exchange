@@ -1,0 +1,1963 @@
+{
+    "SSI": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "ssi": "https://ap.cim4.eu/SteadyStateInstruction#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "file://CIM100_CGMES31v01_501-20v02_NC23v62_MM10v01.eap",
+            "creator": "ENTSO-E CIM WG NC project ",
+            "description": "This vocabulary is describing the steady state instruction profile.",
+            "identifier": "urn:uuid:6d01969f-38fd-460d-b260-b839a8123319",
+            "keyword": "SSI",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-04-08",
+            "priorVersion": "http://entsoe.eu/ns/CIM/SteadyStateInstruction-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Steady state instruction Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/SteadyStateInstruction/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "BiddingZoneBorder": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the aggregated connection capacity between two Bidding Zones.",
+            "parameters": [
+                "BiddingZoneBorder.alreadyAllocatedCapacity",
+                "BiddingZoneBorder.alreadyAllocatedFlow",
+                "BiddingZoneBorder.availableTransferCapacity",
+                "BiddingZoneBorder.netTransferCapacity",
+                "BiddingZoneBorder.totalTransferCapacity",
+                "BiddingZoneBorder.transmissionReliabilityMargin"
+            ]
+        },
+        "ActivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "BiddingZoneBorder.alreadyAllocatedCapacity": {
+            "description": "Already Allocated Capacity (AAC) means the total amount of allocated transmission rights i.e. transmission capacity reserved by virtue of historical long-term contracts and the previously held transmission capacity reservation auctions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "BiddingZoneBorder.alreadyAllocatedFlow": {
+            "description": "The maximum allowed flow on the collection of interconnection between two bidding zones.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "BiddingZoneBorder.availableTransferCapacity": {
+            "description": "Available Transfer Capacity (ATC) means the transmission capacity that remains available, after allocation procedure, to be used under the physical conditions of the transmission system. ATC value is defined as: ATC = NTC - AAC.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "BiddingZoneBorder.netTransferCapacity": {
+            "description": "Net Transfer Capacity (NTC) is defined as NTC = TTC \u2013 TRM and corresponds to the maximum exchange between two areas compatible with operational security limits applicable in both areas and taking into account the technical uncertainties on future network conditions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "BiddingZoneBorder.totalTransferCapacity": {
+            "description": "Total Transfer Capacity (TTC) is the maximum exchange program between two areas compatible with operational security standards applicable at each system if future network conditions, generation and load patterns were perfectly known in advance.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "BiddingZoneBorder.transmissionReliabilityMargin": {
+            "description": "Transmission Reliability Margin (TRM) is the minimum reserve that system operators must have available at their connections so that they can help other countries to which their system is directly or indirectly connected, if necessary.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerTransferCorridor": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A power transfer corridor is defined as a set of circuits (transmission lines or transformers) separating two portions of the power system, or a subset of circuits exposed to a substantial portion of the transmission exchange between two parts of the system.",
+            "parameters": [
+                "PowerTransferCorridor.enabled"
+            ]
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerTransferCorridor.enabled": {
+            "description": "It enables/disables the monitoring/assessment of a power transfer corridor. True means that the monitoring of the power transfer corridor is assessed. False means the power transfer corridor is not assessed. ",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "RemedialActionScheme": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Remedial Action Scheme (RAS), Special Protection Schemes (SPS), System Protection Schemes (SPS) or System Integrity Protection Schemes (SIPS).\nA Remedial Action Scheme consists of one or more stages that can trigger and execute a protection action.",
+            "parameters": [
+                "RemedialActionScheme.armed",
+                "RemedialActionScheme.inService"
+            ]
+        },
+        "RemedialActionScheme.armed": {
+            "description": "Defines the arming status of the remedial action scheme. It is set by operation or by signal.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "RemedialActionScheme.inService": {
+            "description": "Specifies the availability of the Remedial Action Scheme (RAS). If true, the RAS is available for contingency processing. If false, the RAS is treated by contingency processing as if it is not in the model.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "TCSCController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "TCSC controller is controlling the equipment to optimize the performance of the TCSC. ",
+            "parameters": [
+                "TCSCController.mode"
+            ]
+        },
+        "TCSCControlModeKind.impedance": {
+            "description": "Control is impedance.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "TCSCControlModeKind.current": {
+            "description": "Control is current.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "TCSCControlModeKind.activePower": {
+            "description": "Control is active power.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "TCSCController.mode": {
+            "description": "Mode of the TCSC controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncTCSCControlModeKind",
+            "values": [
+                "TCSCControlModeKind.impedance",
+                "TCSCControlModeKind.current",
+                "TCSCControlModeKind.activePower"
+            ]
+        },
+        "RedispatchRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Redispatch remedial action is a remedial action that through rearranging power schedules is eliminating breaches of constraints.",
+            "parameters": [
+                "PowerRemedialAction.maxRegulatingDown",
+                "PowerRemedialAction.maxRegulatingUp",
+                "RemedialAction.available"
+            ]
+        },
+        "PowerRemedialAction.maxRegulatingDown": {
+            "description": "Maximum net amount of active power that the remedial action can regulate down.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "PowerRemedialAction.maxRegulatingUp": {
+            "description": "Maximum net amount of active power that the remedial action can regulate up.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "RemedialAction.available": {
+            "description": "Identifies if the remedial action is available to be proposed. True means available, False means unavailable.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "ContingencyWithRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of a contingency and a remedial action. ContingencyWithRemedialAction shall not be instantiated for preventive RemedialAction (RemedialAction.kind equals RemedialActionKind.preventive).",
+            "parameters": [
+                "ContingencyWithRemedialAction.enabled"
+            ]
+        },
+        "ContingencyWithRemedialAction.enabled": {
+            "description": "If true, the contingency with remedial action is enabled, otherwise it is disabled.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "RemedialActionGroup": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Grouping of remedial actions that can be operated together.",
+            "parameters": [
+                "RemedialActionGroup.maxRegulatingDown",
+                "RemedialActionGroup.maxRegulatingUp"
+            ]
+        },
+        "RemedialActionGroup.maxRegulatingDown": {
+            "description": "Maximum net amount of active power that the group of remedial actions can regulate down.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "RemedialActionGroup.maxRegulatingUp": {
+            "description": "Maximum net amount of active power that the group of remedial actions can regulate up.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "AvailabilityRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability remedial action is a remedial action that cancels or reschedules an availability schedule.",
+            "parameters": [
+                "RemedialAction.available"
+            ]
+        },
+        "ScheduleResource": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A schedule resource is a market-based method for handling participation of small units, particularly located on the lower voltage level that is controlled by a Distributed System Operator (DSO). It is a collection of units that can operate in the market by providing bids, offers and a resulting committed operational schedule for the collection.",
+            "parameters": [
+                "ScheduleResource.p",
+                "ScheduleResource.participationFactor"
+            ]
+        },
+        "ScheduleResource.p": {
+            "description": "Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "Float": {
+            "description": "A floating point number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ScheduleResource.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "CurrentControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Current control function is a function block that calculates the operating point of the controlled equipment  to achieve the target current.",
+            "parameters": [
+                "CurrentControlFunction.targetValue"
+            ]
+        },
+        "CurrentFlow": {
+            "description": "Electrical current with sign convention: positive flow is out of the conducting equipment into the connectivity node. Can be both AC and DC.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "CurrentControlFunction.targetValue": {
+            "description": "Target value for the current that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "CurrentFlow"
+        },
+        "HydroPump": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "A synchronous motor-driven pump, typically associated with a pumped storage plant.",
+            "parameters": [
+                "HydroPump.participationFactor"
+            ]
+        },
+        "HydroPump.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "AreaDispatchableUnit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Allocates a given producing or consuming unit, including direct current corridor and collection of units, to a given control area (through the scheduling area) for supporting the control of the given area through dispatch instruction. ",
+            "parameters": [
+                "AreaDispatchableUnit.enabled",
+                "AreaDispatchableUnit.p"
+            ]
+        },
+        "AreaDispatchableUnit.enabled": {
+            "description": "Identifies if the unit is enabled to accept a dispatch instruction. If true, the unit is enabled to accept a dispatch instruction. If false, the unit has the capability, but it is not enabled to receive a dispatch instruction.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "AreaDispatchableUnit.p": {
+            "description": "Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "DCCurrentControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "DC current control function is a function block that calculates the operating point of the controlled equipment  to achieve the target current.",
+            "parameters": [
+                "DCCurrentControlFunction.targetValue"
+            ]
+        },
+        "DCCurrentControlFunction.targetValue": {
+            "description": "Target value for the current that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "CurrentFlow"
+        },
+        "CircuitShare": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the share of the circuit which is part of an associated power transfer corridor.",
+            "parameters": [
+                "CircuitShare.contributionFactor"
+            ]
+        },
+        "PerCent": {
+            "description": "Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "CircuitShare.contributionFactor": {
+            "description": "Contribution factor for the circuit which is part of a power transfer corridor.\nThe allowed value range is [0,100].",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "PerCent"
+        },
+        "PowerShiftKeyStrategy": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Strategy of the power shift key.",
+            "parameters": [
+                "PowerShiftKeyStrategy.enabled",
+                "PowerShiftKeyStrategy.participationFactor"
+            ]
+        },
+        "PowerShiftKeyStrategy.enabled": {
+            "description": "If true, the assessed element is enabled, otherwise it is disabled.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "PowerShiftKeyStrategy.participationFactor": {
+            "description": "Participation factor describing the entities part of the power shift strategy. Must be a positive value.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "InfeedLimit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Infeed limit set constraints fed in to the network by two or more terminals.",
+            "parameters": [
+                "InfeedLimit.valueA",
+                "InfeedLimit.valueW"
+            ]
+        },
+        "InfeedLimit.valueA": {
+            "description": "Value of current limit. The attribute shall be a positive value or zero.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "CurrentFlow"
+        },
+        "InfeedLimit.valueW": {
+            "description": "Value of active power limit. The attribute shall be a positive value or zero.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "CurrentDroopOverride": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Current droop override uses the following logic:\n- When the current exceeds a threshold the device executes the following transitions: 1) When injecting an inductive voltage or in monitoring mode the device tends to inject a voltage proportional to the difference between the line current and the aforementioned threshold. 2) When injecting a capacitive voltage the device transitions to monitoring mode. \n- If the aforementioned proportional voltage is lower than the initial one, the voltage injection remains unchanged. \nCurrent droop override is not applied when the device operates in currentDroop mode.",
+            "parameters": [
+                "CurrentDroopOverride.enabled",
+                "CurrentDroopOverride.targetValueCapacitiveI",
+                "CurrentDroopOverride.targetValueInductiveI"
+            ]
+        },
+        "CurrentDroopOverride.enabled": {
+            "description": "True, if the current droop override is enabled (active). Otherwise false.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "CurrentDroopOverride.targetValueCapacitiveI": {
+            "description": "Setpoint when control is active in capacitive region.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "CurrentFlow"
+        },
+        "CurrentDroopOverride.targetValueInductiveI": {
+            "description": "Setpoint when control is active in inductive region.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "CurrentFlow"
+        },
+        "SchemeRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Scheme remedial action is remedial action that involves a scheme that can include conditional logic and stages of grid alteration. The primary remedial action is the arming of these schemes, that will then perform curative remedial action when the condition is met. System Integrity Protection Scheme (SIPS) and Special Protection Scheme (SPS) are example of this. ",
+            "parameters": [
+                "RemedialAction.available"
+            ]
+        },
+        "StaticSynchronousSeriesCompensator": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Static synchronous series compensator (SSSC) is a type of flexible AC transmission system which consists of a solid-state voltage source inverter coupled with a transformer that is connected in series with a transmission line. This device can inject an almost sinusoidal voltage in series with the line. This injected voltage could be considered as an inductive or capacitive reactance, which is connected in series with the transmission line. This feature can provide controllable voltage compensation. In addition, SSSC is able to reverse the power flow by injecting a sufficiently large series reactive compensating voltage. Moreover it can inject a voltage proportional to the difference between the line current and the pre-configured current threshold.<font color=\"#636671\"> </font>It shall have two Terminal-s associated with it. ",
+            "parameters": [
+                "RegulatingCondEq.controlEnabled",
+                "FACTSEquipment.q"
+            ]
+        },
+        "RegulatingCondEq.controlEnabled": {
+            "description": "Specifies the regulation status of the equipment.  True is regulating, false is not regulating.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "ReactivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the quadrature component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "FACTSEquipment.q": {
+            "description": "Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.\nStarting value for a steady state solution.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ReactivePower"
+        },
+        "PTCActivePowerSupport": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the active power capability (support) of the scheme in relation to a PowerTransferCorridor.",
+            "parameters": [
+                "PTCActivePowerSupport.value"
+            ]
+        },
+        "PTCActivePowerSupport.value": {
+            "description": "The support that a System Integrity Protection Scheme (SIPS) gives to a Power Transfer Corridor (PTC).",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "InjectionController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Injection controller is controlling the equipment which represents an injection or an external network.",
+            "parameters": [
+                "InjectionController.mode"
+            ]
+        },
+        "InjectionControlModeKind.voltage": {
+            "description": "Voltage control.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "InjectionControlModeKind.activePower": {
+            "description": "Active power is specified.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "InjectionControlModeKind.powerFactor": {
+            "description": "Power factor is specified.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "InjectionControlModeKind.reactivePower": {
+            "description": "Reactive power control.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "InjectionController.mode": {
+            "description": "Mode of the injection controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncInjectionControlModeKind",
+            "values": [
+                "InjectionControlModeKind.voltage",
+                "InjectionControlModeKind.activePower",
+                "InjectionControlModeKind.powerFactor",
+                "InjectionControlModeKind.reactivePower"
+            ]
+        },
+        "DCSwitch": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A switch within the DC system.",
+            "parameters": [
+                "DCSwitch.locked",
+                "DCSwitch.open"
+            ]
+        },
+        "DCSwitch.locked": {
+            "description": "If true, the switch is locked. The resulting switch state is a combination of locked and DCSwitch.open attributes as follows:\n<ul>\n\t<li>locked=true and DCSwitch.open=true. The resulting state is open and locked;</li>\n\t<li>locked=false and DCSwitch.open=true. The resulting state is open;</li>\n\t<li>locked=false and DCSwitch.open=false. The resulting state is closed.</li>\n</ul>",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "DCSwitch.open": {
+            "description": "The attribute tells if the switch is considered open when used as input to topology processing.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "VoltageInjectionControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Voltage injection control function is a function block that calculates the operating point of the controlled equipment to achieve the target voltage injection. The controlled point is the Terminal with sequenceNumber =1.",
+            "parameters": [
+                "VoltageInjectionControlFunction.targetValue"
+            ]
+        },
+        "Voltage": {
+            "description": "Electrical voltage, can be both AC and DC.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "VoltageInjectionControlFunction.targetValue": {
+            "description": "Target value for the voltage that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Voltage"
+        },
+        "AssessedElement": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Assessed element is a network element for which the electrical state is evaluated in the regional or cross-regional process and which value is expected to fulfil regional rules function of the operational security limits.\nThe measurements and limits are as defined in the steady state hypothesis.",
+            "parameters": [
+                "AssessedElement.appointedMargin",
+                "AssessedElement.coordinatedValidationAdjustment",
+                "AssessedElement.coordinatedValidationAdjustmentJustification",
+                "AssessedElement.criticalElementContingencyJustification",
+                "AssessedElement.enabled",
+                "AssessedElement.individualValidationAdjustment",
+                "AssessedElement.individualValidationAdjustmentJustification",
+                "AssessedElement.individualValidationAdjustmentShare",
+                "AssessedElement.maxFlow",
+                "AssessedElement.maxMarginAdjustment",
+                "AssessedElement.positiveVirtualMargin",
+                "AssessedElement.scannedThresholdMargin",
+                "AssessedElement.targetRemainingAvailableMarginJustification"
+            ]
+        },
+        "AssessedElement.appointedMargin": {
+            "description": "The percentage (appointed to a region) of the remaining margin obtained in the grid model to reach its current limit under normal operating conditions. The maximum percentage shall by default be 10% of the remaining margin.\nIt is only used when an assessed element is considered conservative for a region.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.coordinatedValidationAdjustment": {
+            "description": "Positive value calculated and provided by the Coordinated Capacity Calculator (CCC) for the reduction of Remaining Available Margin (RAM) in order to ensure grid security.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AssessedElement.coordinatedValidationAdjustmentJustification": {
+            "description": "Free text description provided by the coordinated capacity calculator (CCC) for justifying the reduction of Remaining Available Margin (RAM) by means of Coordinated Validation Adjustment (CVA). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.criticalElementContingencyJustification": {
+            "description": "Free text describing the justification  of critical element contingency categorization (e.g. the use of the kind). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.enabled": {
+            "description": "If true, the assessed element is enabled, otherwise it is disabled.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "AssessedElement.individualValidationAdjustment": {
+            "description": "Positive value calculated and provided by System Operators from their individual validation process for the reduction of Remaining Available Margin (RAM) in order to ensure grid security.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.individualValidationAdjustmentJustification": {
+            "description": "Free text description provided by System Operators for justifying the reduction of Remaining Available Margin (RAM) by means of Individual Validation Adjustment (IVA). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.individualValidationAdjustmentShare": {
+            "description": "Positive value expressed calculated by the Coordinated Capacity Calculator (CCC) based on the provided Individual Validation Adjustment (IVA) by System Operators in order to show the actual reduction of Remaining Available Margin (RAM). Individual Validation Adjustment Share is a positive non-zero value. It is equal or less than the Individual Validation Adjustment value. ",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.maxFlow": {
+            "description": "Maximum flow on a conducting equipment or a collection of conducting equipment forming a power transfer corridor. For assessed element that becomes critical due to contingency, this value represents the maximum flow with remedial action taken into consideration.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.maxMarginAdjustment": {
+            "description": "Maximum adjustment, relative to maximum flow allowed for exceeding the maximum flow of this assessed element.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.positiveVirtualMargin": {
+            "description": "A positive margin that defines the overload allowed in a solution for the assessed element for the current situation. The margin represents influences that can be solved by the System Operators using available remedial action which is not cross-border relevant remedial action.\nAll relevant operational limits (e.g. PATL, TATL, etc) are modified by this margin value. The attribute represents the increase.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.scannedThresholdMargin": {
+            "description": "Threshold percentage that a scanned element can be overloaded, on a given element, on top of any overload prior to optimisation (default= 5%). e.g. Initial loading of the element is 110%, with a 5% scanned threshold margin, the new maximum is 115% of the limit (e.g. PATL, TATL, etc).\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.targetRemainingAvailableMarginJustification": {
+            "description": "Free text describing the justification for the target Remaining Available Margin (RAM). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "PowerElectronicsUnit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "A generating unit or battery or aggregation that connects to the AC network using power electronics rather than rotating machines.",
+            "parameters": [
+                "PowerElectronicsUnit.p",
+                "PowerElectronicsUnit.participationFactor"
+            ]
+        },
+        "PowerElectronicsUnit.p": {
+            "description": "Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.\nStarting value for a steady state solution.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerElectronicsUnit.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "PhaseControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Phase control function is a function block that calculate the operating point of the controlled equipment to achieve the target voltage.",
+            "parameters": [
+                "PhaseControlFunction.targetValue"
+            ]
+        },
+        "AngleDegrees": {
+            "description": "Measurement of angle in degrees.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PhaseControlFunction.targetValue": {
+            "description": "Target value for the phase that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "AngleDegrees"
+        },
+        "PowerCapacity": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Power capacity defines the capacity in regard to generation, consumption and transmission (import and export) for a relevant power system resource, e.g. bidding zone, including maximum and minimum electrical power capacity and any capacity allocation.",
+            "parameters": [
+                "PowerCapacity.maxInterchange",
+                "PowerCapacity.minImportP",
+                "PowerCapacity.minInterchange",
+                "PowerCapacity.netACInterchange",
+                "PowerCapacity.netACInterchangeTolerance",
+                "PowerCapacity.netDCInterchange",
+                "PowerCapacity.regulatingDownAllocation",
+                "PowerCapacity.regulatingUpAllocation"
+            ]
+        },
+        "PowerCapacity.maxInterchange": {
+            "description": "Maximum total active power (AC and DC)  that the net position for the bidding zone can have to maintain operational security. Positive sign means flow into the bidding zone.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerCapacity.minImportP": {
+            "description": "Minimum imported active power requirement.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerCapacity.minInterchange": {
+            "description": "Minimum total active power (AC and DC)  that the net position for the bidding zone can have to maintain operational security. Negative sign means flow out of the bidding zone.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerCapacity.netACInterchange": {
+            "description": "The netted aggregation of all AC external schedules of an area. Positive sign means flow into the area (Import).",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerCapacity.netACInterchangeTolerance": {
+            "description": "The area AC Net Position tolerance.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "PowerCapacity.netDCInterchange": {
+            "description": "The netted aggregation of all DC external schedules of an area. Positive sign means flow into the area.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerCapacity.regulatingDownAllocation": {
+            "description": "The balancing capacity allocated for regulating down, by decreasing the production, increasing the direct current export, decreasing direct current import or increasing the consumption of energy in the bidding zone. This must be a positive number.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerCapacity.regulatingUpAllocation": {
+            "description": "The balancing capacity allocated for regulating up, by increasing the production, decreasing the direct current export, increasing direct current import or reducing the consumption of energy in the bidding zone. This must be a positive number.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "StageTrigger": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Stage that is triggered either by TriggerCondition or by gate condition within a stage.",
+            "parameters": [
+                "StageTrigger.armed"
+            ]
+        },
+        "StageTrigger.armed": {
+            "description": "The status of the class set by operation or by signal. Optional field that will override other status fields.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "SubstationController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Substation controller is controlling the equipment to optimize the use of the controlling equipment within a substation. ",
+            "parameters": [
+                "SubstationController.mode"
+            ]
+        },
+        "SubstationControllerModeKind.voltage": {
+            "description": "Voltage control is the primary control of the substation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SubstationControllerModeKind.activePower": {
+            "description": "Active power control is the primary control of the substation..",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SubstationControllerModeKind.reactivePower": {
+            "description": "Reactive power control is the primary control of the substation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SubstationController.mode": {
+            "description": "Mode of the substation controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncSubstationControllerModeKind",
+            "values": [
+                "SubstationControllerModeKind.voltage",
+                "SubstationControllerModeKind.activePower",
+                "SubstationControllerModeKind.reactivePower"
+            ]
+        },
+        "CurrentDroopControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Current droop control function is a function block that calculates the operating point of the controlled equipment to achieve the target current.",
+            "parameters": [
+                "CurrentDroopControlFunction.targetValueCapacitive",
+                "CurrentDroopControlFunction.targetValueInductive"
+            ]
+        },
+        "CurrentDroopControlFunction.targetValueCapacitive": {
+            "description": "Setpoint when control is active in capacitive region.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "CurrentFlow"
+        },
+        "CurrentDroopControlFunction.targetValueInductive": {
+            "description": "Setpoint when control is active in inductive region.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "CurrentFlow"
+        },
+        "SSSCController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "The controller of a Static synchronous series compensator (SSSC).",
+            "parameters": [
+                "SSSCController.mode"
+            ]
+        },
+        "SSSCControlModeKind.voltageInjection": {
+            "description": "<font color=\"#636671\">The device injects a fixed voltage that is either inductive or capacitive according to the specified target value of the VoltageInjectionControlFunction. The effective reactance varies according to the flow of the line current.</font>",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SSSCControlModeKind.currentDroop": {
+            "description": "<font color=\"#636671\">The device injects a voltage proportional to the difference between the line current and the target value of the CurrentDroopControlFunction. There are capacitive and inductive operational regions.</font>",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SSSCControlModeKind.monitoring": {
+            "description": "<font color=\"#636671\">The device bypasses and a voltage injection is close to zero. In monitoring mode current is monitored.</font>",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SSSCControlModeKind.effectiveReactance": {
+            "description": "<font color=\"#636671\">The device injects a voltage proportional to the line current to achieve the specified target value defined by the ImpedanceControlFunction. The voltage will vary according to the line current level.</font>",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SSSCController.mode": {
+            "description": "Mode of the Static Synchronous Series compensator controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncSSSCControlModeKind",
+            "values": [
+                "SSSCControlModeKind.voltageInjection",
+                "SSSCControlModeKind.currentDroop",
+                "SSSCControlModeKind.monitoring",
+                "SSSCControlModeKind.effectiveReactance"
+            ]
+        },
+        "FuelStorage": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Fuel storage. e.g. pile of coal that can be shared between multiple thermal generating units.",
+            "parameters": [
+                "FuelStorage.energyStorage"
+            ]
+        },
+        "RealEnergy": {
+            "description": "Real electrical energy.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "FuelStorage.energyStorage": {
+            "description": "Amount of energy available in the storage.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "RealEnergy"
+        },
+        "ReactivePowerControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Reactive power control function is a function block that calculate the operating point of the controlled equipment to achieve the target reactive power.",
+            "parameters": [
+                "ReactivePowerControlFunction.targetValue"
+            ]
+        },
+        "ReactivePowerControlFunction.targetValue": {
+            "description": "Target value for the reactive power that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ReactivePower"
+        },
+        "RotatingMachineController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Rotating machine controller is controlling the equipment which may be used as a generator or motor.",
+            "parameters": [
+                "RotatingMachineController.mode"
+            ]
+        },
+        "RotatingMachineControlModeKind.powerFactor": {
+            "description": "Power factor is specified.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RotatingMachineControlModeKind.reactivePower": {
+            "description": "Reactive power control.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RotatingMachineControlModeKind.voltage": {
+            "description": "Voltage control.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RotatingMachineControlModeKind.activePower": {
+            "description": "Active power is specified.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RotatingMachineController.mode": {
+            "description": "Mode of the rotating machine controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRotatingMachineControlModeKind",
+            "values": [
+                "RotatingMachineControlModeKind.powerFactor",
+                "RotatingMachineControlModeKind.reactivePower",
+                "RotatingMachineControlModeKind.voltage",
+                "RotatingMachineControlModeKind.activePower"
+            ]
+        },
+        "ModularStaticSynchronousSeriesCompensator": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Modular static synchronous series compensator (MSSSC) is a type of flexible AC transmission system regulating equipment which consists of solid-state voltage source inverter connected in series with a transmission line. This is similar to static synchronous series compensator (SSSC), but without injection transformer. This enables the MSSSC to be truly modular with the ability to simply install a number of equipment in series to provide a desired maximum level of impedance. MSSSC can be dispersed into multiple location in a circuit working collectively under the same controller scheme.",
+            "parameters": [
+                "RegulatingCondEq.controlEnabled",
+                "FACTSEquipment.q"
+            ]
+        },
+        "CountertradeRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Countertrade is a remedial action to relieve physical congestions where the location of activated resources within the bidding zone is not known.",
+            "parameters": [
+                "PowerRemedialAction.maxRegulatingDown",
+                "PowerRemedialAction.maxRegulatingUp",
+                "RemedialAction.available"
+            ]
+        },
+        "DCPole": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "The direct current (DC) system pole (IEC 60633) is part of a DC system consisting of all the equipment in the DC substations and the interconnecting transmission lines, if any, which during normal operation exhibit a common direct voltage polarity with respect to earth.",
+            "parameters": [
+                "DCPole.maxEconomicP",
+                "DCPole.minEconomicP",
+                "DCPole.p",
+                "DCPole.participationFactor"
+            ]
+        },
+        "DCPole.maxEconomicP": {
+            "description": "Maximum high economic active power limit, that should not exceed the maximum operating active power limit.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "DCPole.minEconomicP": {
+            "description": "Low economic active power limit that shall be greater than or equal to the minimum operating active power limit.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "DCPole.p": {
+            "description": "Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "DCPole.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "DCVoltageControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "DC voltage control function is a function block that calculate the operating point of the controlled equipment to achieve the target voltage.",
+            "parameters": [
+                "DCVoltageControlFunction.targetValue"
+            ]
+        },
+        "DCVoltageControlFunction.targetValue": {
+            "description": "Target value for the voltage that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Voltage"
+        },
+        "CompensatorController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Compensator controller is controlling the equipment to optimize the use of the compensators. ",
+            "parameters": [
+                "CompensatorController.mode"
+            ]
+        },
+        "CompensatorControlModeKind.voltage": {
+            "description": "Voltage control.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CompensatorControlModeKind.reactivePower": {
+            "description": "Reactive power control.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CompensatorController.mode": {
+            "description": "Mode of the compensator controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncCompensatorControlModeKind",
+            "values": [
+                "CompensatorControlModeKind.voltage",
+                "CompensatorControlModeKind.reactivePower"
+            ]
+        },
+        "ThyristorControlledSeriesCompensator": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Thyristor-controlled series capacitors (TCSC) is a type of flexible AC transmission system regulating equipment that is configured with controlled reactors in parallel with sections of a capacitor bank. This combination allows smooth control of the fundamental frequency capacitive reactance over a wide range. The thyristor valve contains a string of series connected high power thyristors. TCSC can control power flows in order to achieve eliminating of line overloads, reducing loop flows and minimising system losses.",
+            "parameters": [
+                "RegulatingCondEq.controlEnabled",
+                "FACTSEquipment.q",
+                "ThyristorControlledSeriesCompensator.compensationZ",
+                "ThyristorControlledSeriesCompensator.currentSection"
+            ]
+        },
+        "Impedance": {
+            "description": "Ratio of voltage to current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ThyristorControlledSeriesCompensator.compensationZ": {
+            "description": "The actual compensation impedance provided by the compensator. The attribute value shall be positive if compensation is in the capacitive range. The attribute value shall be negative if compensation is in the inductive rating.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Impedance"
+        },
+        "Integer": {
+            "description": "An integer number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ThyristorControlledSeriesCompensator.currentSection": {
+            "description": "The current section on which the TCSC is operating.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Integer"
+        },
+        "BiddingZone": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A bidding zone is a market-based method for handling power transmission congestion. It consists of scheduling areas that include the relevant production (supply) and consumption (demand) to form an electrical area with the same market price without capacity allocation.",
+            "parameters": [
+                "BiddingZone.netPosition"
+            ]
+        },
+        "BiddingZone.netPosition": {
+            "description": "Net position is the netted sum of electricity exports and imports for each market time unit for a bidding zone.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElementWithContingency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of an assessed element and a contingency.",
+            "parameters": [
+                "AssessedElementWithContingency.enabled"
+            ]
+        },
+        "AssessedElementWithContingency.enabled": {
+            "description": "If true, the assessed element with contingency is enabled, otherwise it is disabled.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "ActivePowerControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Active power control function is a function block that calculates operating point of the controlled equipment to achieve the target active power.",
+            "parameters": [
+                "ActivePowerControlFunction.targetValue"
+            ]
+        },
+        "ActivePowerControlFunction.targetValue": {
+            "description": "Target value for the active power that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "SchedulingArea": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "An area where production and/or consumption of energy can be forecasted, scheduled and measured. The area is operated by only one system operator, typically a Transmission System Operator (TSO). The area can consist of a sub area, which has the same definition as the main area, but it can be operated by another system operator (typically Distributed System Operator (DSO) or a Closed Distributed System Operator (CDSO)). This includes microgrid concept. A substation is the smallest grouping that can be included in the area. The area size should be considered in terms of the possibility of accumulated reading (settlement metering) and the capability of operating as an island.",
+            "parameters": [
+                "SchedulingArea.p",
+                "SchedulingArea.participationFactor"
+            ]
+        },
+        "SchedulingArea.p": {
+            "description": "Netted active power representing production, consumption and import/export for the scheduling area. ",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "SchedulingArea.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "VoltageAngleLimit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Voltage angle limit between two terminals. The association end OperationalLimitSet.Terminal defines one end and the host of the limit. The association end VoltageAngleLimit.AngleReferenceTerminal defines the reference terminal.",
+            "parameters": [
+                "VoltageAngleLimit.value"
+            ]
+        },
+        "VoltageAngleLimit.value": {
+            "description": "The difference in angle degrees between referenced by the association end OperationalLimitSet.Terminal and the Terminal referenced by the association end VoltageAngleLimit.AngleReferenceTerminal. The value shall be positive (greater than zero).",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "AngleDegrees"
+        },
+        "PowerFactorControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Power factor control function is a function block that calculates the operating point of the controlled equipment to achieve the target power factor.",
+            "parameters": [
+                "PowerFactorControlFunction.targetValue"
+            ]
+        },
+        "PowerFactorControlFunction.targetValue": {
+            "description": "Target value for the power factor that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "GeneratingUnit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "A single or set of synchronous machines for converting mechanical power into alternating-current power. For example, individual machines within a set may be defined for scheduling purposes while a single control signal is derived for the set. In this case there would be a GeneratingUnit for each member of the set and an additional GeneratingUnit corresponding to the set.",
+            "parameters": [
+                "GeneratingUnit.startupCost",
+                "GeneratingUnit.mustRun",
+                "GeneratingUnit.mustRunP",
+                "GeneratingUnit.mustRunQ",
+                "GeneratingUnit.participationFactor",
+                "GeneratingUnit.warmStartupCost"
+            ]
+        },
+        "Money": {
+            "description": "Amount of money.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GeneratingUnit.startupCost": {
+            "description": "The initial startup cost incurred for each start of the GeneratingUnit.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Money"
+        },
+        "GeneratingUnit.mustRun": {
+            "description": "Identifies if the generating unit is a must-run unit. This means that it cannot be instructed to shutdown due to other obligation. e.g. Providing heat. If true, the generating unit is must-run. If false, it is not.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "GeneratingUnit.mustRunP": {
+            "description": "Minimum active power injection that is needed to meet must-run requirement. This value can be higher or equal to minimum operational limit. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "GeneratingUnit.mustRunQ": {
+            "description": "Minimum reactive power injection that is needed to meet must-run requirement. This value can be higher or equal to minimum operational limit. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ReactivePower"
+        },
+        "GeneratingUnit.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "GeneratingUnit.warmStartupCost": {
+            "description": "The warm startup cost incurred for each start of the GeneratingUnit.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Money"
+        },
+        "EnergyConsumer": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "Generic user of energy - a  point of consumption on the power system model.\nEnergyConsumer.pfixed, .qfixed, .pfixedPct and .qfixedPct have meaning only if there is no LoadResponseCharacteristic associated with EnergyConsumer or if LoadResponseCharacteristic.exponentModel is set to False.",
+            "parameters": [
+                "EnergyConsumer.participationFactor"
+            ]
+        },
+        "EnergyConsumer.participationFactor": {
+            "description": "Participation factor describing the entity part of the active power provided by a collection of entities (e.g. an active power forecast to a collection of entities is divided to each of the member entity according to the participation factor). Must be a positive value.\nIn the case of a sharing strategy, the distribution is following entities value (V) equals aggregated value (T) divided by sum of participation factors (PF), i.e. V=T/sum(PF). \nIn the case of priority strategy, the item with the lowest number gets allocated energy first.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "ImpedanceControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Impedance control function is a function block that calculates the operating point of the controlled equipment to achieve the target impedance.",
+            "parameters": [
+                "ImpedanceControlFunction.targetValue"
+            ]
+        },
+        "ImpedanceControlFunction.targetValue": {
+            "description": "Target value for the impedance that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Impedance"
+        },
+        "RemedialActionDependency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Remedial action dependency is making two remedial actions depending on each other. Multiple dependency is done by multiple instances of this class. The dependency can arrive by having one of the following examples.\n<ul>\n\t<li>The dependent remedial action is controlled by different system operator (Modeling Authority)  (e.g. SIPS that goes across control area).</li>\n\t<li>The dependent remedial action is representing  two or more remedial action that represent the same grid state alteration but with different modeling resolution (e.g. detail direct current model versus a simplified model).</li>\n\t<li>The remedial action can be combined with other remedial action without the need to create multiple remedial action with the same grid alteration for enabling dependency.</li>\n</ul>",
+            "parameters": [
+                "RemedialActionDependency.enabled"
+            ]
+        },
+        "RemedialActionDependency.enabled": {
+            "description": "If true, the remedial action dependency is enabled, otherwise it is disabled.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "EnergyBlockOrder": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "The energy block order is a block (an amount) of energy that forms the sequence of orders that are going to be distributed to an energy block component.",
+            "parameters": [
+                "EnergyBlockOrder.p",
+                "EnergyBlockOrder.participationFactor",
+                "EnergyBlockOrder.sequence"
+            ]
+        },
+        "EnergyBlockOrder.p": {
+            "description": "The maximum active power that can be applied as part of this block order.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "EnergyBlockOrder.participationFactor": {
+            "description": "Participation factor.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "EnergyBlockOrder.sequence": {
+            "description": "Sequence needs to be ordered by the scheduling area. It has to be unique by the scheduling area.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Integer"
+        },
+        "VoltageControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Voltage control function is a function block that calculate the operating point of the controlled equipment to achieve the target voltage.",
+            "parameters": [
+                "VoltageControlFunction.targetValue"
+            ]
+        },
+        "VoltageControlFunction.targetValue": {
+            "description": "Target value for the voltage that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Voltage"
+        },
+        "ACEmulationControlFunction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "The AC emulation control function is used when AC emulation model is activated for a DC system. It consists in computing the active power set point of the DC system as a function of the voltage angle difference between both points of common coupling with the AC network in order to mimic the behavior of an AC transmission line. This control mode enables the automatic adjustment of the active power reference following variations of the AC system operational point. \nThe setpoint of the DC system is calculated by Psetpoint=Pref+Kdc*(angle1-angle2), where\n- Pref is the existing active power setpoint; \n- Kdc is the control system gain and  \n- angle1 and angle2 are the phase angle measurement (measured at points of common coupling with the AC network) respectively at the side 1 and 2 of the DC system.",
+            "parameters": [
+                "ACEmulationControlFunction.gain",
+                "ACEmulationControlFunction.referenceP",
+                "ACEmulationControlFunction.timeConstant"
+            ]
+        },
+        "ACEmulationControlFunction.gain": {
+            "description": "Control system gain in AC transmission emulation control measured in MW/deg. It plays the role of an admittance of the equivalent AC transmission line that the control is emulating the higher is the gain the higher is the active power transfer at steady state.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "ACEmulationControlFunction.referenceP": {
+            "description": "Existing active power setpoint used to calculate the active power setpoint of the AC emulation control.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "Seconds": {
+            "description": "Time, in seconds.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ACEmulationControlFunction.timeConstant": {
+            "description": "Control system time constant in AC transmission emulation control. It affects the time needed to \nreach a new steady state equilibrium point after a network perturbation extremely important to guarantee N-1 relief related to an interconnection. The higher is time constant the slower is the DC system dynamic.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Seconds"
+        },
+        "DirectCurrentEquipmentController": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Direct current equipment controller used to control different parts of the hierarchical structure of the DC control system defined by IEC 60633.",
+            "parameters": [
+                "DirectCurrentEquipmentController.mode"
+            ]
+        },
+        "DCControlModeKind.frequency": {
+            "description": "Frequency control mode (IEC 60633) is a control of the frequency of the connected AC network by varying the active power exchanged between a DC substation and the connected AC network.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.damping": {
+            "description": "Damping control mode (IEC 60633) is supplementary control mode providing the damping of power oscillations in one or more connected AC networks.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.phasePcc": {
+            "description": "Control is phase at point of common coupling.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.reactivePower": {
+            "description": "Control is reactive power control at AC side, at point of common coupling. According to IEC 60633 reactive power control mode is a control of the reactive power exchanged between a converter unit, or DC substation and the connected AC network.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.dcCurrent": {
+            "description": "Control is DC current in a DC system (IEC 60633).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.powerFactorPcc": {
+            "description": "Control is power factor at point of common coupling.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.dcVoltage": {
+            "description": "Control is DC voltage in a DC substation (IEC 60633).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.acEmulation": {
+            "description": "An AC emulation control aims to reproduce the behaviour of an AC line by means of a function of the difference between angles in both converter stations in DC links embedded within a single synchronous AC grid. For changes in the phase angle on either station, the response of this control is to \u2018emulate the behaviour of an AC line\u2019 in both steady and transient states. \nThe AC emulation control needs measurement signals for the angles at both ends of the DC system (at the AC points of common coupling of the DC system). In practice, the angle difference is measured by built-in devices in the converters and the synchronization of angle measurements on both stations is done by means of GPS.\nACEmulationControlFunction is used by this control. The control can only be applied by a controller that have access to the two AC points of common coupling of the DC system. Therefore it cannot be applied for a ACDCConverterController.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.islanded": {
+            "description": "Islanded network operation mode (IEC 60633) is a control mode in which the DC substation is connected to an islanded AC network.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.pPccAndUdcDroop": {
+            "description": "Control is active power at point of common coupling and local DC voltage, with the droop.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.acVoltage": {
+            "description": "AC voltage control mode (IEC 60633) is a control of the AC voltage of the AC network connected to a DC substation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.pPccAndUdcDroopPilot": {
+            "description": "Control is active power at point of common coupling and the pilot DC voltage, with the droop. The mode is used for Multi Terminal High Voltage DC (MTDC) systems where multiple DC Substations are connected to the DC transmission lines. The pilot voltage is then used to coordinate the control the DC voltage across the DC substations.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.sstiDamping": {
+            "description": "Sub-synchronous torsional interaction (SSTI) damping control mode (IEC 60633) is a supplementary control mode providing the damping of critical frequencies of an (electrical) nearby generator.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.activePower": {
+            "description": "Control is active power control at AC side, at point of common coupling. According to IEC 60633 the active power control mode is control of the active power flow exchanged between a DC substation and the connected AC network.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.pulseWidthModulation": {
+            "description": "No explicit control. Pulse-modulation factor is directly set in magnitude and phase.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DCControlModeKind.pPccAndUdcDroopWithCompensation": {
+            "description": "Control is active power at point of common coupling and compensated DC voltage, with the droop. Compensation factor is the resistance, as an approximation of the DC voltage of a common (real or virtual) node in the DC network.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "DirectCurrentEquipmentController.mode": {
+            "description": "Mode of the dc controller.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncDCControlModeKind",
+            "values": [
+                "DCControlModeKind.frequency",
+                "DCControlModeKind.damping",
+                "DCControlModeKind.phasePcc",
+                "DCControlModeKind.reactivePower",
+                "DCControlModeKind.dcCurrent",
+                "DCControlModeKind.powerFactorPcc",
+                "DCControlModeKind.dcVoltage",
+                "DCControlModeKind.acEmulation",
+                "DCControlModeKind.islanded",
+                "DCControlModeKind.pPccAndUdcDroop",
+                "DCControlModeKind.acVoltage",
+                "DCControlModeKind.pPccAndUdcDroopPilot",
+                "DCControlModeKind.sstiDamping",
+                "DCControlModeKind.activePower",
+                "DCControlModeKind.pulseWidthModulation",
+                "DCControlModeKind.pPccAndUdcDroopWithCompensation"
+            ]
+        },
+        "Reservoir": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "A water storage facility within a hydro system, including: ponds, lakes, lagoons, and rivers. The storage is usually behind some type of dam.",
+            "parameters": [
+                "Reservoir.energyStorage"
+            ]
+        },
+        "Reservoir.energyStorage": {
+            "description": "Amount of energy available in the storage.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "RealEnergy"
+        },
+        "StaticVarCompensator": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A facility for providing variable and controllable shunt reactive power. The SVC typically consists of a stepdown transformer, filter, thyristor-controlled reactor, and thyristor-switched capacitor arms.\n\nThe SVC may operate in fixed MVar output mode or in voltage control mode. When in voltage control mode, the output of the SVC will be proportional to the deviation of voltage at the controlled bus from the voltage setpoint.  The SVC characteristic slope defines the proportion.  If the voltage at the controlled bus is equal to the voltage setpoint, the SVC MVar output is zero.",
+            "parameters": [
+                "RegulatingCondEq.controlEnabled",
+                "FACTSEquipment.q"
+            ]
+        },
+        "FrequencyControlFuntion": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Frequency control function is a function block that calculate the operating point of the controlled equipment to achieve the target frequency.",
+            "parameters": [
+                "FrequencyControlFuntion.frequencyBias",
+                "FrequencyControlFuntion.targetValue"
+            ]
+        },
+        "FrequencyControlFuntion.frequencyBias": {
+            "description": "Target value for the active power that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "Frequency": {
+            "description": "Cycles per second.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "FrequencyControlFuntion.targetValue": {
+            "description": "Target value for the frequency that the control function is calculating to achieve by adjusting the operational setting to the controlled equipment.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Frequency"
+        },
+        "StaticSynchronousCompensator": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Static synchronous compensator (STATCOM), also known as a static synchronous condenser (STATCON), is a type of flexible AC transmission system regulating equipment used on alternating current electricity transmission networks. It is based on a power electronics voltage-source converter and can act as either a source or sink of reactive AC power to an electricity network. If connected to a source of power it can also provide active AC power.",
+            "parameters": [
+                "RegulatingCondEq.controlEnabled",
+                "FACTSEquipment.q"
+            ]
+        },
+        "DCTieCorridor": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A collection of one or more direct current poles that connect two different control areas.",
+            "parameters": [
+                "DCTieCorridor.p",
+                "DCTieCorridor.q"
+            ]
+        },
+        "DCTieCorridor.p": {
+            "description": "Active power at the point of common coupling. Load sign convention is used, i.e. positive sign means flow out from a node.\nStarting value for a steady state solution in the case a simplified power flow model is used.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "DCTieCorridor.q": {
+            "description": "Reactive power at the point of common coupling. Load sign convention is used, i.e. positive sign means flow out from a node.\nStarting value for a steady state solution in the case a simplified power flow model is used.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ReactivePower"
+        },
+        "GridStateAlterationRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Grid state alteration remedial action describes one or many grid state alterations applied to a grid model state or a particular scenario in order to resolve one or more identified constraints. ",
+            "parameters": [
+                "RemedialAction.available"
+            ]
+        },
+        "EnergyGroup": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "An energy group is an aggregation of energy components which have the same energy characteristic, e.g. fuel type and technology. It can be used to allocate energy. ",
+            "parameters": [
+                "EnergyGroup.p",
+                "EnergyGroup.participationFactor"
+            ]
+        },
+        "EnergyGroup.p": {
+            "description": "Active power for the energy group representing a particular energy type. e.g. WInd Power",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "EnergyGroup.participationFactor": {
+            "description": "Participation factor for the power group in relation to scheduling area. Must be a positive value.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "AssessedElementWithRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of an assessed element and a remedial action",
+            "parameters": [
+                "AssessedElementWithRemedialAction.enabled"
+            ]
+        },
+        "AssessedElementWithRemedialAction.enabled": {
+            "description": "If true, the assessed element with remedial action is enabled, otherwise it is disabled.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        }
+    }
+}

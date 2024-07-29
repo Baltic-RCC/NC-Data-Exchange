@@ -1,0 +1,264 @@
+{
+    "SAR": {
+        "NamespaceMap": {
+            "sar": "https://ap.cim4.eu/SecurityAnalysisResult#",
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "file://CIM100_CGMES31v01_501-20v02_NC23v62_MM10v01.eap",
+            "creator": "ENTSO-E CIM WG NC project",
+            "description": "This vocabulary is describing the security analysis result profile.",
+            "identifier": "urn:uuid:7d53a1b2-0dcc-4556-b868-6ed099bd9ac9",
+            "keyword": "SAR",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-03-20",
+            "priorVersion": "http://entsoe.eu/ns/CIM/SecurityAnalysisResult-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Security Analysis Result Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/SecurityAnalysisResult/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "ContingencyPowerFlowResult": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Contingency power flow result on a given terminal for a given contingency.",
+            "parameters": [
+                "ContingencyPowerFlowResult.Contingency",
+                "PowerFlowResult.ACDCTerminal",
+                "PowerFlowResult.OperationalLimit",
+                "PowerFlowResult.ReportedByRegion",
+                "PowerFlowResult.absoluteValue",
+                "PowerFlowResult.atTime",
+                "PowerFlowResult.isViolation",
+                "PowerFlowResult.value",
+                "PowerFlowResult.valueA",
+                "PowerFlowResult.valueAngle",
+                "PowerFlowResult.valueV",
+                "PowerFlowResult.valueVA",
+                "PowerFlowResult.valueVAR",
+                "PowerFlowResult.valueW"
+            ]
+        },
+        "ContingencyPowerFlowResult.Contingency": {
+            "description": "The contingency that has this power flow result.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Contingency"
+        },
+        "PowerFlowResult.ACDCTerminal": {
+            "description": "ACDC terminal where the powerflow result is located.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#ACDCTerminal"
+        },
+        "PowerFlowResult.OperationalLimit": {
+            "description": "The operational limit that has this limit violation.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#OperationalLimit"
+        },
+        "PowerFlowResult.ReportedByRegion": {
+            "description": "The region which reports this limit violation.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Region"
+        },
+        "Float": {
+            "description": "A floating point number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.absoluteValue": {
+            "description": "Absolute value from a power flow calculation on a given terminal related to a given operational limit. For instance, if the operational limit is 1000 A and the current flow is 1100 A the absoluteValue is reported as 1100 A.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "DateTime": {
+            "description": "Date and time as \"yyyy-mm-ddThh:mm:ss.sss\", which conforms with ISO 8601. UTC time zone is specified as \"yyyy-mm-ddThh:mm:ss.sssZ\". A local timezone relative UTC is specified as \"yyyy-mm-ddThh:mm:ss.sss-hh:mm\". The second component (shown here as \"ss.sss\") could have any number of digits in its fractional part to allow any kind of precision beyond seconds.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.atTime": {
+            "description": "The date and time of the scenario time that was studied and at which the limit violation occurred.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "DateTime"
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.isViolation": {
+            "description": "True if the power flow result is violating the associated operational limit. False if it is not violating the associated operational limits.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "PerCent": {
+            "description": "Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.value": {
+            "description": "The value of the limit violation in percent related to the value of the operational limit that is violated. For instance, if the operational limit is 1000 A and the current flow is 1100 A the value is reported as 110 %.  ",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "CurrentFlow": {
+            "description": "Electrical current with sign convention: positive flow is out of the conducting equipment into the connectivity node. Can be both AC and DC.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.valueA": {
+            "description": "Current from a power flow calculation on a given terminal.\nLoad sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "CurrentFlow"
+        },
+        "AngleDegrees": {
+            "description": "Measurement of angle in degrees.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.valueAngle": {
+            "description": "Voltage angle value from a power flow calculation on a given terminal.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "AngleDegrees"
+        },
+        "Voltage": {
+            "description": "Electrical voltage, can be both AC and DC.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.valueV": {
+            "description": "Voltage value from a power flow calculation on a given terminal. The attribute shall be a positive value.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Voltage"
+        },
+        "ApparentPower": {
+            "description": "Product of the RMS value of the voltage and the RMS value of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.valueVA": {
+            "description": "Apparent power value from a power flow calculation on a given terminal.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ApparentPower"
+        },
+        "ReactivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the quadrature component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.valueVAR": {
+            "description": "Reactive power value from a power flow calculation on a given terminal.\nLoad sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ReactivePower"
+        },
+        "ActivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerFlowResult.valueW": {
+            "description": "Active power value from a power flow calculation on a given terminal. \nLoad sign convention is used, i.e. positive sign means flow out from a TopologicalNode (bus) into the conducting equipment.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "BaseCasePowerFlowResult": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Base case power flow result for a given terminal.",
+            "parameters": [
+                "PowerFlowResult.ACDCTerminal",
+                "PowerFlowResult.OperationalLimit",
+                "PowerFlowResult.ReportedByRegion",
+                "PowerFlowResult.absoluteValue",
+                "PowerFlowResult.atTime",
+                "PowerFlowResult.isViolation",
+                "PowerFlowResult.value",
+                "PowerFlowResult.valueA",
+                "PowerFlowResult.valueAngle",
+                "PowerFlowResult.valueV",
+                "PowerFlowResult.valueVA",
+                "PowerFlowResult.valueVAR",
+                "PowerFlowResult.valueW"
+            ]
+        }
+    }
+}

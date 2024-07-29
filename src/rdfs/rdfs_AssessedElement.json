@@ -1,0 +1,674 @@
+{
+    "AE": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "ae": "https://ap.cim4.eu/AssessedElement#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "urn:iso:std:iec:61970-600-2:ed-1",
+            "creator": "ENTSO-E CIM WG NC project",
+            "description": "This vocabulary is describing the aseessed element profile.",
+            "identifier": "urn:uuid:a2de1738-214d-4552-b894-5b33cbc34218",
+            "keyword": "AE",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-04-08",
+            "priorVersion": "http://entsoe.eu/ns/CIM/AssessedElement-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Assessed Element Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/AssessedElement/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "AssessedElementWithRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of an assessed element and a remedial action",
+            "parameters": [
+                "AssessedElementWithRemedialAction.AssessedElement",
+                "AssessedElementWithRemedialAction.RemedialAction",
+                "AssessedElementWithRemedialAction.combinationConstraintKind",
+                "AssessedElementWithRemedialAction.mRID",
+                "AssessedElementWithRemedialAction.normalEnabled"
+            ]
+        },
+        "AssessedElementWithRemedialAction.AssessedElement": {
+            "description": "The assessed element defined for this assessed element and remedial action combination.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AssessedElement"
+        },
+        "AssessedElementWithRemedialAction.RemedialAction": {
+            "description": "The remedial action defined for this assessed element and remedial action combination.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialAction"
+        },
+        "ElementCombinationConstraintKind.considered": {
+            "description": "Element combination can be considered.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ElementCombinationConstraintKind.included": {
+            "description": "Element combination is included.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ElementCombinationConstraintKind.excluded": {
+            "description": "Element combination is excluded.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AssessedElementWithRemedialAction.combinationConstraintKind": {
+            "description": "Defines the combination constraint of the AssessedElement and Remedial Action. If included, this remedial action is only assessed for this assessed element. Else if excluded, this remedial action should not be used for this assessed element. Else if considered, this remedial action can be considered for this assessed element.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncElementCombinationConstraintKind",
+            "values": [
+                "ElementCombinationConstraintKind.considered",
+                "ElementCombinationConstraintKind.included",
+                "ElementCombinationConstraintKind.excluded"
+            ]
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AssessedElementWithRemedialAction.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AssessedElementWithRemedialAction.normalEnabled": {
+            "description": "If true, the assessed element with remedial action is enabled, otherwise it is disabled under normal operating conditions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "CrossBorderRelevance": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of an assessed element and a bidding zone border.",
+            "parameters": [
+                "CrossBorderRelevance.AssessedElement",
+                "CrossBorderRelevance.BiddingZoneBorder",
+                "CrossBorderRelevance.mRID"
+            ]
+        },
+        "CrossBorderRelevance.AssessedElement": {
+            "description": "Assessed element which is cross border relevant.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AssessedElement"
+        },
+        "CrossBorderRelevance.BiddingZoneBorder": {
+            "description": "Bidding zone border relevant for this combination.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#BiddingZoneBorder"
+        },
+        "CrossBorderRelevance.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "AssessedElementWithContingency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of an assessed element and a contingency.",
+            "parameters": [
+                "AssessedElementWithContingency.AssessedElement",
+                "AssessedElementWithContingency.Contingency",
+                "AssessedElementWithContingency.combinationConstraintKind",
+                "AssessedElementWithContingency.mRID",
+                "AssessedElementWithContingency.normalEnabled"
+            ]
+        },
+        "AssessedElementWithContingency.AssessedElement": {
+            "description": "The assessed element defined for this contingency and assessed element combination.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AssessedElement"
+        },
+        "AssessedElementWithContingency.Contingency": {
+            "description": "The contingency defined for this contingency and assessed element combination.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Contingency"
+        },
+        "AssessedElementWithContingency.combinationConstraintKind": {
+            "description": "Defines the combination constraint of the AssessedElement and Contingency. If included, this assessed element is only assessed for this contingency. Else if excluded, this assessed element should not be assessed for this contingency. Considered shall not be used for this combination.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncElementCombinationConstraintKind",
+            "values": [
+                "ElementCombinationConstraintKind.considered",
+                "ElementCombinationConstraintKind.included",
+                "ElementCombinationConstraintKind.excluded"
+            ]
+        },
+        "AssessedElementWithContingency.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "AssessedElementWithContingency.normalEnabled": {
+            "description": "If true, the assessed element with contingency is enabled, otherwise it is disabled under normal operating conditions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "AssessedElement": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Assessed element is a network element for which the electrical state is evaluated in the regional or cross-regional process and which value is expected to fulfil regional rules function of the operational security limits.\nThe measurements and limits are as defined in the steady state hypothesis.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AssessedElement.AssessedPowerTransferCorridor",
+                "AssessedElement.AssessedSystemOperator",
+                "AssessedElement.ConductingEquipment",
+                "AssessedElement.DCTieCorridor",
+                "AssessedElement.NativeRegion",
+                "AssessedElement.OperationalLimit",
+                "AssessedElement.OverlappingZone",
+                "AssessedElement.ScannedForRegion",
+                "AssessedElement.SecuredForRegion",
+                "AssessedElement.criticalElementContingency",
+                "AssessedElement.exclusionReason",
+                "AssessedElement.flowReliabilityMargin",
+                "AssessedElement.inBaseCase",
+                "AssessedElement.insideCapacityMargin",
+                "AssessedElement.isCombinableWithContingency",
+                "AssessedElement.isCombinableWithRemedialAction",
+                "AssessedElement.maxMarginAdjustment",
+                "AssessedElement.normalAppointedMargin",
+                "AssessedElement.normalCoordinatedValidationAdjustment",
+                "AssessedElement.normalCoordinatedValidationAdjustmentJustification",
+                "AssessedElement.normalCriticalElementContingencyJustification",
+                "AssessedElement.normalEnabled",
+                "AssessedElement.normalIndividualValidationAdjustment",
+                "AssessedElement.normalIndividualValidationAdjustmentJustification",
+                "AssessedElement.normalIndividualValidationAdjustmentShare",
+                "AssessedElement.normalMaxFlow",
+                "AssessedElement.normalPositiveVirtualMargin",
+                "AssessedElement.normalScannedThresholdMargin",
+                "AssessedElement.normalTargetRemainingAvailableMarginJustification",
+                "AssessedElement.outsideCapacityMargin",
+                "AssessedElement.targetRemainingAvailableMargin"
+            ]
+        },
+        "IdentifiedObject.description": {
+            "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "IdentifiedObject.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "IdentifiedObject.name": {
+            "description": "The name is any free human readable and possibly non unique text naming the object.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.AssessedPowerTransferCorridor": {
+            "description": "The power transfer corridor that is designated as an assessed element.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerTransferCorridor"
+        },
+        "AssessedElement.AssessedSystemOperator": {
+            "description": "A system operator that assesses the element.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "AssessedElement.ConductingEquipment": {
+            "description": "The conducting equipment that is designated as an assessed element, i.e. the equipment that is assessed.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#ConductingEquipment"
+        },
+        "AssessedElement.DCTieCorridor": {
+            "description": "The DC tie corridor that is assessed.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#DCTieCorridor"
+        },
+        "AssessedElement.NativeRegion": {
+            "description": "The native region for an assessed element.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Region"
+        },
+        "AssessedElement.OperationalLimit": {
+            "description": "The terminal limit that is being assessed against.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#OperationalLimit"
+        },
+        "AssessedElement.OverlappingZone": {
+            "description": "The overlapping zone grouping the overlapping assessed elements.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#OverlappingZone"
+        },
+        "AssessedElement.ScannedForRegion": {
+            "description": "This is the region in which this assessed element is scanned.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Region"
+        },
+        "AssessedElement.SecuredForRegion": {
+            "description": "This is the region where the element is secured.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Region"
+        },
+        "CriticalElementContingencyKind.criticalAndMonitored": {
+            "description": "Network element is considered to be Critical Network Element monitored under Contingency (CNEC).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CriticalElementContingencyKind.validation": {
+            "description": "Network element should be assessed according to the methodology.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CriticalElementContingencyKind.critical": {
+            "description": "Network element is considered to be critical according to the methodology.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CriticalElementContingencyKind.monitored": {
+            "description": "Network element is considered to be monitored under contingency.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AssessedElement.criticalElementContingency": {
+            "description": "Indicates the type of the critical element contingency.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncCriticalElementContingencyKind",
+            "values": [
+                "CriticalElementContingencyKind.criticalAndMonitored",
+                "CriticalElementContingencyKind.validation",
+                "CriticalElementContingencyKind.critical",
+                "CriticalElementContingencyKind.monitored"
+            ]
+        },
+        "SecuredExclusionReasonKind.capacityCalculationRegion": {
+            "description": "The network element that is going to be assessed is excluded for being secured by the capacity calculation region.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SecuredExclusionReasonKind.nonNativeCapacityCalculationRegion": {
+            "description": "The network element that is going to be assessed is excluded for being secured for the native capacity calculation region since it would be secured for a non native capacity calculation region.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "SecuredExclusionReasonKind.systemOperator": {
+            "description": "The network element that is going to be assessed is excluded for being secured by the system operator.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "AssessedElement.exclusionReason": {
+            "description": "Reason for not associating this assessed element with a secured region.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncSecuredExclusionReasonKind",
+            "values": [
+                "SecuredExclusionReasonKind.capacityCalculationRegion",
+                "SecuredExclusionReasonKind.nonNativeCapacityCalculationRegion",
+                "SecuredExclusionReasonKind.systemOperator"
+            ]
+        },
+        "PerCent": {
+            "description": "Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AssessedElement.flowReliabilityMargin": {
+            "description": "Percentage of the maximum flow (margin) reserved to anticipate forecasting errors.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.inBaseCase": {
+            "description": "Indicates if the assessed element is scanned in the base case. In case of a base case overload, the assessed element is considered as a limiting element for the optimization process.\nTrue means that the assessed element is scanned in the base case. False means it is not scanned in the base case.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "AssessedElement.insideCapacityMargin": {
+            "description": "Percentage of the maximum flow (margin) from coordinated capacity calculation, i.e. capacity available for cross-zonal trade within the considered coordination area.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.isCombinableWithContingency": {
+            "description": "Defines if the AssessedElement is available to be combined with Contingency. If true,  this AssessedElement can be included in various combinations not defined in the data exchange in an explicit way. If false, this assessed element is not to be considered in any combination with remedial actions and contingencies except for the exclusive combination.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "AssessedElement.isCombinableWithRemedialAction": {
+            "description": "Defines if the AssessedElement is available to be combined with RemedialAction. If true,  this AssessedElement can be included in various combinations not defined in the data exchange in an explicit way. If false, this assessed element is not to be considered in any combination with remedial actions and contingencies except for the exclusive combination.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "AssessedElement.maxMarginAdjustment": {
+            "description": "Maximum adjustment, relative to maximum flow allowed for exceeding the maximum flow of this assessed element.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.normalAppointedMargin": {
+            "description": "The normal percentage (appointed to a region) of the remaining margin obtained in the grid model to reach its current limit under normal operating conditions. The maximum percentage shall by default be 10% of the remaining margin.\nIt is only used when an assessed element is considered conservative for a region.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "ActivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AssessedElement.normalCoordinatedValidationAdjustment": {
+            "description": "Normal positive value calculated and provided by the Coordinated Capacity Calculator (CCC) for the reduction of Remaining Available Margin (RAM) in order to ensure grid security.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.normalCoordinatedValidationAdjustmentJustification": {
+            "description": "Normal free text description provided by the coordinated capacity calculator (CCC) for justifying the reduction of Remaining Available Margin (RAM) by means of Coordinated Validation Adjustment (CVA). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.normalCriticalElementContingencyJustification": {
+            "description": "Normal free text describing the justification  of critical element contingency categorization (e.g. the use of the kind). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.normalEnabled": {
+            "description": "If true, the assessed element shall be considered under normal operating conditions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "AssessedElement.normalIndividualValidationAdjustment": {
+            "description": "Normal positive value calculated and provided by System Operators from their individual validation process for the reduction of Remaining Available Margin (RAM) in order to ensure grid security.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.normalIndividualValidationAdjustmentJustification": {
+            "description": "Normal free text description provided by System Operators for justifying the reduction of Remaining Available Margin (RAM) by means of Individual Validation Adjustment (IVA). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.normalIndividualValidationAdjustmentShare": {
+            "description": "Normal positive value expressed calculated by the Coordinated Capacity Calculator (CCC) based on the provided Individual Validation Adjustment (IVA) by System Operators in order to show the actual reduction of Remaining Available Margin (RAM). Individual Validation Adjustment Share is a positive non-zero value. It is equal or less than the Individual Validation Adjustment value. ",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.normalMaxFlow": {
+            "description": "Maximum flow on a conducting equipment or a collection of conducting equipment forming a power transfer corridor under normal operating conditions. For assessed elements that become critical due to contingency, this value represents the maximum flow with remedial action taken into consideration.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "AssessedElement.normalPositiveVirtualMargin": {
+            "description": "A positive margin that defines the overload allowed in a solution for the assessed element for a normal situation. The margin represents influences that can be solved by the System Operators using available remedial action which is not cross-border relevant remedial action.\nAll relevant operational limits (e.g. PATL, TATL, etc) are modified by this margin value. The attribute represents the increase. The allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.normalScannedThresholdMargin": {
+            "description": "Normal threshold percentage that a scanned element can be overloaded, on a given element, on top of any overload prior to optimisation (default= 5%). e.g. Initial loading of the element is 110%, with a 5% scanned threshold margin, the new maximum is 115% of the limit (e.g. PATL, TATL, etc).\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.normalTargetRemainingAvailableMarginJustification": {
+            "description": "Normal free text describing the justification for the target Remaining Available Margin (RAM). This justification is not intended for any application processing purpose, it should only be used for reporting.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "AssessedElement.outsideCapacityMargin": {
+            "description": "Percentage of the maximum flow (margin) capacity calculation, i.e. the capacity available for cross-zonal trade outside the considered coordination area. \nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "AssessedElement.targetRemainingAvailableMargin": {
+            "description": "Target for the remaining available margin as a percentage of maximum flow.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        }
+    }
+}
