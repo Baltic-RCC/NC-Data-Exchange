@@ -1,7 +1,7 @@
 from pydantic import Field, field_serializer
 from typing import Optional
-from nc_csa_profiles.profiles.Base import IdentifiedObject
-from nc_csa_profiles.profiles.Enumerations import TimeSeriesInterpolationKind
+from nc_data_exchange.profiles.Base import IdentifiedObject
+from nc_data_exchange.profiles.Enumerations import TimeSeriesInterpolationKind
 from datetime import datetime
 
 """
@@ -78,7 +78,7 @@ if __name__ == '__main__':
         AssessedElement="336d98e6-79fe-11e6-a326-d89d67d10dc7",
     )
 
-    from nc_csa_profiles.profile_constructor import Profile
+    from nc_data_exchange.profile_constructor import Profile
 
     # Building profile graph
     profile = Profile(profile_name='StateInstructionSchedule')
@@ -95,9 +95,9 @@ if __name__ == '__main__':
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
-    # profile.export_graph(output_path=r"../samples/ex_StateInstructionSchedule(test_data).xml")
+    # profile.export_graph(output_path=r"../tests/samples/ex_StateInstructionSchedule(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../samples/ex_StateInstructionSchedule(test_data).xml",
+        output_path=r"../tests/samples/ex_StateInstructionSchedule(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,

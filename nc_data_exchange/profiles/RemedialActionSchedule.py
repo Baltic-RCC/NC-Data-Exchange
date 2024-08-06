@@ -1,8 +1,8 @@
 from pydantic import BaseModel, Field, field_serializer
 from typing import Optional
-from nc_csa_profiles.profiles.Base import IdentifiedObject
-from rcc_common_tools.configurations.areas import Areas
-from nc_csa_profiles.profiles.Enumerations import RemedialActionScheduleStatusKind, TimeSeriesInterpolationKind
+from nc_data_exchange.profiles.Base import IdentifiedObject
+from nc_data_exchange.config import Areas
+from nc_data_exchange.profiles.Enumerations import RemedialActionScheduleStatusKind, TimeSeriesInterpolationKind
 
 """
 For simple Remedial Action Schedule instance creation workflow is as follows:
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         p=100,
     )
 
-    from nc_csa_profiles.profile_constructor import Profile
+    from nc_data_exchange.profile_constructor import Profile
 
     # Building profile graph
     profile = Profile(profile_name='RemedialActionSchedule')
@@ -159,11 +159,11 @@ if __name__ == '__main__':
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
-    # profile.export_graph(output_path=r"../samples/ex_RemedialActionSchedule(test_data).xml")
+    # profile.export_graph(output_path=r"../tests/samples/ex_RemedialActionSchedule(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../samples/ex_RemedialActionSchedule(test_data).xml",
+        output_path=r"../tests/samples/ex_RemedialActionSchedule(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,
     )
-    # profile.export_to_excel(output_path=r"../samples/ex_RemedialActionSchedule(test_data).xlsx")
+    # profile.export_to_excel(output_path=r"../tests/samples/ex_RemedialActionSchedule(test_data).xlsx")

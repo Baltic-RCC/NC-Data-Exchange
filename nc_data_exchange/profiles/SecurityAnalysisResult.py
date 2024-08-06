@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field, field_serializer
 from typing import Optional
-from rcc_common_tools.configurations.areas import Areas
+from nc_data_exchange.config import Areas
 
 
 class PowerFlowResult(BaseModel):
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         Substation='KHAE',
     )
 
-    from nc_csa_profiles.profile_constructor import Profile
+    from nc_data_exchange.profile_constructor import Profile
 
     # Building profile graph
     profile = Profile(profile_name='SecurityAnalysisResult')
@@ -77,9 +77,9 @@ if __name__ == '__main__':
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
-    # profile.export_graph(output_path=r"../samples/ex_SecurityAnalysisResult(test_data).xml")
+    # profile.export_graph(output_path=r"../tests/samples/ex_SecurityAnalysisResult(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../samples/ex_SecurityAnalysisResult(test_data).xml",
+        output_path=r"../../tests/samples/ex_SecurityAnalysisResult(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,

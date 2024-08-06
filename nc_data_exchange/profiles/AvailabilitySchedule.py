@@ -1,8 +1,8 @@
 from pydantic import Field, field_serializer, BaseModel
 from typing import Optional
-from nc_csa_profiles.profiles.Base import IdentifiedObject
-from nc_csa_profiles.profiles.Enumerations import AvailabilityScheduleCauseKind, AvailabilityFunctionKind, TimeSeriesInterpolationKind
-from rcc_common_tools.configurations.areas import Areas
+from nc_data_exchange.profiles.Base import IdentifiedObject
+from nc_data_exchange.profiles.Enumerations import AvailabilityScheduleCauseKind, AvailabilityFunctionKind, TimeSeriesInterpolationKind
+from nc_data_exchange.config import Areas
 from datetime import datetime
 
 
@@ -29,7 +29,6 @@ class AvailabilityPowerSystemFunction(IdentifiedObject):
 class BaseTimeSeries(IdentifiedObject):
     # Class attributes
     interpolationKind: TimeSeriesInterpolationKind = TimeSeriesInterpolationKind.previous
-    kind
 
 
 class BaseIrregularTimeSeries(BaseTimeSeries):

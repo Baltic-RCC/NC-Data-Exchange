@@ -1,8 +1,8 @@
 from pydantic import Field, field_serializer
 from typing import Optional
-from nc_csa_profiles.profiles.Base import IdentifiedObject
-from nc_csa_profiles.profiles.Enumerations import ContingencyEquipmentStatusKind, ContingencyConditionKind
-from rcc_common_tools.configurations.areas import Areas
+from nc_data_exchange.profiles.Base import IdentifiedObject
+from nc_data_exchange.profiles.Enumerations import ContingencyEquipmentStatusKind, ContingencyConditionKind
+from nc_data_exchange.config import Areas
 
 """
 For simple Contingency instance creation workflow is as follows:
@@ -96,7 +96,7 @@ if __name__ == '__main__':
         Equipment="44588688-1954-4fdc-a04b-7aa7ec9c86b1",
     )
 
-    from nc_csa_profiles.profile_constructor import Profile
+    from nc_data_exchange.profile_constructor import Profile
 
     # Building profile graph
     profile = Profile(profile_name='Contingency')
@@ -111,14 +111,14 @@ if __name__ == '__main__':
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
-    # profile.export_graph(output_path=r"../samples/ex_Contingency(test_data).xml")
+    # profile.export_graph(output_path=r"../tests/samples/ex_Contingency(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../samples/ex_Contingency(test_data).xml",
+        output_path=r"../tests/samples/ex_Contingency(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,
     )
-    # profile.export_to_excel(output_path=r"../samples/ex_Contingency(test_data).xlsx")
+    # profile.export_to_excel(output_path=r"../tests/samples/ex_Contingency(test_data).xlsx")
 
     # Run SHACL validation
     shacl_simple = r"C:\Users\martynas.karobcikas\Downloads\Contingency-AP-Con-Simple-SHACL_v2-3-0.ttl"

@@ -88,7 +88,7 @@ class FullModel(Model):
 
 
 if __name__ == '__main__':
-    from nc_csa_profiles.profile_constructor import Profile
+    from nc_data_exchange.profile_constructor import Profile
 
     # Test data
     header = FullModel(profile_name="RemedialAction",
@@ -115,9 +115,9 @@ if __name__ == '__main__':
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
-    # profile.export_graph(output_path=r"../samples/ex_DocumentHeader(test_data).xml")
+    # profile.export_graph(output_path=r"../tests/samples/ex_DocumentHeader(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../samples/ex_DocumentHeader(test_data).xml",
+        output_path=r"../tests/samples/ex_DocumentHeader(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,

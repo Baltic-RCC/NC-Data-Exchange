@@ -12,7 +12,7 @@ from pydantic import BaseModel
 import pandas as pd
 from rdflib import Graph, URIRef, Literal, Namespace
 from rdflib.namespace import RDF
-import config as conf
+import nc_data_exchange.config as conf
 
 # Start logger
 logger = logging.getLogger(__name__)
@@ -64,7 +64,7 @@ class Profile:
             return attrib_name
 
     def load_rdfs(self, profile_name: str):
-        rdfs_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"profiles/rdfs/rdfs_{profile_name}.json")
+        rdfs_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"rdfs/rdfs_{profile_name}.json")
         with open(rdfs_path, "r") as rdfs_file:
             rdfs = json.load(rdfs_file)
             rdfs = rdfs[next(iter(rdfs))]
@@ -99,7 +99,7 @@ class Profile:
         Adding FullModel header metadata to graph
         :return: nothing
         """
-        from nc_csa_profiles.profiles import DocumentHeader
+        from nc_data_exchange.profiles import DocumentHeader
 
         # Converting datetime objects if necessary
         if isinstance(start_date, datetime):
@@ -322,7 +322,7 @@ class Profile:
 
         if save:
             if not output_path:
-                output_path = os.path.join(os.path.dirname(__file__), f"samples/ex_{self.profile_name}.xml")
+                output_path = os.path.join(os.path.dirname(__file__), f"tests/samples/ex_{self.profile_name}.xml")
             with open(output_path, 'w') as file:
                 file.write(xmlstr.decode())
                 logger.info(f"Serialized rdfxml profile saved: {output_path}")
