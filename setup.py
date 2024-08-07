@@ -1,14 +1,13 @@
 import setuptools
 
 setuptools.setup(
-    name="nc-data-exchange",
+    name="nc_data_exchange",
     version="0.0.1",
     author="Martynas Karobcikas",
     author_email="martynas.karobcikas@baltic-rcc.eu",
     description="A package for building NetworkCode data exchange profiles",
     license='MIT',
-    packages=setuptools.find_packages(where='src'),
-    package_dir={'': 'src'},
+    packages=setuptools.find_packages(where='nc_data_exchange'),
     install_requires=[
         "pandas>=2.2.2",
         "pydantic>=2.5.2",

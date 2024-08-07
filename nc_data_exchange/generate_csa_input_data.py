@@ -212,8 +212,8 @@ class InputStructuralDataProfile:
                 isCrossBorderRelevant=data.cross_border_relevant,
                 kind=data.kind,
                 normalAvailable=data.normal_available,
-                BiddingZoneBorder=data.bidding_zone_border,
-                BiddingZone=data.bidding_zone,
+                BiddingZoneBorder=data.get('bidding_zone_border', None),
+                BiddingZone=data.get('bidding_zone', None),
             )
             profile.add_element(element=ra)
 
