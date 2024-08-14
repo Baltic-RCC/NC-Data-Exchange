@@ -1,0 +1,17 @@
+# Define stages
+stages:
+  - deploy
+
+deploy-to-github:
+  stage: deploy
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - when: manual
+  script:
+    - apk add --no-cache git
+    - git clone --bare git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
+    - cd repo
+    - git remote add github https://$GITHUB_TOKEN@github.com/$USERNAME/$REPOSITORY
+#    - git config http.sslVerify false
+    - git push --mirror github
+
