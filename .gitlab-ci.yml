@@ -6,7 +6,7 @@ deploy-to-github:
   stage: deploy
   script:
     - apk add --no-cache git
-    - git config http.sslVerify false
+    - git config --global http.sslVerify false
     - git clone --bare https://package-distribution:$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
     - cd repo
     - git remote add github https://$GITHUB_TOKEN@github.com/$USERNAME/$REPOSITORY
