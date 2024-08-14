@@ -7,10 +7,10 @@ deploy-to-github:
   script:
     - apk add --no-cache git
     - git config --global http.sslVerify false
-    - git clone --bare https://package-distribution:$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
+    - git clone --branch main --single-branch https://package-distribution:$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
     - cd repo
     - git remote add github https://$GITHUB_TOKEN@$REPOSITORY
-    - git push --mirror github
+    - git push --force --set-upstream github main
   only:
     - main
   when: manual
