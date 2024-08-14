@@ -10,7 +10,7 @@ deploy-to-github:
     - git clone --branch main --single-branch https://package-distribution:$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
     - cd repo
     - git remote add github https://$GITHUB_TOKEN@$REPOSITORY
-    - git push --force --np-track github main
+    - git push --force --no-track github main
   only:
     - main
   when: manual
