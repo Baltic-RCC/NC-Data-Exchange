@@ -1,0 +1,275 @@
+{
+    "CO": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "dcterms": "http://purl.org/dc/terms/#",
+            "co": "https://ap.cim4.eu/Contingency#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "urn:iso:std:iec:61970-401:draft:ed-1",
+            "creator": "ENTSO-E CIM WG NC project",
+            "description": "This vocabulary is describing the contingency profile.",
+            "identifier": "urn:uuid:8947de1c-6e53-4f1f-82c3-99ef118db9eb",
+            "keyword": "CO",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-03-20",
+            "priorVersion": "http://entsoe.eu/ns/CIM/Contingency-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Contingency Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/Contingency/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "OutOfRangeContingency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Out of range means the simultaneous occurrence of multiple contingencies without a common cause, or a loss of power generating modules with a total loss of generation capacity exceeding the reference incident.",
+            "parameters": [
+                "Contingency.SimulationEvents",
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "Contingency.EquipmentOperator",
+                "Contingency.normalMustStudy",
+                "Contingency.normalProbability"
+            ]
+        },
+        "Contingency.SimulationEvents": {
+            "description": "Simulation event for a contingency.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#SimulationEvents"
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "IdentifiedObject.description": {
+            "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "IdentifiedObject.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "IdentifiedObject.name": {
+            "description": "The name is any free human readable and possibly non unique text naming the object.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "Contingency.EquipmentOperator": {
+            "description": "System operator that is operating the equipment that is being run a contingency on.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Contingency.normalMustStudy": {
+            "description": "Specifies the requirement of study the contingency under normal operating conditions. True means the contingency must be study in a normal scenario. False means that the contingency does not need to be included in the scenario. This is the default value if mustStudy is missing.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "PerCent": {
+            "description": "Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Contingency.normalProbability": {
+            "description": "Normal probability of the occurrence of the contingency based on normal operational condition. The value is used as the default if the probability is missing.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "ContingencyEquipment": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "Equipment whose in service status is to change, such as a power transformer or AC line segment.",
+            "parameters": [
+                "ContingencyElement.Contingency",
+                "ContingencyEquipment.Equipment",
+                "ContingencyEquipment.contingentStatus",
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "ContingencyElement.Contingency": {
+            "description": "A contingency element belongs to one contingency.",
+            "multiplicity": "1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Contingency"
+        },
+        "ContingencyEquipment.Equipment": {
+            "description": "The single piece of equipment to which to apply the contingency.",
+            "multiplicity": "1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Equipment"
+        },
+        "ContingencyEquipmentStatusKind.outOfService": {
+            "description": "The equipment is to be taken out of service.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ContingencyEquipmentStatusKind.inService": {
+            "description": "The equipment is to be put into service.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ContingencyEquipment.contingentStatus": {
+            "description": "The status for the associated equipment when in the contingency state.   This status is independent of the case to which the contingency is originally applied, but defines the equipment status when the contingency is applied.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "ContingencyEquipmentStatusKind",
+            "values": [
+                "ContingencyEquipmentStatusKind.outOfService",
+                "ContingencyEquipmentStatusKind.inService"
+            ]
+        },
+        "OrdinaryContingency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Ordinary contingency means the occurrence of a contingency of a single branch or injection.",
+            "parameters": [
+                "Contingency.SimulationEvents",
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "Contingency.EquipmentOperator",
+                "Contingency.normalMustStudy",
+                "Contingency.normalProbability"
+            ]
+        },
+        "ExceptionalContingency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Exceptional contingency means the simultaneous occurrence of multiple contingencies with a common cause.",
+            "parameters": [
+                "Contingency.SimulationEvents",
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "Contingency.EquipmentOperator",
+                "Contingency.normalMustStudy",
+                "Contingency.normalProbability",
+                "ExceptionalContingency.kind"
+            ]
+        },
+        "ContingencyConditionKind.operational": {
+            "description": "Temporary occurrence factor which is operational condition.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ContingencyConditionKind.environmental": {
+            "description": "Temporary occurrence factor which is weather or environmental condition (e.g. storm).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ContingencyConditionKind.malfunction": {
+            "description": "Temporary occurrence factor which is life time or generic malfunction affecting the risk of failure condition.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ContingencyConditionKind.geographicalLocation": {
+            "description": "Permanent occurrence factor which is specific geographical location.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ContingencyConditionKind.design": {
+            "description": "Permanent occurrence factor which is design condition.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ExceptionalContingency.kind": {
+            "description": "Defines the kind of relevance and criteria of application of the exceptional contingency.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncContingencyConditionKind",
+            "values": [
+                "ContingencyConditionKind.operational",
+                "ContingencyConditionKind.environmental",
+                "ContingencyConditionKind.malfunction",
+                "ContingencyConditionKind.geographicalLocation",
+                "ContingencyConditionKind.design"
+            ]
+        }
+    }
+}

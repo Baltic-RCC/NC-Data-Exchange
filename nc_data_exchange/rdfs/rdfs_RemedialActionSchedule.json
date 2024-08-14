@@ -1,0 +1,2027 @@
+{
+    "RAS": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "ras": "https://ap.cim4.eu/RemedialActionSchedule#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "urn:iso:std:iec:61970-501:draft:ed-2",
+            "creator": "ENTSO-E CIM WG NC project ",
+            "description": "This vocabulary is describing the remedial action schedule profile.",
+            "identifier": "urn:uuid:6e90c546-3c6c-471b-8040-e05037081c59",
+            "keyword": "RAS",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-03-20",
+            "priorVersion": "http://entsoe.eu/ns/CIM/RemedialActionSchedule-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Remedial Action Schedule Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/RemedialActionSchedule/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "RemedialActionScheduleGroup": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Remedial action schedule group collects two or more remedial action schedules together. The remedial action schedule group needs to be set up for the same remedial action or proposing alternative remedial action by including a reference to another remedial action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "IdentifiedObject.description": {
+            "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "IdentifiedObject.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "IdentifiedObject.name": {
+            "description": "The name is any free human readable and possibly non unique text naming the object.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "EventTimePoint": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Event valid for a given point in time.",
+            "parameters": [
+                "EventTimePoint.EventSchedule",
+                "EventTimePoint.atTime",
+                "EventTimePoint.isActive"
+            ]
+        },
+        "EventTimePoint.EventSchedule": {
+            "description": "Time series the time point values belongs to.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#EventSchedule"
+        },
+        "DateTime": {
+            "description": "Date and time as \"yyyy-mm-ddThh:mm:ss.sss\", which conforms with ISO 8601. UTC time zone is specified as \"yyyy-mm-ddThh:mm:ss.sssZ\". A local timezone relative UTC is specified as \"yyyy-mm-ddThh:mm:ss.sss-hh:mm\". The second component (shown here as \"ss.sss\") could have any number of digits in its fractional part to allow any kind of precision beyond seconds.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "EventTimePoint.atTime": {
+            "description": "The time the data is valid for.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "DateTime"
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "EventTimePoint.isActive": {
+            "description": "True, if the event is occurring (Active) at this time point. Otherwise false.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "SchemeRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Scheme remedial action is remedial action that involves a scheme that can include conditional logic and stages of grid alteration. The primary remedial action is the arming of these schemes, that will then perform curative remedial action when the condition is met. System Integrity Protection Scheme (SIPS) and Special Protection Scheme (SPS) are example of this. ",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "PowerSchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Time series represent irregular power, active and reactive, values at given points in time.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BaseTimeSeries.interpolationKind"
+            ]
+        },
+        "TimeSeriesInterpolationKind.next": {
+            "description": "The value between two time points is set to next value.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "TimeSeriesInterpolationKind.none": {
+            "description": "No interpolation is applied.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "BaseTimeSeries.interpolationKind": {
+            "description": "Kind of interpolation done between time point.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncTimeSeriesInterpolationKind",
+            "values": [
+                "TimeSeriesInterpolationKind.next",
+                "TimeSeriesInterpolationKind.none"
+            ]
+        },
+        "GridStateIntensitySchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the intensity applied for a given grid state alteration. It is primarily used in exchanges related to the remedial action schedule. The value provided by the schedule replaces the value of the attribute to which the schedule refers to.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BaseTimeSeries.interpolationKind",
+                "GenericValueSchedule.RemedialActionSchedule",
+                "GridStateIntensitySchedule.GridStateAlteration",
+                "GridStateIntensitySchedule.valueKind"
+            ]
+        },
+        "GenericValueSchedule.RemedialActionSchedule": {
+            "description": "Remedial action schedule which has generic value schedules.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "GridStateIntensitySchedule.GridStateAlteration": {
+            "description": "The grid state alteration which has intensity.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlteration"
+        },
+        "ValueOffsetKind.incrementalPercentage": {
+            "description": "Value of the range constraint is incrementing in percentage the attribute value referenced by the PropertyReference in a determined operational scenario. ",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ValueOffsetKind.incremental": {
+            "description": "Value of the range constraint is incrementing the attribute value referenced by the PropertyReference in a determined operational scenario.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ValueOffsetKind.absolute": {
+            "description": "Value of the range constraint is replacing the attribute value referenced by the PropertyReference in a determined operational scenario.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GridStateIntensitySchedule.valueKind": {
+            "description": "The kind of value1 and value2 of the associated IrregularIntervalSchedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncValueOffsetKind",
+            "values": [
+                "ValueOffsetKind.incrementalPercentage",
+                "ValueOffsetKind.incremental",
+                "ValueOffsetKind.absolute"
+            ]
+        },
+        "EventSchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Time series represent irregular event described by event points in time.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BaseTimeSeries.interpolationKind",
+                "EventSchedule.RemedialActionSchedule"
+            ]
+        },
+        "EventSchedule.RemedialActionSchedule": {
+            "description": "Remedial action schedule is the event that is validity for the given time series.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "ProposingRemedialActionScheduleShare": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Proposing entity (System Operator) with a proper cost share for a given remedial action schedule.",
+            "parameters": [
+                "ProposingRemedialActionScheduleShare.ProposingEntity",
+                "ProposingRemedialActionScheduleShare.RemedialActionSchedule",
+                "ProposingRemedialActionScheduleShare.costSharingFactor",
+                "ProposingRemedialActionScheduleShare.mRID"
+            ]
+        },
+        "ProposingRemedialActionScheduleShare.ProposingEntity": {
+            "description": "Proposing entity making the proposing remedial action schedule share.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "ProposingRemedialActionScheduleShare.RemedialActionSchedule": {
+            "description": "Remedial action schedule proposed by the proposing entity.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "Decimal": {
+            "description": "Decimal is the base-10 notational system for representing real numbers.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "ProposingRemedialActionScheduleShare.costSharingFactor": {
+            "description": "Sharing factor of the cost of the remedial action as a  fraction of the total cost, i.e. system operator's cost = cost x (costSharingFactor / sum of all costSharingFactor).",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "ProposingRemedialActionScheduleShare.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "RedispatchScheduleAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Redispatch schedule action is an action to rearrange power schedules for a scheduled resource to obtain a feasible and secure operational state of the power electricity system.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "PowerScheduleAction.PowerBidSchedule",
+                "PowerScheduleAction.PowerSchedule",
+                "PowerScheduleAction.RemedialActionSchedule",
+                "PowerScheduleAction.currency",
+                "PowerScheduleAction.energyPrice",
+                "RedispatchScheduleAction.ScheduleResource"
+            ]
+        },
+        "PowerScheduleAction.PowerBidSchedule": {
+            "description": "The power bid schedule which contains the power schedule action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerBidSchedule"
+        },
+        "PowerScheduleAction.PowerSchedule": {
+            "description": "Power schedule which contains the power schedule action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerSchedule"
+        },
+        "PowerScheduleAction.RemedialActionSchedule": {
+            "description": "Remedial action schedule which power schedule actions.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "Currency.MKD": {
+            "description": "Macedonian denar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MOP": {
+            "description": "Macanese pataca.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PYG": {
+            "description": "Paraguayan guaran\u00ed.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BOV": {
+            "description": "Bolivian Mvdol (funds code).",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AOA": {
+            "description": "Angolan kwanza.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ERN": {
+            "description": "Eritrean nakfa.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.VND": {
+            "description": "Vietnamese Dong.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CZK": {
+            "description": "Czech koruna.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.NZD": {
+            "description": "New Zealand dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.NGN": {
+            "description": "Nigerian naira.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.FJD": {
+            "description": "Fiji dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AWG": {
+            "description": "Aruban florin.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CHF": {
+            "description": "Swiss franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.VEF": {
+            "description": "Venezuelan bol\u00edvar fuerte.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PHP": {
+            "description": "Philippine peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MWK": {
+            "description": "Malawian kwacha.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ZWL": {
+            "description": "Zimbabwe dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MVR": {
+            "description": "Maldivian rufiyaa.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BRL": {
+            "description": "Brazilian real.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BND": {
+            "description": "Brunei dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TOP": {
+            "description": "Tongan pa'anga.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.JOD": {
+            "description": "Jordanian dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SRD": {
+            "description": "Surinamese dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MZN": {
+            "description": "Mozambican metical.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.EUR": {
+            "description": "Euro.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.STD": {
+            "description": "S\u00e3o Tom\u00e9 and Pr\u00edncipe dobra.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.HNL": {
+            "description": "Honduran lempira.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.UAH": {
+            "description": "Ukrainian hryvnia.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BTN": {
+            "description": "Bhutanese ngultrum.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LRD": {
+            "description": "Liberian dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TZS": {
+            "description": "Tanzanian shilling.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MMK": {
+            "description": "Myanma kyat.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.DJF": {
+            "description": "Djiboutian franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BAM": {
+            "description": "Bosnia and Herzegovina convertible mark.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BZD": {
+            "description": "Belize dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PAB": {
+            "description": "Panamanian balboa.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.IDR": {
+            "description": "Indonesian rupiah.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.NPR": {
+            "description": "Nepalese rupee.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GTQ": {
+            "description": "Guatemalan quetzal.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.WST": {
+            "description": "Samoan tala.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ISK": {
+            "description": "Icelandic kr\u00f3na.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SBD": {
+            "description": "Solomon Islands dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.NIO": {
+            "description": "Cordoba oro.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GYD": {
+            "description": "Guyanese dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KRW": {
+            "description": "South Korean won.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.IRR": {
+            "description": "Iranian rial.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.NAD": {
+            "description": "Namibian dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SDG": {
+            "description": "Sudanese pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.HTG": {
+            "description": "Haitian gourde.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KZT": {
+            "description": "Kazakhstani tenge.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SYP": {
+            "description": "Syrian pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SGD": {
+            "description": "Singapore dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ANG": {
+            "description": "Netherlands Antillean guilder.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MRO": {
+            "description": "Mauritanian ouguiya.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BWP": {
+            "description": "Botswana pula.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GIP": {
+            "description": "Gibraltar pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LBP": {
+            "description": "Lebanese pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KES": {
+            "description": "Kenyan shilling.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CUP": {
+            "description": "Cuban peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LYD": {
+            "description": "Libyan dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SZL": {
+            "description": "Lilangeni.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ZMK": {
+            "description": "Zambian kwacha.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.XCD": {
+            "description": "East Caribbean dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PKR": {
+            "description": "Pakistani rupee.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BBD": {
+            "description": "Barbados dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MYR": {
+            "description": "Malaysian ringgit.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MGA": {
+            "description": "Malagasy ariary.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.USD": {
+            "description": "United States dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.YER": {
+            "description": "Yemeni rial.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KWD": {
+            "description": "Kuwaiti dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TRY": {
+            "description": "Turkish lira.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.NOK": {
+            "description": "Norwegian krone.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LSL": {
+            "description": "Lesotho loti.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.XPF": {
+            "description": "CFP franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.HUF": {
+            "description": "Hungarian forint.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CNY": {
+            "description": "Chinese yuan.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GNF": {
+            "description": "Guinean franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AUD": {
+            "description": "Australian dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ARS": {
+            "description": "Argentine peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ZAR": {
+            "description": "South African rand.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AZN": {
+            "description": "Azerbaijani manat.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BDT": {
+            "description": "Bangladeshi taka.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PGK": {
+            "description": "Papua New Guinean kina.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.HRK": {
+            "description": "Croatian kuna.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.DOP": {
+            "description": "Dominican peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.RUB": {
+            "description": "Russian rouble.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PLN": {
+            "description": "Polish zloty.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LTL": {
+            "description": "Lithuanian litas.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.OMR": {
+            "description": "Omani rial.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SLL": {
+            "description": "Sierra Leonean leone.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SAR": {
+            "description": "Saudi riyal.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GEL": {
+            "description": "Georgian lari.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TMT": {
+            "description": "Turkmenistani manat.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KYD": {
+            "description": "Cayman Islands dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.EGP": {
+            "description": "Egyptian pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.RON": {
+            "description": "Romanian new leu.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TWD": {
+            "description": "New Taiwan dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LKR": {
+            "description": "Sri Lanka rupee.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TTD": {
+            "description": "Trinidad and Tobago dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.JPY": {
+            "description": "Japanese yen.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.COU": {
+            "description": "Unidad de Valor Real.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.DKK": {
+            "description": "Danish krone.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ILS": {
+            "description": "Israeli new sheqel.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MAD": {
+            "description": "Moroccan dirham.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CVE": {
+            "description": "Cape Verde escudo.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.COP": {
+            "description": "Colombian peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.XAF": {
+            "description": "CFA franc BEAC.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.IQD": {
+            "description": "Iraqi dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.RWF": {
+            "description": "Rwandan franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MDL": {
+            "description": "Moldovan leu.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.FKP": {
+            "description": "Falkland Islands pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AED": {
+            "description": "United Arab Emirates dirham.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BMD": {
+            "description": "Bermudian dollar (customarily known as Bermuda dollar).",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CLF": {
+            "description": "Unidad de Fomento (funds code), Chile.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AMD": {
+            "description": "Armenian dram.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CDF": {
+            "description": "Congolese franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KMF": {
+            "description": "Comoro franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SOS": {
+            "description": "Somali shilling.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.UZS": {
+            "description": "Uzbekistan som.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GHS": {
+            "description": "Ghanaian cedi.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BGN": {
+            "description": "Bulgarian lev.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SHP": {
+            "description": "Saint Helena pound.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LVL": {
+            "description": "Latvian lats.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.THB": {
+            "description": "Thai baht.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CUC": {
+            "description": "Cuban convertible peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.UGX": {
+            "description": "Ugandan shilling.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.VUV": {
+            "description": "Vanuatu vatu.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CRC": {
+            "description": "Costa Rican colon.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CLP": {
+            "description": "Chilean peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.LAK": {
+            "description": "Lao kip.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BOB": {
+            "description": "Boliviano.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.PEN": {
+            "description": "Peruvian nuevo sol.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.HKD": {
+            "description": "Hong Kong dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BHD": {
+            "description": "Bahraini dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TJS": {
+            "description": "Tajikistani somoni.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ETB": {
+            "description": "Ethiopian birr.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.JMD": {
+            "description": "Jamaican dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.AFN": {
+            "description": "Afghan afghani.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.EEK": {
+            "description": "Estonian kroon.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.ALL": {
+            "description": "Albanian lek.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.UYU": {
+            "description": "Uruguayan peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.TND": {
+            "description": "Tunisian dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.QAR": {
+            "description": "Qatari rial.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BIF": {
+            "description": "Burundian franc.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.DZD": {
+            "description": "Algerian dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.XOF": {
+            "description": "CFA Franc BCEAO.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SEK": {
+            "description": "Swedish krona/kronor.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MNT": {
+            "description": "Mongolian tugrik.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.SCR": {
+            "description": "Seychelles rupee.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BSD": {
+            "description": "Bahamian dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GMD": {
+            "description": "Gambian dalasi.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.GBP": {
+            "description": "Pound sterling.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MUR": {
+            "description": "Mauritian rupee.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.MXN": {
+            "description": "Mexican peso.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.INR": {
+            "description": "Indian rupee.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.BYR": {
+            "description": "Belarusian ruble.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.CAD": {
+            "description": "Canadian dollar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KPW": {
+            "description": "North Korean won.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KGS": {
+            "description": "Kyrgyzstani som.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.KHR": {
+            "description": "Cambodian riel.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "Currency.RSD": {
+            "description": "Serbian dinar.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerScheduleAction.currency": {
+            "description": "Currency the energy price is given in.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "Currency",
+            "values": [
+                "Currency.MKD",
+                "Currency.MOP",
+                "Currency.PYG",
+                "Currency.BOV",
+                "Currency.AOA",
+                "Currency.ERN",
+                "Currency.VND",
+                "Currency.CZK",
+                "Currency.NZD",
+                "Currency.NGN",
+                "Currency.FJD",
+                "Currency.AWG",
+                "Currency.CHF",
+                "Currency.VEF",
+                "Currency.PHP",
+                "Currency.MWK",
+                "Currency.ZWL",
+                "Currency.MVR",
+                "Currency.BRL",
+                "Currency.BND",
+                "Currency.TOP",
+                "Currency.JOD",
+                "Currency.SRD",
+                "Currency.MZN",
+                "Currency.EUR",
+                "Currency.STD",
+                "Currency.HNL",
+                "Currency.UAH",
+                "Currency.BTN",
+                "Currency.LRD",
+                "Currency.TZS",
+                "Currency.MMK",
+                "Currency.DJF",
+                "Currency.BAM",
+                "Currency.BZD",
+                "Currency.PAB",
+                "Currency.IDR",
+                "Currency.NPR",
+                "Currency.GTQ",
+                "Currency.WST",
+                "Currency.ISK",
+                "Currency.SBD",
+                "Currency.NIO",
+                "Currency.GYD",
+                "Currency.KRW",
+                "Currency.IRR",
+                "Currency.NAD",
+                "Currency.SDG",
+                "Currency.HTG",
+                "Currency.KZT",
+                "Currency.SYP",
+                "Currency.SGD",
+                "Currency.ANG",
+                "Currency.MRO",
+                "Currency.BWP",
+                "Currency.GIP",
+                "Currency.LBP",
+                "Currency.KES",
+                "Currency.CUP",
+                "Currency.LYD",
+                "Currency.SZL",
+                "Currency.ZMK",
+                "Currency.XCD",
+                "Currency.PKR",
+                "Currency.BBD",
+                "Currency.MYR",
+                "Currency.MGA",
+                "Currency.USD",
+                "Currency.YER",
+                "Currency.KWD",
+                "Currency.TRY",
+                "Currency.NOK",
+                "Currency.LSL",
+                "Currency.XPF",
+                "Currency.HUF",
+                "Currency.CNY",
+                "Currency.GNF",
+                "Currency.AUD",
+                "Currency.ARS",
+                "Currency.ZAR",
+                "Currency.AZN",
+                "Currency.BDT",
+                "Currency.PGK",
+                "Currency.HRK",
+                "Currency.DOP",
+                "Currency.RUB",
+                "Currency.PLN",
+                "Currency.LTL",
+                "Currency.OMR",
+                "Currency.SLL",
+                "Currency.SAR",
+                "Currency.GEL",
+                "Currency.TMT",
+                "Currency.KYD",
+                "Currency.EGP",
+                "Currency.RON",
+                "Currency.TWD",
+                "Currency.LKR",
+                "Currency.TTD",
+                "Currency.JPY",
+                "Currency.COU",
+                "Currency.DKK",
+                "Currency.ILS",
+                "Currency.MAD",
+                "Currency.CVE",
+                "Currency.COP",
+                "Currency.XAF",
+                "Currency.IQD",
+                "Currency.RWF",
+                "Currency.MDL",
+                "Currency.FKP",
+                "Currency.AED",
+                "Currency.BMD",
+                "Currency.CLF",
+                "Currency.AMD",
+                "Currency.CDF",
+                "Currency.KMF",
+                "Currency.SOS",
+                "Currency.UZS",
+                "Currency.GHS",
+                "Currency.BGN",
+                "Currency.SHP",
+                "Currency.LVL",
+                "Currency.THB",
+                "Currency.CUC",
+                "Currency.UGX",
+                "Currency.VUV",
+                "Currency.CRC",
+                "Currency.CLP",
+                "Currency.LAK",
+                "Currency.BOB",
+                "Currency.PEN",
+                "Currency.HKD",
+                "Currency.BHD",
+                "Currency.TJS",
+                "Currency.ETB",
+                "Currency.JMD",
+                "Currency.AFN",
+                "Currency.EEK",
+                "Currency.ALL",
+                "Currency.UYU",
+                "Currency.TND",
+                "Currency.QAR",
+                "Currency.BIF",
+                "Currency.DZD",
+                "Currency.XOF",
+                "Currency.SEK",
+                "Currency.MNT",
+                "Currency.SCR",
+                "Currency.BSD",
+                "Currency.GMD",
+                "Currency.GBP",
+                "Currency.MUR",
+                "Currency.MXN",
+                "Currency.INR",
+                "Currency.BYR",
+                "Currency.CAD",
+                "Currency.KPW",
+                "Currency.KGS",
+                "Currency.KHR",
+                "Currency.RSD"
+            ]
+        },
+        "PowerScheduleAction.energyPrice": {
+            "description": "Energy price for the power schedule action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RedispatchScheduleAction.ScheduleResource": {
+            "description": "The schedule resource that has this redispatch action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#ScheduleResource"
+        },
+        "RemedialActionScheduleAcceptance": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "It identifies if the remedial action schedule is accepted for a given system operator.",
+            "parameters": [
+                "RemedialActionScheduleAcceptance.RemedialActionSchedule",
+                "RemedialActionScheduleAcceptance.SystemOperator",
+                "RemedialActionScheduleAcceptance.kind",
+                "RemedialActionScheduleAcceptance.mRID"
+            ]
+        },
+        "RemedialActionScheduleAcceptance.RemedialActionSchedule": {
+            "description": "A remedial action schedule for which a remedial action schedule acceptance is reported.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "RemedialActionScheduleAcceptance.SystemOperator": {
+            "description": "A system operator for which a remedial action schedule acceptances are reported.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "RemedialActionScheduleAcceptanceKind.timeout": {
+            "description": "The acceptance of the remedial action schedule was not completed due to timeout.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleAcceptanceKind.refused": {
+            "description": "The acceptance of the remedial action schedule is concluded and refused.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleAcceptanceKind.accepted": {
+            "description": "The acceptance of remedial action schedule is concluded and accepted.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleAcceptanceKind.waiting": {
+            "description": "The acceptance of the remedial action schedule is waiting (in progress).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleAcceptance.kind": {
+            "description": "The kind of the remedial action acceptance.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRemedialActionScheduleAcceptanceKind",
+            "values": [
+                "RemedialActionScheduleAcceptanceKind.timeout",
+                "RemedialActionScheduleAcceptanceKind.refused",
+                "RemedialActionScheduleAcceptanceKind.accepted",
+                "RemedialActionScheduleAcceptanceKind.waiting"
+            ]
+        },
+        "RemedialActionScheduleAcceptance.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "GenericValueTimePoint": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Generic value for a given point in time.",
+            "parameters": [
+                "GenericValueTimePoint.GenericValueSchedule",
+                "GenericValueTimePoint.atTime",
+                "GenericValueTimePoint.value"
+            ]
+        },
+        "GenericValueTimePoint.GenericValueSchedule": {
+            "description": "Time series the time point values belongs to.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GenericValueSchedule"
+        },
+        "GenericValueTimePoint.atTime": {
+            "description": "The time the data is valid for.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "DateTime"
+        },
+        "Float": {
+            "description": "A floating point number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GenericValueTimePoint.value": {
+            "description": "The value at the time. The meaning of the value is defined by the derived type of the associated schedule. The value can be integer, float or boolean. In case of boolean 1 equals true and 0 equals false.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Float"
+        },
+        "RemedialActionCost": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Remedial action cost is the total cost itemised cost by category and type for the remedial action.",
+            "parameters": [
+                "RemedialActionCost.RemedialActionSchedule",
+                "RemedialActionCost.costAllocationTime",
+                "RemedialActionCost.kind",
+                "RemedialActionCost.mRID",
+                "RemedialActionCost.operationalCost",
+                "RemedialActionCost.opportunityCost",
+                "RemedialActionCost.otherCost",
+                "RemedialActionCost.processingFee",
+                "RemedialActionCost.savedFuelCost",
+                "RemedialActionCost.shutdownCost",
+                "RemedialActionCost.startupCost"
+            ]
+        },
+        "RemedialActionCost.RemedialActionSchedule": {
+            "description": "Remedial action schedule for which this remedial action cost relates to.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "RemedialActionCost.costAllocationTime": {
+            "description": "Cost allocation time is the time the cost shall be allocated.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "DateTime"
+        },
+        "CostSettledKind.indicative": {
+            "description": "Indicative cost.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CostSettledKind.final": {
+            "description": "Final cost. For instance, the cost is not expected to be changed on a later stage.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CostSettledKind.provisional": {
+            "description": "Provisional cost.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionCost.kind": {
+            "description": "Remedial action cost category related to the confirmation of the cost in regards to changes.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncCostSettledKind",
+            "values": [
+                "CostSettledKind.indicative",
+                "CostSettledKind.final",
+                "CostSettledKind.provisional"
+            ]
+        },
+        "RemedialActionCost.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "RemedialActionCost.operationalCost": {
+            "description": "Operational cost is the total cost directly related to operate the unit according to the remedial action, e.g. fuel cost.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RemedialActionCost.opportunityCost": {
+            "description": "Opportunity cost is the total cost of potential earning that is missed due to performing the remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RemedialActionCost.otherCost": {
+            "description": "Other cost is the total cost that cannot be directly allocated to any of the other items.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RemedialActionCost.processingFee": {
+            "description": "Processing fee is the total cost for processing the remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RemedialActionCost.savedFuelCost": {
+            "description": "Saved fuel cost is the total saving due to not consuming the expected fuel as part of the remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RemedialActionCost.shutdownCost": {
+            "description": "Shutdown cost is the total cost for shutting down a unit as part of the remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "RemedialActionCost.startupCost": {
+            "description": "Start-up cost is the total cost for activating the remedial action, e.g. if a generator needs to be started before it can perform the remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "CountertradeScheduleAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Countertrade schedule action is an action to rearrange power schedules based on a Generation and Load Shift Key (GLSK) strategy.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "PowerScheduleAction.PowerBidSchedule",
+                "PowerScheduleAction.PowerSchedule",
+                "PowerScheduleAction.RemedialActionSchedule",
+                "PowerScheduleAction.currency",
+                "PowerScheduleAction.energyPrice"
+            ]
+        },
+        "RemedialActionSchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A schedule for a determined remedial action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RemedialActionSchedule.AssignedRegion",
+                "RemedialActionSchedule.Contingency",
+                "RemedialActionSchedule.ProposingEntity",
+                "RemedialActionSchedule.RemedialAction",
+                "RemedialActionSchedule.RemedialActionScheduleGroup",
+                "RemedialActionSchedule.statusKind",
+                "RemedialActionSchedule.statusReason",
+                "RemedialActionSchedule.totalCostCurrency"
+            ]
+        },
+        "RemedialActionSchedule.AssignedRegion": {
+            "description": "The assigned region for this remedial action schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Region"
+        },
+        "RemedialActionSchedule.Contingency": {
+            "description": "The contingency for a curative remedial action schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Contingency"
+        },
+        "RemedialActionSchedule.ProposingEntity": {
+            "description": "The security coordinator that is proposing this remedial action schedule.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SecurityCoordinator"
+        },
+        "RemedialActionSchedule.RemedialAction": {
+            "description": "The remedial action that has a remedial action schedule associated.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialAction"
+        },
+        "RemedialActionSchedule.RemedialActionScheduleGroup": {
+            "description": "Remedial action schedule group in which the remedial action schedule is allocated.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionScheduleGroup"
+        },
+        "RemedialActionScheduleStatusKind.activated": {
+            "description": "Activated remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.rejected": {
+            "description": "Rejected remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.proposed": {
+            "description": "Proposed remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.notUsed": {
+            "description": "Not used remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.agreed": {
+            "description": "Agreed remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.rejectionValidated": {
+            "description": "The rejection is validated for the remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.agreementValidated": {
+            "description": "The agreement is validated for the remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.ordered": {
+            "description": "Ordered remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.previouslyAgreed": {
+            "description": "Previously agreed remedial action schedule.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheduleStatusKind.implemented": {
+            "description": "An ordered remedial action is implemented.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionSchedule.statusKind": {
+            "description": "Indicates the status kind for the remedial action schedule.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRemedialActionScheduleStatusKind",
+            "values": [
+                "RemedialActionScheduleStatusKind.activated",
+                "RemedialActionScheduleStatusKind.rejected",
+                "RemedialActionScheduleStatusKind.proposed",
+                "RemedialActionScheduleStatusKind.notUsed",
+                "RemedialActionScheduleStatusKind.agreed",
+                "RemedialActionScheduleStatusKind.rejectionValidated",
+                "RemedialActionScheduleStatusKind.agreementValidated",
+                "RemedialActionScheduleStatusKind.ordered",
+                "RemedialActionScheduleStatusKind.previouslyAgreed",
+                "RemedialActionScheduleStatusKind.implemented"
+            ]
+        },
+        "RemedialActionSchedule.statusReason": {
+            "description": "Description of reasoning for the status. For instance, in case of rejected remedial action, the reason for this rejection is described here.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "RemedialActionSchedule.totalCostCurrency": {
+            "description": "The currency of the total cost.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "Currency",
+            "values": [
+                "Currency.MKD",
+                "Currency.MOP",
+                "Currency.PYG",
+                "Currency.BOV",
+                "Currency.AOA",
+                "Currency.ERN",
+                "Currency.VND",
+                "Currency.CZK",
+                "Currency.NZD",
+                "Currency.NGN",
+                "Currency.FJD",
+                "Currency.AWG",
+                "Currency.CHF",
+                "Currency.VEF",
+                "Currency.PHP",
+                "Currency.MWK",
+                "Currency.ZWL",
+                "Currency.MVR",
+                "Currency.BRL",
+                "Currency.BND",
+                "Currency.TOP",
+                "Currency.JOD",
+                "Currency.SRD",
+                "Currency.MZN",
+                "Currency.EUR",
+                "Currency.STD",
+                "Currency.HNL",
+                "Currency.UAH",
+                "Currency.BTN",
+                "Currency.LRD",
+                "Currency.TZS",
+                "Currency.MMK",
+                "Currency.DJF",
+                "Currency.BAM",
+                "Currency.BZD",
+                "Currency.PAB",
+                "Currency.IDR",
+                "Currency.NPR",
+                "Currency.GTQ",
+                "Currency.WST",
+                "Currency.ISK",
+                "Currency.SBD",
+                "Currency.NIO",
+                "Currency.GYD",
+                "Currency.KRW",
+                "Currency.IRR",
+                "Currency.NAD",
+                "Currency.SDG",
+                "Currency.HTG",
+                "Currency.KZT",
+                "Currency.SYP",
+                "Currency.SGD",
+                "Currency.ANG",
+                "Currency.MRO",
+                "Currency.BWP",
+                "Currency.GIP",
+                "Currency.LBP",
+                "Currency.KES",
+                "Currency.CUP",
+                "Currency.LYD",
+                "Currency.SZL",
+                "Currency.ZMK",
+                "Currency.XCD",
+                "Currency.PKR",
+                "Currency.BBD",
+                "Currency.MYR",
+                "Currency.MGA",
+                "Currency.USD",
+                "Currency.YER",
+                "Currency.KWD",
+                "Currency.TRY",
+                "Currency.NOK",
+                "Currency.LSL",
+                "Currency.XPF",
+                "Currency.HUF",
+                "Currency.CNY",
+                "Currency.GNF",
+                "Currency.AUD",
+                "Currency.ARS",
+                "Currency.ZAR",
+                "Currency.AZN",
+                "Currency.BDT",
+                "Currency.PGK",
+                "Currency.HRK",
+                "Currency.DOP",
+                "Currency.RUB",
+                "Currency.PLN",
+                "Currency.LTL",
+                "Currency.OMR",
+                "Currency.SLL",
+                "Currency.SAR",
+                "Currency.GEL",
+                "Currency.TMT",
+                "Currency.KYD",
+                "Currency.EGP",
+                "Currency.RON",
+                "Currency.TWD",
+                "Currency.LKR",
+                "Currency.TTD",
+                "Currency.JPY",
+                "Currency.COU",
+                "Currency.DKK",
+                "Currency.ILS",
+                "Currency.MAD",
+                "Currency.CVE",
+                "Currency.COP",
+                "Currency.XAF",
+                "Currency.IQD",
+                "Currency.RWF",
+                "Currency.MDL",
+                "Currency.FKP",
+                "Currency.AED",
+                "Currency.BMD",
+                "Currency.CLF",
+                "Currency.AMD",
+                "Currency.CDF",
+                "Currency.KMF",
+                "Currency.SOS",
+                "Currency.UZS",
+                "Currency.GHS",
+                "Currency.BGN",
+                "Currency.SHP",
+                "Currency.LVL",
+                "Currency.THB",
+                "Currency.CUC",
+                "Currency.UGX",
+                "Currency.VUV",
+                "Currency.CRC",
+                "Currency.CLP",
+                "Currency.LAK",
+                "Currency.BOB",
+                "Currency.PEN",
+                "Currency.HKD",
+                "Currency.BHD",
+                "Currency.TJS",
+                "Currency.ETB",
+                "Currency.JMD",
+                "Currency.AFN",
+                "Currency.EEK",
+                "Currency.ALL",
+                "Currency.UYU",
+                "Currency.TND",
+                "Currency.QAR",
+                "Currency.BIF",
+                "Currency.DZD",
+                "Currency.XOF",
+                "Currency.SEK",
+                "Currency.MNT",
+                "Currency.SCR",
+                "Currency.BSD",
+                "Currency.GMD",
+                "Currency.GBP",
+                "Currency.MUR",
+                "Currency.MXN",
+                "Currency.INR",
+                "Currency.BYR",
+                "Currency.CAD",
+                "Currency.KPW",
+                "Currency.KGS",
+                "Currency.KHR",
+                "Currency.RSD"
+            ]
+        },
+        "RemedialActionSchemeSchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "The schedule for a remedial action scheme.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BaseTimeSeries.interpolationKind",
+                "RemedialActionSchemeSchedule.ArmedRemedialAction"
+            ]
+        },
+        "RemedialActionSchemeSchedule.ArmedRemedialAction": {
+            "description": "Armed remedial action for a remedial action scheme.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SchemeRemedialAction"
+        },
+        "AvailabilitySchedule": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A given (un)availability schedule with a given status and cause that include multiple equipment that need to follow the same scheduling periods.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "AvailabilitySchedule.RemedialAction",
+                "AvailabilitySchedule.isCancelled",
+                "AvailabilitySchedule.priority"
+            ]
+        },
+        "AvailabilitySchedule.RemedialAction": {
+            "description": "Remedial action that is cancelling this availability schedule.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#AvailabilityRemedialAction"
+        },
+        "AvailabilitySchedule.isCancelled": {
+            "description": "Defines the cancelling of the availability schedule. True means that is cancelling, False means that it is not cancelling.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "Integer": {
+            "description": "An integer number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "AvailabilitySchedule.priority": {
+            "description": "Value 0 means ignore priority. 1 means the highest priority, 2 is the second highest priority.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Integer"
+        },
+        "PowerTimePoint": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Power, active and reactive, value at a given point in time.",
+            "parameters": [
+                "PowerTimePoint.PowerSchedule",
+                "PowerTimePoint.activatedP",
+                "PowerTimePoint.activatedPrice",
+                "PowerTimePoint.atTime",
+                "PowerTimePoint.p",
+                "PowerTimePoint.price",
+                "PowerTimePoint.q"
+            ]
+        },
+        "PowerTimePoint.PowerSchedule": {
+            "description": "Time series the time point values belongs to.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerSchedule"
+        },
+        "ActivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerTimePoint.activatedP": {
+            "description": "Active power activated as part of redispatch. Negative number means that the value is scheduling down. Positive number means that the value is scheduling up.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerTimePoint.activatedPrice": {
+            "description": "Price for the activated active power per unit e.g. per MW.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "PowerTimePoint.atTime": {
+            "description": "The time the data is valid for.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "DateTime"
+        },
+        "PowerTimePoint.p": {
+            "description": "Active power injection. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ActivePower"
+        },
+        "PowerTimePoint.price": {
+            "description": "Price for the scheduled active power per unit of active power. e.g. per MW.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Decimal"
+        },
+        "ReactivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the quadrature component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PowerTimePoint.q": {
+            "description": "Reactive power injection. Load sign convention is used, i.e. positive sign means flow out from a node.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "ReactivePower"
+        }
+    }
+}

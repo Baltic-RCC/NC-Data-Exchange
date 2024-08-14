@@ -1,0 +1,2374 @@
+{
+    "RA": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "ra": "https://ap.cim4.eu/RemedialAction#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "urn:iso:std:iec:61970-501:draft:ed-2",
+            "creator": "ENTSO-E CIM WG NC project ",
+            "description": "This vocabulary is describing the remedial action profile.",
+            "identifier": "urn:uuid:57fcfe0e-258c-45f2-b2ed-ff5b6a9859bc",
+            "keyword": "RA",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-04-08",
+            "priorVersion": "http://entsoe.eu/ns/CIM/RemedialAction-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Remedial action Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/RemedialAction/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "PinEquipmentTripping": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with an Equipment. It is used to determine if the equipment is tripped between two consecutive stages, i.e. the equipment is in service at pre-fault stage and it is out of service at post-fault stage.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinEquipmentTripping.Equipment"
+            ]
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "IdentifiedObject.description": {
+            "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "IdentifiedObject.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "IdentifiedObject.name": {
+            "description": "The name is any free human readable and possibly non unique text naming the object.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "GateInputPin.Gate": {
+            "description": "The Gate that has this input.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        },
+        "Boolean": {
+            "description": "A type with the value space \"true\" and \"false\".",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GateInputPin.absoluteValue": {
+            "description": "Indicates if the absolute value is used for comparison. If true, use the absolute value. If false, use the complex value (vector). ",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "Duration": {
+            "description": "Duration as \"PnYnMnDTnHnMnS\" which conforms to ISO 8601, where nY expresses a number of years, nM a number of months, nD a number of days. The letter T separates the date expression from the time expression and, after it, nH identifies a number of hours, nM a number of minutes and nS a number of seconds. The number of seconds could be expressed as a decimal number, but all other numbers are integers.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GateInputPin.duration": {
+            "description": "The time duration for which the condition is satisfied before acting. Default is 0 seconds.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Duration"
+        },
+        "GateInputPin.isValuePreFault": {
+            "description": "Indicates if the gate input pin value is referring to the value prior to a fault (e.g. simulated by a contingency or due to a SIPS activation in a N-x-y case). If it is true, it means that the value is referring to pre-fault. If it is false or not populated, then it is post-fault.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "LogicalOperatorsKind.lessThanOrEquals": {
+            "description": "Less than or equals comparison operation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "LogicalOperatorsKind.lessThan": {
+            "description": "Less than comparison operation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "LogicalOperatorsKind.notEqual": {
+            "description": "Not equal (unlike) comparison operation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "LogicalOperatorsKind.greaterThanOrEquals": {
+            "description": "Greater than or equals comparison operation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "LogicalOperatorsKind.equals": {
+            "description": "Equals (like) comparison operation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "LogicalOperatorsKind.greaterThan": {
+            "description": "Greater than comparison operation.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateInputPin.logicKind": {
+            "description": "The logical operator kind used for comparison.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncLogicalOperatorsKind",
+            "values": [
+                "LogicalOperatorsKind.lessThanOrEquals",
+                "LogicalOperatorsKind.lessThan",
+                "LogicalOperatorsKind.notEqual",
+                "LogicalOperatorsKind.greaterThanOrEquals",
+                "LogicalOperatorsKind.equals",
+                "LogicalOperatorsKind.greaterThan"
+            ]
+        },
+        "GateInputPin.negate": {
+            "description": "Invert/negate the result of the comparison.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "PerCent": {
+            "description": "Percentage on a defined base.   For example, specify as 100 to indicate at the defined base.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GateInputPin.thresholdPercentage": {
+            "description": "The threshold percentage that should be used for compare with the percentage change between input value and threshold value.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "Float": {
+            "description": "A floating point number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GateInputPin.thresholdValue": {
+            "description": "The threshold value that should be used for compare with the input value.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "PinEquipmentTripping.Equipment": {
+            "description": "Equipment that is tripped.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Equipment"
+        },
+        "RemedialActionScheme": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Remedial Action Scheme (RAS), Special Protection Schemes (SPS), System Protection Schemes (SPS) or System Integrity Protection Schemes (SIPS).\nA Remedial Action Scheme consists of one or more stages that can trigger and execute a protection action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RemedialActionScheme.ArmedRemedialAction",
+                "RemedialActionScheme.GateArmed",
+                "RemedialActionScheme.kind",
+                "RemedialActionScheme.normalArmed"
+            ]
+        },
+        "RemedialActionScheme.ArmedRemedialAction": {
+            "description": "Remedial action scheme schedule that has this armed remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SchemeRemedialAction"
+        },
+        "RemedialActionScheme.GateArmed": {
+            "description": "Gate that through a gate logic and input pin defines arming of a Remedial Action Scheme.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        },
+        "RemedialActionSchemeKind.sips": {
+            "description": "System Integrity Protection Scheme (SIPS). The triggering conditions are met through field measurements.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionSchemeKind.rasp": {
+            "description": "Remedial Action Schema Plan (RASP). The triggering conditions are met through calculation or manual intervention.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionScheme.kind": {
+            "description": "Kind of Remedial Action Scheme.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRemedialActionSchemeKind",
+            "values": [
+                "RemedialActionSchemeKind.sips",
+                "RemedialActionSchemeKind.rasp"
+            ]
+        },
+        "RemedialActionScheme.normalArmed": {
+            "description": "Defines the normal arming status of the remedial action scheme. ",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "PinContingency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with a Contingency. It is used for comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinContingency.Contingency"
+            ]
+        },
+        "PinContingency.Contingency": {
+            "description": "The Contingency that is used in the input pin.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Contingency"
+        },
+        "RedispatchRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Redispatch remedial action is a remedial action that through rearranging power schedules is eliminating breaches of constraints.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "PowerRemedialAction.BiddingZone",
+                "PowerRemedialAction.BiddingZoneBorder",
+                "RemedialAction.AppointedToRegion",
+                "RemedialAction.RemedialActionSystemOperator",
+                "RemedialAction.impactThresholdMargin",
+                "RemedialAction.isCrossBorderRelevant",
+                "RemedialAction.isManual",
+                "RemedialAction.kind",
+                "RemedialAction.normalAvailable",
+                "RemedialAction.penaltyFactor",
+                "RemedialAction.timeToImplement"
+            ]
+        },
+        "PowerRemedialAction.BiddingZone": {
+            "description": "The Bidding Zone where the power remedial action is done.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#BiddingZone"
+        },
+        "PowerRemedialAction.BiddingZoneBorder": {
+            "description": "Bidding zone border where the power remedial action is done.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#BiddingZoneBorder"
+        },
+        "RemedialAction.AppointedToRegion": {
+            "description": "The region in which the remedial action is appointed.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Region"
+        },
+        "RemedialAction.RemedialActionSystemOperator": {
+            "description": "System operator operating remedial actions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "RemedialAction.impactThresholdMargin": {
+            "description": "Impact threshold margin for the use of the remedial action. Meaning that the remedial action should not be used if it cannot resolve violation with more than the given impact threshold margin.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "RemedialAction.isCrossBorderRelevant": {
+            "description": "Indicates if the remedial action is cross border relevant.  True, means that the remedial action is cross border relevant.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "RemedialAction.isManual": {
+            "description": "Indicates if the remedial action is manually executed which involves one or many actions performed by human. A SIPS remedial action cannot be manual.  True, means that the remedial action is manual. False, means that the remedial action is automatically executed without human communication.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "RemedialActionKind.curative": {
+            "description": "Curative remedial action means a remedial action that is the result of an operational planning process and is activated straight subsequent to the occurrence of the respective contingency for compliance with the (N-1) criterion, taking into account transitory admissible overloads and their accepted duration.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionKind.preventive": {
+            "description": "Preventive remedial action means a remedial action that is the result of an operational planning process and needs to be activated prior to the investigated timeframe for compliance with the (N-1) criterion.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialAction.kind": {
+            "description": "The kind of the remedial action. If curative remedial action, it is required to have an association with ContingencyWithRemedialAction.\nIf preventive remedial action, RemedialAction class shall not have association with ContingencyWithRemedialAction.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRemedialActionKind",
+            "values": [
+                "RemedialActionKind.curative",
+                "RemedialActionKind.preventive"
+            ]
+        },
+        "RemedialAction.normalAvailable": {
+            "description": "It identifies if the remedial action is available under normal condition. True means available, False means unavailable.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "RemedialAction.penaltyFactor": {
+            "description": "Defines the relative penalty for a given remedial action. This is a positive number greater than zero and default is one, meaning the remedial action does not have negative nor positive effect on the quality of the solution. A remedial action that provide changes in the transmission loss can have negative (Between zero and one) or positive effect (Bigger than one) given by 1 / (1 \u2013 Incremental Transmission Loss). In a similar way remedial action using generating units or compensation units can have negative or positive effect. Typical value would be between 0.8 and 1.1.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "RemedialAction.timeToImplement": {
+            "description": "Time to implement a remedial action.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "ContingencyWithRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Combination of a contingency and a remedial action. ContingencyWithRemedialAction shall not be instantiated for preventive RemedialAction (RemedialAction.kind equals RemedialActionKind.preventive).",
+            "parameters": [
+                "ContingencyWithRemedialAction.Contingency",
+                "ContingencyWithRemedialAction.RemedialAction",
+                "ContingencyWithRemedialAction.combinationConstraintKind",
+                "ContingencyWithRemedialAction.mRID",
+                "ContingencyWithRemedialAction.normalEnabled"
+            ]
+        },
+        "ContingencyWithRemedialAction.Contingency": {
+            "description": "The contingency that is associated with a remedial action, i.e. the contingency that is the cause for the creation of a remedial action and justifies it or would usually be resolved with a remedial action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Contingency"
+        },
+        "ContingencyWithRemedialAction.RemedialAction": {
+            "description": "The remedial action defined for this contingency and remedial action combination.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialAction"
+        },
+        "ElementCombinationConstraintKind.considered": {
+            "description": "Element combination can be considered.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ElementCombinationConstraintKind.excluded": {
+            "description": "Element combination is excluded.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ElementCombinationConstraintKind.included": {
+            "description": "Element combination is included.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ContingencyWithRemedialAction.combinationConstraintKind": {
+            "description": "Defines the combination constraint of the Contingency and Remedial Action. If included, this remedial action can only be applied for this contingency. Else if excluded, this remedial action should not be used for this contingency. Else if considered, this remedial action can be considered for this contingency.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncElementCombinationConstraintKind",
+            "values": [
+                "ElementCombinationConstraintKind.considered",
+                "ElementCombinationConstraintKind.excluded",
+                "ElementCombinationConstraintKind.included"
+            ]
+        },
+        "ContingencyWithRemedialAction.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "ContingencyWithRemedialAction.normalEnabled": {
+            "description": "If true, the contingency with remedial action is enabled, otherwise it is disabled under normal operating conditions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "RemedialActionGroup": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Grouping of remedial actions that can be operated together.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "AvailabilityRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Availability remedial action is a remedial action that cancels or reschedules an availability schedule.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RemedialAction.AppointedToRegion",
+                "RemedialAction.RemedialActionSystemOperator",
+                "RemedialAction.impactThresholdMargin",
+                "RemedialAction.isCrossBorderRelevant",
+                "RemedialAction.isManual",
+                "RemedialAction.kind",
+                "RemedialAction.normalAvailable",
+                "RemedialAction.penaltyFactor",
+                "RemedialAction.timeToImplement"
+            ]
+        },
+        "PinPowerTransferCorridor": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with a PowerTransferCorridor. It is used for comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinPowerTransferCorridor.PowerTransferCorridor",
+                "PinPowerTransferCorridor.kind"
+            ]
+        },
+        "PinPowerTransferCorridor.PowerTransferCorridor": {
+            "description": "The PowerTransferCorridor that is used in the input pin.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerTransferCorridor"
+        },
+        "PinPowerTransferCorridorKind.activePower": {
+            "description": "Active power in the branch group.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "PinPowerTransferCorridorKind.reactivePower": {
+            "description": "Reactive power in the branch group.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "PinPowerTransferCorridor.kind": {
+            "description": "The kind of quantity which is used as an input value.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncPinPowerTransferCorridorKind",
+            "values": [
+                "PinPowerTransferCorridorKind.activePower",
+                "PinPowerTransferCorridorKind.reactivePower"
+            ]
+        },
+        "ACDCConverterAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Alternate current Direct current (ACDC) converter action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "ACDCConverterAction.ACDCConverter",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "ACDCConverterAction.ACDCConverter": {
+            "description": "The ACDCConverter that is associated with an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#ACDCConverter"
+        },
+        "GridStateAlteration.GridStateAlterationCollection": {
+            "description": "The collection that has a GridStateAlteration.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlterationCollection"
+        },
+        "GridStateAlteration.GridStateAlterationRemedialAction": {
+            "description": "The grid state alteration remedial action associated with a given grid state alteration.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlterationRemedialAction"
+        },
+        "GridStateAlteration.PropertyReference": {
+            "description": "The property reference for this grid state alteration.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PropertyReference"
+        },
+        "Integer": {
+            "description": "An integer number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "GridStateAlteration.maximumPerDay": {
+            "description": "Maximum number of alterations per day.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Integer"
+        },
+        "GridStateAlteration.minimumActivation": {
+            "description": "Minimum time duration between activating the same grid state alteration.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "GridStateAlteration.normalEnabled": {
+            "description": "The default/normal value used when other active signal/values are missing.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "GridStateAlteration.timePerStage": {
+            "description": "Time to implement a stage of a grid state alteration. If a grid state alteration consists of multiple stages (e.g. A step on a power transformer), this duration comes in addition to the timeToImplement and need to be multiplied by the number of stages. A stage can also be defined as MW in the case of regulating production.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Duration"
+        },
+        "EquipmentControllerAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Action for setting the equipment controller action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "EquipmentControllerAction.EquipmentController",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "EquipmentControllerAction.EquipmentController": {
+            "description": "Equipment controller that has associated equipment controller actions.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#EquipmentController"
+        },
+        "ControlFunctionBlockAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Action for setting the control function block target values.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "ControlFunctionBlockAction.ControlFunctionBlock",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "ControlFunctionBlockAction.ControlFunctionBlock": {
+            "description": "The control function block that is associated with a ControlFunctionBlockAction.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#ControlFunctionBlock"
+        },
+        "MeasurementCalculator": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Result of a calculation of one or more measurement. ",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "MeasurementCalculator.kind"
+            ]
+        },
+        "CalculationKind.multiplication": {
+            "description": "Multiplication operation on the input values (operands).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CalculationKind.division": {
+            "description": "Division operation on the input values (operands).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CalculationKind.squareRoot": {
+            "description": "Square root operator - only one input value (operands).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "CalculationKind.summation": {
+            "description": "Summation operation on the input values (operands).",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "MeasurementCalculator.kind": {
+            "description": "Calculation operation executed on the operands.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncCalculationKind",
+            "values": [
+                "CalculationKind.multiplication",
+                "CalculationKind.division",
+                "CalculationKind.squareRoot",
+                "CalculationKind.summation"
+            ]
+        },
+        "PowerShiftKeyStrategy": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Strategy of the power shift key.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "PowerShiftKeyStrategy.PowerRemedialAction"
+            ]
+        },
+        "PowerShiftKeyStrategy.PowerRemedialAction": {
+            "description": "Power remedial acion which has power shift key strategy.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerRemedialAction"
+        },
+        "TapPositionAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Tap position action represents a change of a tap changer position in the grid model compared to the base case.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "TapPositionAction.TapChanger"
+            ]
+        },
+        "TapPositionAction.TapChanger": {
+            "description": "The tap changer that has a tap position action associated.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#TapChanger"
+        },
+        "SchemeRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Scheme remedial action is remedial action that involves a scheme that can include conditional logic and stages of grid alteration. The primary remedial action is the arming of these schemes, that will then perform curative remedial action when the condition is met. System Integrity Protection Scheme (SIPS) and Special Protection Scheme (SPS) are example of this. ",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RemedialAction.AppointedToRegion",
+                "RemedialAction.RemedialActionSystemOperator",
+                "RemedialAction.impactThresholdMargin",
+                "RemedialAction.isCrossBorderRelevant",
+                "RemedialAction.isManual",
+                "RemedialAction.kind",
+                "RemedialAction.normalAvailable",
+                "RemedialAction.penaltyFactor",
+                "RemedialAction.timeToImplement"
+            ]
+        },
+        "PTCActivePowerSupport": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the active power capability (support) of the scheme in relation to a PowerTransferCorridor.",
+            "parameters": [
+                "PTCActivePowerSupport.PowerTransferCorridor",
+                "PTCActivePowerSupport.RemedialActionScheme",
+                "PTCActivePowerSupport.maximum",
+                "PTCActivePowerSupport.normal"
+            ]
+        },
+        "PTCActivePowerSupport.PowerTransferCorridor": {
+            "description": "The PowerTransferCorridor that has a specific active power support.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PowerTransferCorridor"
+        },
+        "PTCActivePowerSupport.RemedialActionScheme": {
+            "description": "The RemedialActionScheme which has active power support from the PowerTransferCorridor.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionScheme"
+        },
+        "ActivePower": {
+            "description": "Product of RMS value of the voltage and the RMS value of the in-phase component of the current.",
+            "type": "CIMDatatype",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PTCActivePowerSupport.maximum": {
+            "description": "Maximum support that a System Integrity Protection Scheme (SIPS) can provide to a Power Transfer Corridor (PTC). This is normally limited by the maximum power system disconnect allowed.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "PTCActivePowerSupport.normal": {
+            "description": "Normal support that a System Integrity Protection Scheme (SIPS) is expected to provide when enabled to a Power Transfer Corridor (PTC).",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "ActivePower"
+        },
+        "PinTerminal": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with a Terminal. It is used for comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinTerminal.Terminal",
+                "PinTerminal.kind"
+            ]
+        },
+        "PinTerminal.Terminal": {
+            "description": "The Terminal that is used in the input pin.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Terminal"
+        },
+        "PinTerminalKind.activePower": {
+            "description": "Active Power on the Terminal.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PinTerminalKind.reactivePower": {
+            "description": "Reactive Power on the Terminal.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PinTerminalKind.voltage": {
+            "description": "Voltage on the Terminal.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PinTerminalKind.apparentPower": {
+            "description": "Apparent Power on the Terminal.",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "PinTerminal.kind": {
+            "description": "The kind of quantity which is used as an input value.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "PinTerminalKind",
+            "values": [
+                "PinTerminalKind.activePower",
+                "PinTerminalKind.reactivePower",
+                "PinTerminalKind.voltage",
+                "PinTerminalKind.apparentPower"
+            ]
+        },
+        "Line": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "Contains equipment beyond a substation belonging to a power transmission line. ",
+            "parameters": []
+        },
+        "PinMeasurement": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with a Measurement. It is used for comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinMeasurement.Measurement",
+                "PinMeasurement.MeasurementCalculator"
+            ]
+        },
+        "PinMeasurement.Measurement": {
+            "description": "The Measurement that is used in the input pin.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Measurement"
+        },
+        "PinMeasurement.MeasurementCalculator": {
+            "description": "The result of the calculation used as input to a gate.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#MeasurementCalculator"
+        },
+        "EquivalentInjectionAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Equivalent injection action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "EquivalentInjectionAction.EquivalentInjection",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "EquivalentInjectionAction.EquivalentInjection": {
+            "description": "The EquivalentInjection that is associated with an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#EquivalentInjection"
+        },
+        "Stage": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Stage of a remedial action scheme.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "Stage.GridStateAlterationCollection",
+                "Stage.RemedialActionScheme",
+                "Stage.priority"
+            ]
+        },
+        "Stage.GridStateAlterationCollection": {
+            "description": "The GridStateAlterationCollection which belongs to the Stage.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlterationCollection"
+        },
+        "Stage.RemedialActionScheme": {
+            "description": "The remedial action scheme that has a stage.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionScheme"
+        },
+        "Stage.priority": {
+            "description": "The priority of the stage.   0 = do not care (default) 1 = highest priority. 2 is less than 1 and so on. A stage with higher priority needs be activated before a lower stage can be activated.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Integer"
+        },
+        "StageTrigger": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Stage that is triggered either by TriggerCondition or by gate condition within a stage.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "StageTrigger.GateArmed",
+                "StageTrigger.GateComCondition",
+                "StageTrigger.GateTrigger",
+                "StageTrigger.Stage",
+                "StageTrigger.normalArmed",
+                "StageTrigger.priority"
+            ]
+        },
+        "StageTrigger.GateArmed": {
+            "description": "The gate that is the input pin which defines arming of the StageTrigger.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        },
+        "StageTrigger.GateComCondition": {
+            "description": "The gate that is the input pin which defines a communication condition.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        },
+        "StageTrigger.GateTrigger": {
+            "description": "The gate that is the input pin which triggers the protective reactions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        },
+        "StageTrigger.Stage": {
+            "description": "The stage that has this stage trigger.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Stage"
+        },
+        "StageTrigger.normalArmed": {
+            "description": "The default/normal value used when other active signal/values are missing.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "StageTrigger.priority": {
+            "description": "Priority of trigger. 0 = don t care (default) 1 = highest priority. 2 is less than 1 and so on. A trigger with the highest priority will trigger first.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Integer"
+        },
+        "PinOperationalLimit": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with the limits of a Terminal. It is used for comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinOperationalLimit.OperationalLimit"
+            ]
+        },
+        "PinOperationalLimit.OperationalLimit": {
+            "description": "The operational limit that is used in the input pin.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#OperationalLimit"
+        },
+        "BiddingZoneAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Bidding zone set point action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BiddingZoneAction.BiddingZone",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "BiddingZoneAction.BiddingZone": {
+            "description": "The bidding zone that has this bidding zone action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#BiddingZone"
+        },
+        "IntertemporalPropertyRange": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "It represents the intertemporal range, which means that this is the maximum change of an attribute value between two time stamps or per time unit (e.g. hour). Both up and down directions are defined by the direction attribute, i.e. There are different schedules per direction. \nThe class is not instantiated for PropertyReference which refers to Boolean type attributes. \nFor instance the following example illustrates the approach:\n- A tap changer related grid state alteration having two intertemporal range schedules.\n-   For a particular point in time, the value from up schedule is 6 and the value from down schedule is 3.\n- Then, the GridStateIntensity for the same point in time cannot be more than plus 6 taps from the current, or more than minus 3 taps from the current.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RangeConstraint.GridStateAlteration",
+                "RangeConstraint.direction",
+                "RangeConstraint.normalValue",
+                "RangeConstraint.valueKind"
+            ]
+        },
+        "RangeConstraint.GridStateAlteration": {
+            "description": "The grid state alteration which has static range.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#GridStateAlteration"
+        },
+        "RelativeDirectionKind.down": {
+            "description": "Down signifies that the changes are decreasing from the current status.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RelativeDirectionKind.up": {
+            "description": "Up signifies that the changes are increasing from the current status.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RelativeDirectionKind.upAndDown": {
+            "description": "Up and down signifies that both up and down values are equal.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RelativeDirectionKind.none": {
+            "description": "There is no direction on the changes.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RangeConstraint.direction": {
+            "description": "Defines the direction of the attribute value referenced by the PropertyReference.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRelativeDirectionKind",
+            "values": [
+                "RelativeDirectionKind.down",
+                "RelativeDirectionKind.up",
+                "RelativeDirectionKind.upAndDown",
+                "RelativeDirectionKind.none"
+            ]
+        },
+        "RangeConstraint.normalValue": {
+            "description": "The normal (initial) value. The meaning of the value is defined by the attribute referenced by the PropertyReference. The value can be integer, float or boolean. In case of boolean 1 equals true and 0 equals false.\nIf the valueKind is incremental or incrementalPercentage, then the value shall be positive (greater than zero).\nIf the valueKind is incrementalPercentage, then the value shall be in the range [0, 100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "ValueOffsetKind.incrementalPercentage": {
+            "description": "Value of the range constraint is incrementing in percentage the attribute value referenced by the PropertyReference in a determined operational scenario. ",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ValueOffsetKind.incremental": {
+            "description": "Value of the range constraint is incrementing the attribute value referenced by the PropertyReference in a determined operational scenario.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ValueOffsetKind.absolute": {
+            "description": "Value of the range constraint is replacing the attribute value referenced by the PropertyReference in a determined operational scenario.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RangeConstraint.valueKind": {
+            "description": "Kind of value offset for the range that applies to the attribute referenced by the PropertyReference.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncValueOffsetKind",
+            "values": [
+                "ValueOffsetKind.incrementalPercentage",
+                "ValueOffsetKind.incremental",
+                "ValueOffsetKind.absolute"
+            ]
+        },
+        "EnergySourceModification": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Energy source action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "EnergySourceModification.EnergySource",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "EnergySourceModification.EnergySource": {
+            "description": "The EnergySource which is associated with an EnergySourceAction.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#EnergySource"
+        },
+        "ExternalNetworkInjectionAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "External network injection action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "ExternalNetworkInjectionAction.ExternalNetworkInjection",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "ExternalNetworkInjectionAction.ExternalNetworkInjection": {
+            "description": "The ExternalNetworkInjection that is associated with an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#ExternalNetworkInjection"
+        },
+        "Substation": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about",
+                "value_prefix": "#_"
+            },
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "description": "A collection of equipment for purposes other than generation or utilization, through which electric energy in bulk is passed for the purposes of switching or modifying its characteristics. ",
+            "parameters": []
+        },
+        "PinEquipment": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with an Equipment. It is used for the comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinEquipment.Equipment",
+                "PinEquipment.PropertyReference"
+            ]
+        },
+        "PinEquipment.Equipment": {
+            "description": "The Equipment that is used in the input pin.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Equipment"
+        },
+        "PinEquipment.PropertyReference": {
+            "description": "The property reference for this pin equipment.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PropertyReference"
+        },
+        "CountertradeRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Countertrade is a remedial action to relieve physical congestions where the location of activated resources within the bidding zone is not known.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "CountertradeRemedialAction.maxEconomicPMargin",
+                "CountertradeRemedialAction.minEconomicPMargin",
+                "PowerRemedialAction.BiddingZone",
+                "PowerRemedialAction.BiddingZoneBorder",
+                "RemedialAction.AppointedToRegion",
+                "RemedialAction.RemedialActionSystemOperator",
+                "RemedialAction.impactThresholdMargin",
+                "RemedialAction.isCrossBorderRelevant",
+                "RemedialAction.isManual",
+                "RemedialAction.kind",
+                "RemedialAction.normalAvailable",
+                "RemedialAction.penaltyFactor",
+                "RemedialAction.timeToImplement"
+            ]
+        },
+        "CountertradeRemedialAction.maxEconomicPMargin": {
+            "description": "High economic active power limit given by the percentage of the relevant units operating p.   e.g. If a generating unit (G1) with maximum operating active power of 100 MW and a conform load with active maximum load of 50 MW (L1). Max economic p margin of 90% will give the limit of the shift key to be 90 MW for the G1 and 45 MW for the L1.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "CountertradeRemedialAction.minEconomicPMargin": {
+            "description": "Low economic active power limit given by the percentage of the relevant units operating p.   e.g. If a generating unit (G1) with minimum operating active power of 10 MW and a conform load with active maximum load of 5 MW (L1). Min economic p margin of 90%  will give the limit of the shift key to be 11 MW for the G1 and 5.5 MW for the L1.\nThe allowed value range is [0,100].",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "PerCent"
+        },
+        "ShuntCompensatorModification": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Shunt compensator action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "ShuntCompensatorModification.ShuntCompensator"
+            ]
+        },
+        "ShuntCompensatorModification.ShuntCompensator": {
+            "description": "The ShuntCompensator that is associated with an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#ShuntCompensator"
+        },
+        "Gate": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Logical gate that supports a logical operation based on the input.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "Gate.kind"
+            ]
+        },
+        "GateLogicKind.and": {
+            "description": "A logical AND operation. True when all inputs are true.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateLogicKind.not": {
+            "description": "A logical NOT operation. Only one input and true input will give false out and false in will give true out. An inverter.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateLogicKind.or": {
+            "description": "A logical OR operation. True when one or more inputs are true.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateLogicKind.xor": {
+            "description": "A logical XOR operation.  All input false or true will give false. Otherwise true.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateLogicKind.nand": {
+            "description": "A logical NAND operation. False when all inputs are true.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateLogicKind.xnor": {
+            "description": "A logical XNOR operation. The function is the inverse of the exclusive OR (XOR) gate. All input false or true will give true. Otherwise false.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "GateLogicKind.nor": {
+            "description": "A logical NOR operation. False when one or more inputs are true.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "Gate.kind": {
+            "description": "The logical operation of the gate.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncGateLogicKind",
+            "values": [
+                "GateLogicKind.and",
+                "GateLogicKind.not",
+                "GateLogicKind.or",
+                "GateLogicKind.xor",
+                "GateLogicKind.nand",
+                "GateLogicKind.xnor",
+                "GateLogicKind.nor"
+            ]
+        },
+        "LoadAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Load action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "LoadAction.EnergyConsumer"
+            ]
+        },
+        "LoadAction.EnergyConsumer": {
+            "description": "The EnergyConsumer that is associated with a load action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#EnergyConsumer"
+        },
+        "TopologyAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Topology action means the connection or disconnection of a switch in the grid model compared to the base case.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "TopologyAction.Switch"
+            ]
+        },
+        "TopologyAction.Switch": {
+            "description": "The switch that has a topology action associated.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Switch"
+        },
+        "GridStateAlterationCollection": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "A collection of grid state alterations.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "BatteryUnitAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Battery unit setpoint action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "BatteryUnitAction.BatteryUnit",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage"
+            ]
+        },
+        "BatteryUnitAction.BatteryUnit": {
+            "description": "The BatteryUnit that is associated with an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#BatteryUnit"
+        },
+        "RegulatingControlAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Control action means the set point change of a regulating control power system resource in the grid model compared to the base case.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "RegulatingControlAction.RegulatingControl"
+            ]
+        },
+        "RegulatingControlAction.RegulatingControl": {
+            "description": "The regulating control which has an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#RegulatingControl"
+        },
+        "MeasurementCalculatorInput": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input to measurement calculation. It supports Analog, Discrete and Accumulator measurements.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "MeasurementCalculatorInput.Measurement",
+                "MeasurementCalculatorInput.MeasurementCalculator",
+                "MeasurementCalculatorInput.absoluteValue",
+                "MeasurementCalculatorInput.order"
+            ]
+        },
+        "MeasurementCalculatorInput.Measurement": {
+            "description": "Measurement used as input to a calculation.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#Measurement"
+        },
+        "MeasurementCalculatorInput.MeasurementCalculator": {
+            "description": "The measurement calculator using this calculator input.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#MeasurementCalculator"
+        },
+        "MeasurementCalculatorInput.absoluteValue": {
+            "description": "Indicates if the absolute value is used for comparison. If true, use the absolute value. If false, use the complex value (vector). ",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Boolean"
+        },
+        "MeasurementCalculatorInput.order": {
+            "description": "Positive number that defines the order of the operand in the calculation. 0 means default in which case the order is not relevant.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "Integer"
+        },
+        "RemedialActionDependency": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Remedial action dependency is making two remedial actions depending on each other. Multiple dependency is done by multiple instances of this class. The dependency can arrive by having one of the following examples.\n<ul>\n\t<li>The dependent remedial action is controlled by different system operator (Modeling Authority)  (e.g. SIPS that goes across control area).</li>\n\t<li>The dependent remedial action is representing  two or more remedial action that represent the same grid state alteration but with different modeling resolution (e.g. detail direct current model versus a simplified model).</li>\n\t<li>The remedial action can be combined with other remedial action without the need to create multiple remedial action with the same grid alteration for enabling dependency.</li>\n</ul>",
+            "parameters": [
+                "RemedialActionDependency.DependingRemedialActionGroup",
+                "RemedialActionDependency.RemedialAction",
+                "RemedialActionDependency.kind",
+                "RemedialActionDependency.mRID",
+                "RemedialActionDependency.normalEnabled"
+            ]
+        },
+        "RemedialActionDependency.DependingRemedialActionGroup": {
+            "description": "Remedial action group which the remedial action is depending on.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionGroup"
+        },
+        "RemedialActionDependency.RemedialAction": {
+            "description": "Remedial action which has dependent remedial actions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialAction"
+        },
+        "RemedialActionDependencyKind.inclusive": {
+            "description": "Remedial actions are inclusive depending on each other. e.g. Both remedial action need to be picked if one of them is needed.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionDependencyKind.restrictive": {
+            "description": "Remedial actions are restrictive depending on each other. The need to include or to exclude might depend on the model. e.g. In the case of simplified DC model and detailed DC model. In the case where the simplified remedial action is used but not the remedial action for the detail model and opposite for the DC model.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionDependencyKind.balanced": {
+            "description": "This applies only to a set of power remedial actions and means that the remedial action needs to be balanced between the area (directly or indirectly to the bidding zone) that it is applied to.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionDependencyKind.exclusive": {
+            "description": "Remedial actions are exclusive depending on each other. e.g. Only one of the remedial actions can be selected at the same time.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionDependencyKind.none": {
+            "description": "Remedial actions are not depending on each other. However, the two remedial actions should be evaluated together.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionDependency.kind": {
+            "description": "Type of dependency between two remedial actions.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncRemedialActionDependencyKind",
+            "values": [
+                "RemedialActionDependencyKind.inclusive",
+                "RemedialActionDependencyKind.restrictive",
+                "RemedialActionDependencyKind.balanced",
+                "RemedialActionDependencyKind.exclusive",
+                "RemedialActionDependencyKind.none"
+            ]
+        },
+        "RemedialActionDependency.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "RemedialActionDependency.normalEnabled": {
+            "description": "If true, the remedial action dependency with contingency shall be considered under normal operating conditions.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Boolean"
+        },
+        "StaticPropertyRange": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the static range, which means that this is the minimum and/or maximum of an attribute value. The value provided by the schedule replaces the value of the attribute to which the schedule refers to.\nIn case that the PropertyReference refers to Boolean type attributes, RangeConstraint.direction shall be none or upAndDown and the RangeConstraint.valueKind shall be absolute. If the direction is none then optimization of the attribute referenced by the PropertyReference is not possible if the current status is already as the value in the range. Otherwise if the direction is upAndDown, the optimization can change from true to false or vice versa independently of the initial value in the operational scenario.\nFor instance for a tap changer related grid state alteration for a particular point in time, if the range of TapChanger.step is to be restricted, the value of the schedule will represent that new TapChanger.step range.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RangeConstraint.GridStateAlteration",
+                "RangeConstraint.direction",
+                "RangeConstraint.normalValue",
+                "RangeConstraint.valueKind",
+                "StaticPropertyRange.PropertyReference"
+            ]
+        },
+        "StaticPropertyRange.PropertyReference": {
+            "description": "Property reference for this static property range.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#PropertyReference"
+        },
+        "PowerElectronicsConnectionAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Power electronics setpoint action. ",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "PowerElectronicsConnectionAction.PowerElectronicsConnection"
+            ]
+        },
+        "PowerElectronicsConnectionAction.PowerElectronicsConnection": {
+            "description": "The PowerElectronicsConnection that is applied to an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#PowerElectronicsConnection"
+        },
+        "RotatingMachineAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Rotating machine action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "RotatingMachineAction.RotatingMachine"
+            ]
+        },
+        "RotatingMachineAction.RotatingMachine": {
+            "description": "The rotating machine that has an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#RotatingMachine"
+        },
+        "PinDCTerminal": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Input pin associated with a DCTerminal. It is used for comparison.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinDCTerminal.DCTerminal",
+                "PinDCTerminal.kind"
+            ]
+        },
+        "PinDCTerminal.DCTerminal": {
+            "description": "The DC terminal that has this pin DC terminal.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#DCTerminal"
+        },
+        "PinDCTerminalKind.current": {
+            "description": "Direct current in the DCTerminal.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "PinDCTerminalKind.voltage": {
+            "description": "Direct current voltage in the DCTerminal.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "PinDCTerminal.kind": {
+            "description": "The kind of quantity which is used as an input value.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncPinDCTerminalKind",
+            "values": [
+                "PinDCTerminalKind.current",
+                "PinDCTerminalKind.voltage"
+            ]
+        },
+        "StaticVarCompensatorAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Static Var compensator action.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GridStateAlteration.GridStateAlterationCollection",
+                "GridStateAlteration.GridStateAlterationRemedialAction",
+                "GridStateAlteration.PropertyReference",
+                "GridStateAlteration.maximumPerDay",
+                "GridStateAlteration.minimumActivation",
+                "GridStateAlteration.normalEnabled",
+                "GridStateAlteration.timePerStage",
+                "StaticVarCompensatorAction.StaticVarCompensator"
+            ]
+        },
+        "StaticVarCompensatorAction.StaticVarCompensator": {
+            "description": "The StaticVarCompensator which is associated with an action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "#StaticVarCompensator"
+        },
+        "TriggerCondition": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "The condition that triggers a remedial action scheme.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "TriggerCondition.GateTrigger",
+                "TriggerCondition.RemedialActionScheme"
+            ]
+        },
+        "TriggerCondition.GateTrigger": {
+            "description": "The gate that is the condition for the trigger.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        },
+        "TriggerCondition.RemedialActionScheme": {
+            "description": "The remedial action scheme that has the trigger condition.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionScheme"
+        },
+        "GridStateAlterationRemedialAction": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Grid state alteration remedial action describes one or many grid state alterations applied to a grid model state or a particular scenario in order to resolve one or more identified constraints. ",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "RemedialAction.AppointedToRegion",
+                "RemedialAction.RemedialActionSystemOperator",
+                "RemedialAction.impactThresholdMargin",
+                "RemedialAction.isCrossBorderRelevant",
+                "RemedialAction.isManual",
+                "RemedialAction.kind",
+                "RemedialAction.normalAvailable",
+                "RemedialAction.penaltyFactor",
+                "RemedialAction.timeToImplement"
+            ]
+        },
+        "PinGate": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "An output from one gate represents an input to another gate.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name",
+                "GateInputPin.Gate",
+                "GateInputPin.absoluteValue",
+                "GateInputPin.duration",
+                "GateInputPin.isValuePreFault",
+                "GateInputPin.logicKind",
+                "GateInputPin.negate",
+                "GateInputPin.thresholdPercentage",
+                "GateInputPin.thresholdValue",
+                "PinGate.GateOutput"
+            ]
+        },
+        "PinGate.GateOutput": {
+            "description": "The output of the gate.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#Gate"
+        }
+    }
+}
