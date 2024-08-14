@@ -13,5 +13,5 @@ deploy-to-github:
     - git config http.sslVerify false
     - git push --mirror github
   only:
-    - main
+    - dev
   when: manual
