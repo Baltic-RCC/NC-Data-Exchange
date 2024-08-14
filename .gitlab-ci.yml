@@ -9,7 +9,7 @@ deploy-to-github:
     - git config http.sslVerify false
     - git clone --bare https://$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
     - cd repo
-    - git remote add github https://$GITHUB_TOKEN@github.com/$USERNAME/$REPOSITORY
+    - git remote add github https://package-distribution:$GITHUB_TOKEN@github.com/$USERNAME/$REPOSITORY
     - git config http.sslVerify false
     - git push --mirror github
   only:
