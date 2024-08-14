@@ -4,8 +4,6 @@ stages:
 
 deploy-to-github:
   stage: deploy
-  rules:
-    - when: manual
   script:
     - apk add --no-cache git
     - git config http.sslVerify false
@@ -14,3 +12,6 @@ deploy-to-github:
     - git remote add github https://$GITHUB_TOKEN@github.com/$USERNAME/$REPOSITORY
     - git config http.sslVerify false
     - git push --mirror github
+  only:
+    - dev
+  when: manual
