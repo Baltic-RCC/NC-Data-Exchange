@@ -85,7 +85,11 @@ class Areas(BaseModel):
 
 class Borders(BaseModel):
     belgium_netherlands: Border = Border(name="BE-NL", eic="10YDOM--BE-NL--8", tso1="ELIA", tso2="TENNET")
-    lithuania_latvia: Border = Border(name="LV-LT", eic="10YDOM-1001A055O", tso1="AST", tso2="LITGRID")
+    latvia_lithuania: Border = Border(name="LV-LT", eic="10YDOM-1001A055O", tso1="AST", tso2="LITGRID")
+    lithuania_sweden: Border = Border(name="LT-SE", eic="10YDOM-1001A060V", tso1="LITGRID", tso2="SVK")
+    lithuania_poland: Border = Border(name="LT-PL", eic="10YDOM-1001A081N", tso1="LITGRID", tso2="PSE")
+    estonia_latvia: Border = Border(name="EE-LV", eic="10YDOM-1001A058I", tso1="ELERING", tso2="AST")
+    estonia_finland: Border = Border(name="EE-FI", eic="10YDOM-1001A057K", tso1="ELERING", tso2="FINGRID")
 
     @property
     def df(self):
