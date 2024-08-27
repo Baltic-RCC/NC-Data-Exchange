@@ -1,5 +1,4 @@
 graft nc_data_exchange/profiles
 graft nc_data_exchange/rdfs
 graft docs
-
-prune tests
+graft tests/test-data
