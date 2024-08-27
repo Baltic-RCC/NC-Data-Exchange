@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:nc="https://cim4.eu/ns/nc#" xmlns:cim="https://cim.ucaiug.io/ns#" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dcterms="http://purl.org/dc/terms/#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:eumd="https://cim4.eu/ns/Metadata-European#">
+  <md:FullModel rdf:about="urn:uuid:565d5f88-ddef-4dad-85e4-e89fde126d39">
+    <dcterms:identifier>urn:uuid:565d5f88-ddef-4dad-85e4-e89fde126d39</dcterms:identifier>
+    <md:Model.description>Instance of RemedialActionSchedule profile</md:Model.description>
+    <dcterms:title>2024-08-06T07:42:17Z_RAS_d9a9b7e8</dcterms:title>
+    <dcterms:conformsTo rdf:resource="https://ap.cim4.eu/RemedialActionSchedule/2.3"/>
+    <dcterms:publisher rdf:resource="https://energy.referencedata.eu/EIC/38X-BALTIC-RSC-H"/>
+    <dcterms:accessRights rdf:resource="https://energy.referencedata.eu/Confidentiality/Confidential"/>
+    <eumd:Model.applicationSoftware>BALTIC RCC CUSTOM</eumd:Model.applicationSoftware>
+    <md:Model.created>2024-08-06T07:42:17Z</md:Model.created>
+    <md:Model.version>1</md:Model.version>
+    <dcat:startDate>2024-06-13T13:00:00Z</dcat:startDate>
+    <dcat:endDate>2024-06-13T18:00:00Z</dcat:endDate>
+    <dcat:keyword>RAS</dcat:keyword>
+  </md:FullModel>
+  <nc:CountertradeScheduleAction rdf:ID="_5dcf3cff-1f6c-4c5c-9e14-3a9ac419d4d6">
+    <cim:IdentifiedObject.mRID>5dcf3cff-1f6c-4c5c-9e14-3a9ac419d4d6</cim:IdentifiedObject.mRID>
+    <nc:PowerScheduleAction.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerScheduleAction.RemedialActionSchedule rdf:resource="#_b42d6e83-eb8a-4f59-976e-61d4a39f2f56"/>
+  </nc:CountertradeScheduleAction>
+  <nc:PowerSchedule rdf:ID="_7d083d0e-f1d0-4660-be5d-67ada050d067">
+    <cim:IdentifiedObject.mRID>7d083d0e-f1d0-4660-be5d-67ada050d067</cim:IdentifiedObject.mRID>
+    <nc:BaseTimeSeries.interpolationKind rdf:resource="https://cim4.eu/ns/nc#TimeSeriesInterpolationKind.next"/>
+  </nc:PowerSchedule>
+  <nc:PowerTimePoint rdf:ID="_9a9157e8-83f3-4002-ac7c-9fa356205b7b">
+    <nc:PowerTimePoint.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerTimePoint.atTime>2024-06-13T14:00:00Z</nc:PowerTimePoint.atTime>
+    <nc:PowerTimePoint.p>100.0</nc:PowerTimePoint.p>
+  </nc:PowerTimePoint>
+  <nc:PowerTimePoint rdf:ID="_3deb40f3-ad1b-4863-9f3c-64f6a235e93d">
+    <nc:PowerTimePoint.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerTimePoint.atTime>2024-06-13T15:00:00Z</nc:PowerTimePoint.atTime>
+    <nc:PowerTimePoint.p>100.0</nc:PowerTimePoint.p>
+  </nc:PowerTimePoint>
+  <nc:PowerTimePoint rdf:ID="_03cd50dd-c178-4b15-b5d4-608fe651b762">
+    <nc:PowerTimePoint.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerTimePoint.atTime>2024-06-13T16:00:00Z</nc:PowerTimePoint.atTime>
+    <nc:PowerTimePoint.p>100.0</nc:PowerTimePoint.p>
+  </nc:PowerTimePoint>
+  <nc:PowerTimePoint rdf:ID="_4046e581-1e6e-44c6-8f66-d0a3bc39db92">
+    <nc:PowerTimePoint.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerTimePoint.atTime>2024-06-13T17:00:00Z</nc:PowerTimePoint.atTime>
+    <nc:PowerTimePoint.p>100.0</nc:PowerTimePoint.p>
+  </nc:PowerTimePoint>
+  <nc:PowerTimePoint rdf:ID="_58540f49-d3b5-43fe-9c3f-d0b8edc23ca3">
+    <nc:PowerTimePoint.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerTimePoint.atTime>2024-06-13T18:00:00Z</nc:PowerTimePoint.atTime>
+    <nc:PowerTimePoint.p>100.0</nc:PowerTimePoint.p>
+  </nc:PowerTimePoint>
+  <nc:PowerTimePoint rdf:ID="_b40519f6-8432-46a8-bfae-3c6d2be9bb0a">
+    <nc:PowerTimePoint.PowerSchedule rdf:resource="#_7d083d0e-f1d0-4660-be5d-67ada050d067"/>
+    <nc:PowerTimePoint.atTime>2024-06-13T13:00:00Z</nc:PowerTimePoint.atTime>
+    <nc:PowerTimePoint.p>100.0</nc:PowerTimePoint.p>
+  </nc:PowerTimePoint>
+<nc:RemedialActionSchedule rdf:ID="_b42d6e83-eb8a-4f59-976e-61d4a39f2f56">
+    <cim:IdentifiedObject.mRID>b42d6e83-eb8a-4f59-976e-61d4a39f2f56</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>CT_SCHEDULE</cim:IdentifiedObject.name>
+    <cim:IdentifiedObject.description>Power schedule for countertrading</cim:IdentifiedObject.description>
+    <nc:RemedialActionSchedule.statusKind rdf:resource="https://cim4.eu/ns/nc#RemedialActionScheduleStatusKind.proposed"/>
+    <nc:RemedialActionSchedule.AssignedRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00120B"/>
+    <nc:RemedialActionSchedule.ProposingEntity rdf:resource="https://energy.referencedata.eu/EIC/38X-BALTIC-RSC-H"/>
+    <nc:RemedialActionSchedule.RemedialAction rdf:resource="#_5658d6fa-10bb-4f11-8049-aa2978aceff8"/>
+    <nc:RemedialActionSchedule.Contingency rdf:resource="#_8fac3367-7b25-485d-80e9-1bde01a7c516"/>
+  </nc:RemedialActionSchedule>
+  </rdf:RDF>

@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dcterms="http://purl.org/dc/terms/#" xmlns:nc="https://cim4.eu/ns/nc#" xmlns:eumd="https://cim4.eu/ns/Metadata-European#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="https://cim.ucaiug.io/ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:brcc="https://baltic-rcc.eu/ns/brcc-nc#">
+  <md:FullModel rdf:about="urn:uuid:ba9684d0-ab3b-4a10-91ae-e0d863cc0f2c">
+    <dcterms:identifier>urn:uuid:ba9684d0-ab3b-4a10-91ae-e0d863cc0f2c</dcterms:identifier>
+    <md:Model.description>Instance of RemedialAction profile</md:Model.description>
+    <dcterms:title>2024-08-05T13:54:51Z_RA_0e9fa149</dcterms:title>
+    <dcterms:conformsTo rdf:resource="https://ap.cim4.eu/RemedialAction/2.3"/>
+    <dcterms:publisher rdf:resource="https://energy.referencedata.eu/EIC/38X-BALTIC-RSC-H"/>
+    <dcterms:accessRights rdf:resource="https://energy.referencedata.eu/Confidentiality/Confidential"/>
+    <eumd:Model.applicationSoftware>BALTIC RCC CUSTOM</eumd:Model.applicationSoftware>
+    <md:Model.created>2024-08-05T13:54:51Z</md:Model.created>
+    <md:Model.version>1</md:Model.version>
+    <dcat:startDate>2024-06-12T22:00:00</dcat:startDate>
+    <dcat:endDate>2024-06-13T22:00:00</dcat:endDate>
+    <dcat:keyword>RA</dcat:keyword>
+  </md:FullModel>
+  <nc:CountertradeRemedialAction rdf:ID="_5658d6fa-10bb-4f11-8049-aa2978aceff8">
+    <cim:IdentifiedObject.mRID>5658d6fa-10bb-4f11-8049-aa2978aceff8</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>COUNTERTRADE_BE-NL</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>true</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:PowerRemedialAction.BiddingZoneBorder rdf:resource="https://energy.referencedata.eu/EIC/10YDOM--BE-NL--8"/>
+  </nc:CountertradeRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_2756624d-5124-4d24-8258-2c165159dc9b">
+    <cim:IdentifiedObject.mRID>2756624d-5124-4d24-8258-2c165159dc9b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_BE-TR2_1</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.preventive"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_a1205999-fcd3-4137-8878-6c15a090de39">
+    <cim:IdentifiedObject.mRID>a1205999-fcd3-4137-8878-6c15a090de39</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_NL-G3</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_a6c7417b-eb95-4505-ba23-e719a7017238">
+    <cim:IdentifiedObject.mRID>a6c7417b-eb95-4505-ba23-e719a7017238</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_BE-Line_2</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_be6ddac5-b696-4ae9-86ee-8a0bcdeb4f03">
+    <cim:IdentifiedObject.mRID>be6ddac5-b696-4ae9-86ee-8a0bcdeb4f03</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_NL-G2</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_8aa094c0-a964-49d8-877d-6f8da9d17cb5">
+    <cim:IdentifiedObject.mRID>8aa094c0-a964-49d8-877d-6f8da9d17cb5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_BE-G2</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.preventive"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_ee8e8147-f7fa-47ed-a353-f547a54014e7">
+    <cim:IdentifiedObject.mRID>ee8e8147-f7fa-47ed-a353-f547a54014e7</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_BE-Load_1</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_eadf1901-f858-4a05-81e8-0665641d6237">
+    <cim:IdentifiedObject.mRID>eadf1901-f858-4a05-81e8-0665641d6237</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_NL-Line_3</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>true</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_a3d0a4ac-8c17-4e07-b647-7ab8e33610c2">
+    <cim:IdentifiedObject.mRID>a3d0a4ac-8c17-4e07-b647-7ab8e33610c2</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_BE_S1</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.preventive"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:GridStateAlterationRemedialAction rdf:ID="_ad300d6c-632d-4b11-93f7-f25ccaa5ff4b">
+    <cim:IdentifiedObject.mRID>ad300d6c-632d-4b11-93f7-f25ccaa5ff4b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>RA_BE-TR2_3</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>false</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:GridStateAlterationRemedialAction>
+  <nc:LoadAction rdf:ID="_7e77ff62-2e9f-4d5b-a6b4-e7abaa7ffbeb">
+    <cim:IdentifiedObject.mRID>7e77ff62-2e9f-4d5b-a6b4-e7abaa7ffbeb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_BE-Load_1</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_ee8e8147-f7fa-47ed-a353-f547a54014e7"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/EnergyConsumer.p"/>
+    <nc:LoadAction.EnergyConsumer rdf:resource="#_cb459405-cc14-4215-a45c-416789205904"/>
+  </nc:LoadAction>
+  <nc:RedispatchRemedialAction rdf:ID="_87c806b5-fa24-4273-93bb-f86d9fb99a64">
+    <cim:IdentifiedObject.mRID>87c806b5-fa24-4273-93bb-f86d9fb99a64</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>REDISPATCH_NL</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>true</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.preventive"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
+    <nc:PowerRemedialAction.BiddingZone rdf:resource="https://energy.referencedata.eu/EIC/10YNL----------L"/>
+  </nc:RedispatchRemedialAction>
+  <nc:RedispatchRemedialAction rdf:ID="_786bff43-af93-4182-a030-0b510d881115">
+    <cim:IdentifiedObject.mRID>786bff43-af93-4182-a030-0b510d881115</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>REDISPATCH_BE</cim:IdentifiedObject.name>
+    <nc:RemedialAction.isCrossBorderRelevant>true</nc:RemedialAction.isCrossBorderRelevant>
+    <nc:RemedialAction.kind rdf:resource="https://cim4.eu/ns/nc#RemedialActionKind.curative"/>
+    <nc:RemedialAction.normalAvailable>true</nc:RemedialAction.normalAvailable>
+    <nc:RemedialAction.AppointedToRegion rdf:resource="https://energy.referencedata.eu/EIC/10Y1001C--00059P"/>
+    <nc:RemedialAction.RemedialActionSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:PowerRemedialAction.BiddingZone rdf:resource="https://energy.referencedata.eu/EIC/10YBE----------2"/>
+  </nc:RedispatchRemedialAction>
+<nc:RegulatingControlAction rdf:ID="_3f468cce-bb84-4bbf-8894-50eaa98eb129">
+    <cim:IdentifiedObject.mRID>3f468cce-bb84-4bbf-8894-50eaa98eb129</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_BE-G2</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_8aa094c0-a964-49d8-877d-6f8da9d17cb5"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/RegulatingControl.enabled"/>
+    <nc:RegulatingControlAction.RegulatingControl rdf:resource="#_84bf5be8-eb59-4555-b131-fce4d2d7775d"/>
+  </nc:RegulatingControlAction>
+  <nc:RotatingMachineAction rdf:ID="_8aecc769-6ae4-464c-8b43-8ceae112ed3b">
+    <cim:IdentifiedObject.mRID>8aecc769-6ae4-464c-8b43-8ceae112ed3b</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_NL-G2</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_be6ddac5-b696-4ae9-86ee-8a0bcdeb4f03"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/RotatingMachine.q"/>
+    <nc:RotatingMachineAction.RotatingMachine rdf:resource="#_2844585c-0d35-488d-a449-685bcd57afbf"/>
+  </nc:RotatingMachineAction>
+  <nc:ShuntCompensatorModification rdf:ID="_25b8b57c-55a0-4204-8b2a-1bb86078f827">
+    <cim:IdentifiedObject.mRID>25b8b57c-55a0-4204-8b2a-1bb86078f827</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_BE_S1</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_a3d0a4ac-8c17-4e07-b647-7ab8e33610c2"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/ShuntCompensator.sections"/>
+    <nc:ShuntCompensatorModification.ShuntCompensator rdf:resource="#_d771118f-36e9-4115-a128-cc3d9ce3e3da"/>
+  </nc:ShuntCompensatorModification>
+  <nc:StaticPropertyRange rdf:ID="_8b9f2f05-74c5-4910-a22c-df2708650bec">
+    <cim:IdentifiedObject.mRID>8b9f2f05-74c5-4910-a22c-df2708650bec</cim:IdentifiedObject.mRID>
+    <nc:RangeConstraint.normalValue>175.0</nc:RangeConstraint.normalValue>
+    <nc:RangeConstraint.direction rdf:resource="https://cim4.eu/ns/nc#RelativeDirectionKind.down"/>
+    <nc:RangeConstraint.valueKind rdf:resource="https://cim4.eu/ns/nc#ValueOffsetKind.absolute"/>
+    <nc:RangeConstraint.GridStateAlteration rdf:resource="#_7e77ff62-2e9f-4d5b-a6b4-e7abaa7ffbeb"/>
+    <nc:StaticPropertyRange.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/EnergyConsumer.p"/>
+  </nc:StaticPropertyRange>
+  <nc:StaticPropertyRange rdf:ID="_0f153de2-bb25-4640-bec7-e857d0c7f18c">
+    <cim:IdentifiedObject.mRID>0f153de2-bb25-4640-bec7-e857d0c7f18c</cim:IdentifiedObject.mRID>
+    <nc:RangeConstraint.normalValue>0.0</nc:RangeConstraint.normalValue>
+    <nc:RangeConstraint.direction rdf:resource="https://cim4.eu/ns/nc#RelativeDirectionKind.none"/>
+    <nc:RangeConstraint.valueKind rdf:resource="https://cim4.eu/ns/nc#ValueOffsetKind.absolute"/>
+    <nc:RangeConstraint.GridStateAlteration rdf:resource="#_6247d645-a81f-499d-a70a-ac7d343fec91"/>
+    <nc:StaticPropertyRange.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/ACDCTerminal.connected"/>
+  </nc:StaticPropertyRange>
+  <nc:StaticPropertyRange rdf:ID="_cc18fbf4-bdc5-4bad-97d3-2cdcc10cf4ab">
+    <cim:IdentifiedObject.mRID>cc18fbf4-bdc5-4bad-97d3-2cdcc10cf4ab</cim:IdentifiedObject.mRID>
+    <nc:RangeConstraint.normalValue>0.0</nc:RangeConstraint.normalValue>
+    <nc:RangeConstraint.direction rdf:resource="https://cim4.eu/ns/nc#RelativeDirectionKind.none"/>
+    <nc:RangeConstraint.valueKind rdf:resource="https://cim4.eu/ns/nc#ValueOffsetKind.absolute"/>
+    <nc:RangeConstraint.GridStateAlteration rdf:resource="#_313d91f4-982f-4b35-be2f-c7664d37cee1"/>
+    <nc:StaticPropertyRange.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/Equipment.inService"/>
+  </nc:StaticPropertyRange>
+  <nc:StaticPropertyRange rdf:ID="_db80fb51-b135-4e45-a27d-051cffb39455">
+    <cim:IdentifiedObject.mRID>db80fb51-b135-4e45-a27d-051cffb39455</cim:IdentifiedObject.mRID>
+    <nc:RangeConstraint.normalValue>14.0</nc:RangeConstraint.normalValue>
+    <nc:RangeConstraint.direction rdf:resource="https://cim4.eu/ns/nc#RelativeDirectionKind.upAndDown"/>
+    <nc:RangeConstraint.valueKind rdf:resource="https://cim4.eu/ns/nc#ValueOffsetKind.absolute"/>
+    <nc:RangeConstraint.GridStateAlteration rdf:resource="#_658843c7-fd8e-412a-82ec-e408b79feb48"/>
+    <nc:StaticPropertyRange.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/TapChanger.step"/>
+  </nc:StaticPropertyRange>
+  <nc:StaticPropertyRange rdf:ID="_7c90ccbd-4b0d-47d1-908e-ce17afdd6fd7">
+    <cim:IdentifiedObject.mRID>7c90ccbd-4b0d-47d1-908e-ce17afdd6fd7</cim:IdentifiedObject.mRID>
+    <nc:RangeConstraint.normalValue>-60.0</nc:RangeConstraint.normalValue>
+    <nc:RangeConstraint.direction rdf:resource="https://cim4.eu/ns/nc#RelativeDirectionKind.upAndDown"/>
+    <nc:RangeConstraint.valueKind rdf:resource="https://cim4.eu/ns/nc#ValueOffsetKind.absolute"/>
+    <nc:RangeConstraint.GridStateAlteration rdf:resource="#_8aecc769-6ae4-464c-8b43-8ceae112ed3b"/>
+    <nc:StaticPropertyRange.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/RotatingMachine.q"/>
+  </nc:StaticPropertyRange>
+  <nc:StaticPropertyRange rdf:ID="_dd7682b0-17dd-4991-94d6-703450159d63">
+    <cim:IdentifiedObject.mRID>dd7682b0-17dd-4991-94d6-703450159d63</cim:IdentifiedObject.mRID>
+    <nc:RangeConstraint.normalValue>0.0</nc:RangeConstraint.normalValue>
+    <nc:RangeConstraint.direction rdf:resource="https://cim4.eu/ns/nc#RelativeDirectionKind.none"/>
+    <nc:RangeConstraint.valueKind rdf:resource="https://cim4.eu/ns/nc#ValueOffsetKind.absolute"/>
+    <nc:RangeConstraint.GridStateAlteration rdf:resource="#_6d7e823b-22f6-40a0-9ff9-da8c37d4b5bb"/>
+    <nc:StaticPropertyRange.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/Equipment.inService"/>
+  </nc:StaticPropertyRange>
+  <nc:TapPositionAction rdf:ID="_658843c7-fd8e-412a-82ec-e408b79feb48">
+    <cim:IdentifiedObject.mRID>658843c7-fd8e-412a-82ec-e408b79feb48</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_BE-TR2_3</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_ad300d6c-632d-4b11-93f7-f25ccaa5ff4b"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/TapChanger.step"/>
+    <nc:TapPositionAction.TapChanger rdf:resource="#_83cc66dd-8d93-4a2c-8103-f1f5a9cf7e2e"/>
+  </nc:TapPositionAction>
+  <nc:TopologyAction rdf:ID="_6247d645-a81f-499d-a70a-ac7d343fec91">
+    <cim:IdentifiedObject.mRID>6247d645-a81f-499d-a70a-ac7d343fec91</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_NL-Line_3</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_eadf1901-f858-4a05-81e8-0665641d6237"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/ACDCTerminal.connected"/>
+    <nc:TopologyAction.Switch rdf:resource="#_a279a3dc-550b-426c-af3a-61b7be508dcc"/>
+    <brcc:TopologyAction.Equipment rdf:resource="#_a279a3dc-550b-426c-af3a-61b7be508dcc"/>
+  </nc:TopologyAction>
+  <nc:TopologyAction rdf:ID="_313d91f4-982f-4b35-be2f-c7664d37cee1">
+    <cim:IdentifiedObject.mRID>313d91f4-982f-4b35-be2f-c7664d37cee1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_NL-G3</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_a1205999-fcd3-4137-8878-6c15a090de39"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/Equipment.inService"/>
+    <nc:TopologyAction.Switch rdf:resource="#_1dc9afba-23b5-41a0-8540-b479ed8baf4b"/>
+    <brcc:TopologyAction.Equipment rdf:resource="#_1dc9afba-23b5-41a0-8540-b479ed8baf4b"/>
+  </nc:TopologyAction>
+  <nc:TopologyAction rdf:ID="_6d7e823b-22f6-40a0-9ff9-da8c37d4b5bb">
+    <cim:IdentifiedObject.mRID>6d7e823b-22f6-40a0-9ff9-da8c37d4b5bb</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_BE-TR2_1</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_2756624d-5124-4d24-8258-2c165159dc9b"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/Equipment.inService"/>
+    <nc:TopologyAction.Switch rdf:resource="#_a708c3bc-465d-4fe7-b6ef-6fa6408a62b0"/>
+    <brcc:TopologyAction.Equipment rdf:resource="#_a708c3bc-465d-4fe7-b6ef-6fa6408a62b0"/>
+  </nc:TopologyAction>
+  <nc:TopologyAction rdf:ID="_df956c8e-af25-410b-b94b-9985a27c6508">
+    <cim:IdentifiedObject.mRID>df956c8e-af25-410b-b94b-9985a27c6508</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>ALT_BE-Line_2</cim:IdentifiedObject.name>
+    <nc:GridStateAlteration.normalEnabled>true</nc:GridStateAlteration.normalEnabled>
+    <nc:GridStateAlteration.GridStateAlterationRemedialAction rdf:resource="#_a6c7417b-eb95-4505-ba23-e719a7017238"/>
+    <nc:GridStateAlteration.PropertyReference rdf:resource="https://energy.referencedata.eu/PropertyReference/ACDCTerminal.connected"/>
+    <nc:TopologyAction.Switch rdf:resource="#_b58bf21a-096a-4dae-9a01-3f03b60c24c7"/>
+    <brcc:TopologyAction.Equipment rdf:resource="#_b58bf21a-096a-4dae-9a01-3f03b60c24c7"/>
+  </nc:TopologyAction>
+  </rdf:RDF>

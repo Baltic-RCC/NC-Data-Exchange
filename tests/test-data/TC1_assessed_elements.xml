@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:nc="https://cim4.eu/ns/nc#" xmlns:dcterms="http://purl.org/dc/terms/#" xmlns:cim="https://cim.ucaiug.io/ns#" xmlns:brcc="https://baltic-rcc.eu/ns/brcc-nc#" xmlns:eumd="https://cim4.eu/ns/Metadata-European#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <md:FullModel rdf:about="urn:uuid:68e616c0-f5e2-4f37-b86c-0784a1b3c5de">
+    <dcterms:identifier>urn:uuid:68e616c0-f5e2-4f37-b86c-0784a1b3c5de</dcterms:identifier>
+    <md:Model.description>Instance of AssessedElement profile</md:Model.description>
+    <dcterms:title>2024-08-05T13:54:50Z_AE_fdb25851</dcterms:title>
+    <dcterms:conformsTo rdf:resource="https://ap.cim4.eu/AssessedElement/2.3"/>
+    <dcterms:publisher rdf:resource="https://energy.referencedata.eu/EIC/38X-BALTIC-RSC-H"/>
+    <dcterms:accessRights rdf:resource="https://energy.referencedata.eu/Confidentiality/Confidential"/>
+    <eumd:Model.applicationSoftware>BALTIC RCC CUSTOM</eumd:Model.applicationSoftware>
+    <md:Model.created>2024-08-05T13:54:50Z</md:Model.created>
+    <md:Model.version>1</md:Model.version>
+    <dcat:startDate>2024-06-12T22:00:00</dcat:startDate>
+    <dcat:endDate>2024-06-13T22:00:00</dcat:endDate>
+    <dcat:keyword>AE</dcat:keyword>
+  </md:FullModel>
+  <nc:AssessedElement rdf:ID="_f8a47760-b7ce-4d0b-874c-4d21a107c8a5">
+    <cim:IdentifiedObject.mRID>f8a47760-b7ce-4d0b-874c-4d21a107c8a5</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_1</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_17086487-56ba-4979-b8de-064025a6b4da"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_0d88e19b-5a8f-4735-beea-2e07a458cabc">
+    <cim:IdentifiedObject.mRID>0d88e19b-5a8f-4735-beea-2e07a458cabc</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_3</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_78736387-5f60-4832-b3fe-d50daf81b0a6"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_70174a35-0e2d-4a0a-8854-ded79af22d2f">
+    <cim:IdentifiedObject.mRID>70174a35-0e2d-4a0a-8854-ded79af22d2f</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_2</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_b58bf21a-096a-4dae-9a01-3f03b60c24c7"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_fd243c93-c170-4408-968b-fc65a263de33">
+    <cim:IdentifiedObject.mRID>fd243c93-c170-4408-968b-fc65a263de33</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>NL-Line_1</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_7f43f508-2496-4b64-9146-0a40406cbe49"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_616abfab-70ba-450a-b012-0eadd1f54d1a">
+    <cim:IdentifiedObject.mRID>616abfab-70ba-450a-b012-0eadd1f54d1a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_7</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_a16b4a6c-70b1-4abf-9a9d-bd0fa47f9fe4"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_6ec89945-23d1-4db1-aeb9-a4d38d014f0a">
+    <cim:IdentifiedObject.mRID>6ec89945-23d1-4db1-aeb9-a4d38d014f0a</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_5</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_b18cd1aa-7808-49b9-a7cf-605eaf07b006"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_261ce371-e043-4d96-8384-9c702f365378">
+    <cim:IdentifiedObject.mRID>261ce371-e043-4d96-8384-9c702f365378</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_6</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_ffbabc27-1ccd-4fdc-b037-e341706c8d29"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_0423e5f8-aab0-4d70-b65c-898340d27023">
+    <cim:IdentifiedObject.mRID>0423e5f8-aab0-4d70-b65c-898340d27023</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_4</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>false</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_ed0c5d75-4a54-43c8-b782-b20d7431630b"/>
+  </nc:AssessedElement>
+  <nc:AssessedElement rdf:ID="_6eceb34e-d8f3-49c8-add6-77a6c8f6416d">
+    <cim:IdentifiedObject.mRID>6eceb34e-d8f3-49c8-add6-77a6c8f6416d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>NL-Line_2</cim:IdentifiedObject.name>
+    <nc:AssessedElement.inBaseCase>true</nc:AssessedElement.inBaseCase>
+    <brcc:AssessedElement.isCrossBorderRelevant>true</brcc:AssessedElement.isCrossBorderRelevant>
+    <nc:AssessedElement.normalEnabled>true</nc:AssessedElement.normalEnabled>
+    <nc:AssessedElement.AssessedSystemOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
+    <nc:AssessedElement.ConductingEquipment rdf:resource="#_dad02278-bd25-476f-8f58-dbe44be72586"/>
+  </nc:AssessedElement>
+</rdf:RDF>
