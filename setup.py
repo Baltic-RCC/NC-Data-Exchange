@@ -11,6 +11,9 @@ setuptools.setup(
     install_requires=[
         "pandas>=2.2.2",
         "pydantic>=2.5.2",
+        "pydantic_settings>=2.1.0",
+        "xmltodict>=0.13.0",
+        "openpyxl>=3.1.2",
         "lxml>=5.0.0",
         "rdflib>=7.0.0",
         "triplets>=0.0.7",
