@@ -18,7 +18,7 @@ VERSION = "1"
 FILE_PATH = r"file-path.xlsx"
 
 # Run service
-service = InputStructuralDataProfile(start_time=START_TIME, end_time=END_TIME, version=VERSION)
+service = InputStructuralDataProfile(start_time=START_TIME, end_time=END_TIME, publisher="38X-BALTIC-RSC-H", version=VERSION)
 co_rdfxml = service.generate_contingency_elements_profile(elements=FILE_PATH)
 
 # Export generated file

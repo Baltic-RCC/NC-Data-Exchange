@@ -49,14 +49,14 @@ if __name__ == '__main__':
 
     # Building profile graph
     profile = Profile(profile_name='AssessedElement')
-    profile.add_document_header(start_date="2023-06-20T22:30:00Z", end_date="2023-06-21T21:30:00Z")
+    profile.add_document_header(startDate="2023-06-20T22:30:00Z", endDate="2023-06-21T21:30:00Z")
     profile.add_element(element=assessed_element)
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
     # profile.export_graph(output_path=r"../tests/samples/ex_AssessedElement(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../tests/samples/ex_AssessedElement(test_data).xml",
+        output_path=r"../../tests/samples/ex_AssessedElement(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,
