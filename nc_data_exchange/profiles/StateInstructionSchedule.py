@@ -82,7 +82,7 @@ if __name__ == '__main__':
 
     # Building profile graph
     profile = Profile(profile_name='StateInstructionSchedule')
-    profile.add_document_header(start_date=START_TIME, end_date=END_TIME)
+    profile.add_document_header(startDate=START_TIME, endDate=END_TIME)
     profile.add_element(element=assessed_element_schedule)
     # creating time points
     for timestamp in time_range_str:
@@ -97,7 +97,7 @@ if __name__ == '__main__':
     print(profile.rdf_pretty_xml)
     # profile.export_graph(output_path=r"../tests/samples/ex_StateInstructionSchedule(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../tests/samples/ex_StateInstructionSchedule(test_data).xml",
+        output_path=r"../../tests/samples/ex_StateInstructionSchedule(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,

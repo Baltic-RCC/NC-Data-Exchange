@@ -16,6 +16,7 @@ class InputStructuralDataProfile:
                  # if timezone is not defined in datetime object, then UTC is needed (in case of string - isoformat)
                  start_time: datetime | str,
                  end_time: datetime | str,
+                 publisher: str,  # party EIC code
                  version: str | int = "1",
                  ):
 
@@ -26,6 +27,7 @@ class InputStructuralDataProfile:
         else:
             self.start_time = start_time.astimezone(pytz.utc)
             self.end_time = end_time.astimezone(pytz.utc)
+        self.publisher = publisher
         self.version = version
 
         logger.info(f"Initiating common input profile for: {start_time}/{end_time} [{start_time.tzinfo.zone}]")
@@ -67,7 +69,11 @@ class InputStructuralDataProfile:
 
         # Initiating constructor of Contingency profile
         profile = Profile(profile_name='Contingency')
-        profile.add_document_header(start_date=self.start_time, end_date=self.end_time, version=str(self.version))
+        profile.add_document_header(startDate=self.start_time,
+                                    endDate=self.end_time,
+                                    publisher=self.publisher,
+                                    version=str(self.version),
+                                    )
 
         for index, data in df.groupby('registered_resource'):
 
@@ -143,7 +149,11 @@ class InputStructuralDataProfile:
 
         # Initiating constructor of AssessedElement profile
         profile = Profile(profile_name='AssessedElement')
-        profile.add_document_header(start_date=self.start_time, end_date=self.end_time, version=str(self.version))
+        profile.add_document_header(startDate=self.start_time,
+                                    endDate=self.end_time,
+                                    publisher=self.publisher,
+                                    version=str(self.version),
+                                    )
 
         for index, data in df.iterrows():
             # Creating AssessedElement instances
@@ -196,7 +206,11 @@ class InputStructuralDataProfile:
 
         # Initiating constructor of RemedialAction profile
         profile = Profile(profile_name='RemedialAction')
-        profile.add_document_header(start_date=self.start_time, end_date=self.end_time, version=str(self.version))
+        profile.add_document_header(startDate=self.start_time,
+                                    endDate=self.end_time,
+                                    publisher=self.publisher,
+                                    version=str(self.version),
+                                    )
 
         for index, data in df.iterrows():
 
@@ -275,8 +289,8 @@ class InputStructuralDataProfile:
 
 if __name__ == '__main__':
     # Testing
-    START_TIME = pytz.timezone('CET').localize(datetime(2024, 6, 7, 0, 0))
-    END_TIME = pytz.timezone('CET').localize(datetime(2024, 6, 8, 0, 0))
+    START_TIME = pytz.timezone('CET').localize(datetime(2024, 10, 1, 0, 0))
+    END_TIME = pytz.timezone('CET').localize(datetime(2024, 10, 2, 0, 0))
     VERSION = "1"
 
     # Get input data
@@ -284,7 +298,7 @@ if __name__ == '__main__':
     elements = pd.read_excel(ELEMENTS_PATH)
 
     # Run service
-    service = InputStructuralDataProfile(start_time=START_TIME, end_time=END_TIME, version=VERSION)
+    service = InputStructuralDataProfile(start_time=START_TIME, end_time=END_TIME, publisher="38X-BALTIC-RSC-H", version=VERSION)
     # co_rdfxml = service.generate_contingency_elements_profile(elements=elements)
     # ae_rdfxml = service.generate_assessed_elements_profile(elements=elements)
     ra_rdfxml = service.generate_remedial_actions_profile(elements=elements)

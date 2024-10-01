@@ -12,7 +12,10 @@ logger = logging.getLogger(__name__)
 START_TIME = pytz.timezone('CET').localize(datetime(2024, 6, 13, 0, 0))
 END_TIME = pytz.timezone('CET').localize(datetime(2024, 6, 14, 0, 0))
 VERSION = "1"
-service = InputStructuralDataProfile(start_time=START_TIME, end_time=END_TIME, version=VERSION)
+service = InputStructuralDataProfile(start_time=START_TIME,
+                                     end_time=END_TIME,
+                                     publisher="38X-BALTIC-RSC-H",
+                                     version=VERSION)
 
 # Export contingencies dataset
 CONTINGENCIES_INPUT_PATH = "test-data/TC1_contingencies.xlsx"

@@ -26,7 +26,7 @@ class Model(BaseModel):
     description: Optional[str] = None
     title: Optional[str] = None
     conformsTo: Optional[str] = None  # possible not to be defined for Boundary profile
-    publisher: Optional[str] = "38X-BALTIC-RSC-H"
+    publisher: Optional[str] = None
     accessRights: Optional[str] = "Confidential"
     spatial: Optional[str] = None
     references: Optional[List[str]] = None
@@ -111,13 +111,14 @@ if __name__ == '__main__':
         start_date="2023-06-20T22:00:00Z",
         end_date="2023-06-21T21:00:00Z",
         version="1",
+        publisher="38X-BALTIC-RSC-H",
     )
 
     # Print/save test data profile
     print(profile.rdf_pretty_xml)
     # profile.export_graph(output_path=r"../tests/samples/ex_DocumentHeader(test_data).xml")
     profile.get_profile_xml(
-        output_path=r"../tests/samples/ex_DocumentHeader(test_data).xml",
+        output_path=r"../../tests/samples/ex_DocumentHeader(test_data).xml",
         fix_rdf_about=True,
         remove_rdf_datatype=True,
         save=True,

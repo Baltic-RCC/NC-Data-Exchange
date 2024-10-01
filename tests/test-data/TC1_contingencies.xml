@@ -1,25 +1,53 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rdf:RDF xmlns:nc="https://cim4.eu/ns/nc#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dcterms="http://purl.org/dc/terms/#" xmlns:cim="https://cim.ucaiug.io/ns#" xmlns:eumd="https://cim4.eu/ns/Metadata-European#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-  <md:FullModel rdf:about="urn:uuid:8d6118b6-5a67-4809-9c68-d649893d9270">
-    <dcterms:identifier>urn:uuid:8d6118b6-5a67-4809-9c68-d649893d9270</dcterms:identifier>
+<rdf:RDF xmlns:dcat="http://www.w3.org/ns/dcat#" xmlns:dcterms="http://purl.org/dc/terms/#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cim="https://cim.ucaiug.io/ns#" xmlns:md="http://iec.ch/TC57/61970-552/ModelDescription/1#" xmlns:nc="https://cim4.eu/ns/nc#" xmlns:eumd="https://cim4.eu/ns/Metadata-European#">
+  <md:FullModel rdf:about="urn:uuid:e09a6b24-e3c3-46de-93dc-5fcea7439b26">
+    <dcterms:identifier>urn:uuid:e09a6b24-e3c3-46de-93dc-5fcea7439b26</dcterms:identifier>
     <md:Model.description>Instance of Contingency profile</md:Model.description>
-    <dcterms:title>2024-08-05T13:54:50Z_CO_a53e5fb6</dcterms:title>
+    <dcterms:title>2024-10-01T10:42:34Z_CO_2c30e475</dcterms:title>
     <dcterms:conformsTo rdf:resource="https://ap.cim4.eu/Contingency/2.3"/>
     <dcterms:publisher rdf:resource="https://energy.referencedata.eu/EIC/38X-BALTIC-RSC-H"/>
     <dcterms:accessRights rdf:resource="https://energy.referencedata.eu/Confidentiality/Confidential"/>
     <eumd:Model.applicationSoftware>BALTIC RCC CUSTOM</eumd:Model.applicationSoftware>
-    <md:Model.created>2024-08-05T13:54:50Z</md:Model.created>
+    <md:Model.created>2024-10-01T10:42:34Z</md:Model.created>
     <md:Model.version>1</md:Model.version>
     <dcat:startDate>2024-06-12T22:00:00</dcat:startDate>
     <dcat:endDate>2024-06-13T22:00:00</dcat:endDate>
     <dcat:keyword>CO</dcat:keyword>
   </md:FullModel>
-  <cim:ContingencyEquipment rdf:ID="_ba56020b-ec8c-4a66-8f9c-1e3f5eb6c877">
-    <cim:IdentifiedObject.mRID>ba56020b-ec8c-4a66-8f9c-1e3f5eb6c877</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>BE-Line_4</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_2f28d2b2-b37f-444b-8661-cb7375299b61"/>
+  <cim:ContingencyEquipment rdf:ID="_6371bfc4-5adf-4522-821a-f78780ce2b2d">
+    <cim:IdentifiedObject.mRID>6371bfc4-5adf-4522-821a-f78780ce2b2d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_1</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_8fac3367-7b25-485d-80e9-1bde01a7c516"/>
     <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_ed0c5d75-4a54-43c8-b782-b20d7431630b"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_17086487-56ba-4979-b8de-064025a6b4da"/>
+  </cim:ContingencyEquipment>
+  <cim:ContingencyEquipment rdf:ID="_931138b0-9a1c-4f40-b5b1-498880077a8d">
+    <cim:IdentifiedObject.mRID>931138b0-9a1c-4f40-b5b1-498880077a8d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>NL-Line_3</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_ea6a5055-3108-4f86-bfd7-e1320a9473da"/>
+    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_a279a3dc-550b-426c-af3a-61b7be508dcc"/>
+  </cim:ContingencyEquipment>
+  <cim:ContingencyEquipment rdf:ID="_5e9d6ead-61da-4cca-9437-30df3f1463a1">
+    <cim:IdentifiedObject.mRID>5e9d6ead-61da-4cca-9437-30df3f1463a1</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-TR2_2</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_cc276a2f-98f7-4927-8e85-1560af6e223d"/>
+    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_b94318f6-6d24-4f56-96b9-df2531ad6543"/>
+  </cim:ContingencyEquipment>
+  <cim:ContingencyEquipment rdf:ID="_a412fe3f-6a0b-455a-ad95-7f9594cc6800">
+    <cim:IdentifiedObject.mRID>a412fe3f-6a0b-455a-ad95-7f9594cc6800</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-G1</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_288ac5c2-128e-40cd-b5b2-d3d79779694c"/>
+    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_3a3b27be-b18b-4385-b557-6735d733baf0"/>
+  </cim:ContingencyEquipment>
+  <cim:ContingencyEquipment rdf:ID="_469a8260-ef4b-4d13-9e85-6c98c17d2b7c">
+    <cim:IdentifiedObject.mRID>469a8260-ef4b-4d13-9e85-6c98c17d2b7c</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>NL-Line_1</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_844e70d2-b39d-4093-9edc-ef931bc435db"/>
+    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_7f43f508-2496-4b64-9146-0a40406cbe49"/>
   </cim:ContingencyEquipment>
   <cim:ContingencyEquipment rdf:ID="_e4360db2-2a14-445e-88be-d06ce52b5326">
     <cim:IdentifiedObject.mRID>e4360db2-2a14-445e-88be-d06ce52b5326</cim:IdentifiedObject.mRID>
@@ -28,12 +56,12 @@
     <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
     <cim:ContingencyEquipment.Equipment rdf:resource="#_dad02278-bd25-476f-8f58-dbe44be72586"/>
   </cim:ContingencyEquipment>
-  <cim:ContingencyEquipment rdf:ID="_5e9d6ead-61da-4cca-9437-30df3f1463a1">
-    <cim:IdentifiedObject.mRID>5e9d6ead-61da-4cca-9437-30df3f1463a1</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>BE-TR2_2</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_cc276a2f-98f7-4927-8e85-1560af6e223d"/>
+  <cim:ContingencyEquipment rdf:ID="_772b7a07-c966-4a85-a2ec-f543e1eee9bd">
+    <cim:IdentifiedObject.mRID>772b7a07-c966-4a85-a2ec-f543e1eee9bd</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_1</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_f38b9192-6064-4f1a-b2c6-5459ceb514b0"/>
     <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_b94318f6-6d24-4f56-96b9-df2531ad6543"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_17086487-56ba-4979-b8de-064025a6b4da"/>
   </cim:ContingencyEquipment>
   <cim:ContingencyEquipment rdf:ID="_5aa8ad44-888c-4bfc-81d8-4b399945e46f">
     <cim:IdentifiedObject.mRID>5aa8ad44-888c-4bfc-81d8-4b399945e46f</cim:IdentifiedObject.mRID>
@@ -49,40 +77,12 @@
     <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
     <cim:ContingencyEquipment.Equipment rdf:resource="#_78736387-5f60-4832-b3fe-d50daf81b0a6"/>
   </cim:ContingencyEquipment>
-  <cim:ContingencyEquipment rdf:ID="_931138b0-9a1c-4f40-b5b1-498880077a8d">
-    <cim:IdentifiedObject.mRID>931138b0-9a1c-4f40-b5b1-498880077a8d</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>NL-Line_3</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_ea6a5055-3108-4f86-bfd7-e1320a9473da"/>
+  <cim:ContingencyEquipment rdf:ID="_ba56020b-ec8c-4a66-8f9c-1e3f5eb6c877">
+    <cim:IdentifiedObject.mRID>ba56020b-ec8c-4a66-8f9c-1e3f5eb6c877</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>BE-Line_4</cim:IdentifiedObject.name>
+    <cim:ContingencyElement.Contingency rdf:resource="#_2f28d2b2-b37f-444b-8661-cb7375299b61"/>
     <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_a279a3dc-550b-426c-af3a-61b7be508dcc"/>
-  </cim:ContingencyEquipment>
-  <cim:ContingencyEquipment rdf:ID="_469a8260-ef4b-4d13-9e85-6c98c17d2b7c">
-    <cim:IdentifiedObject.mRID>469a8260-ef4b-4d13-9e85-6c98c17d2b7c</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>NL-Line_1</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_844e70d2-b39d-4093-9edc-ef931bc435db"/>
-    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_7f43f508-2496-4b64-9146-0a40406cbe49"/>
-  </cim:ContingencyEquipment>
-  <cim:ContingencyEquipment rdf:ID="_a412fe3f-6a0b-455a-ad95-7f9594cc6800">
-    <cim:IdentifiedObject.mRID>a412fe3f-6a0b-455a-ad95-7f9594cc6800</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>BE-G1</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_288ac5c2-128e-40cd-b5b2-d3d79779694c"/>
-    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_3a3b27be-b18b-4385-b557-6735d733baf0"/>
-  </cim:ContingencyEquipment>
-  <cim:ContingencyEquipment rdf:ID="_6371bfc4-5adf-4522-821a-f78780ce2b2d">
-    <cim:IdentifiedObject.mRID>6371bfc4-5adf-4522-821a-f78780ce2b2d</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>BE-Line_1</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_8fac3367-7b25-485d-80e9-1bde01a7c516"/>
-    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_17086487-56ba-4979-b8de-064025a6b4da"/>
-  </cim:ContingencyEquipment>
-  <cim:ContingencyEquipment rdf:ID="_772b7a07-c966-4a85-a2ec-f543e1eee9bd">
-    <cim:IdentifiedObject.mRID>772b7a07-c966-4a85-a2ec-f543e1eee9bd</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>BE-Line_1</cim:IdentifiedObject.name>
-    <cim:ContingencyElement.Contingency rdf:resource="#_f38b9192-6064-4f1a-b2c6-5459ceb514b0"/>
-    <cim:ContingencyEquipment.contingentStatus rdf:resource="https://cim.ucaiug.io/ns#ContingencyEquipmentStatusKind.outOfService"/>
-    <cim:ContingencyEquipment.Equipment rdf:resource="#_17086487-56ba-4979-b8de-064025a6b4da"/>
+    <cim:ContingencyEquipment.Equipment rdf:resource="#_ed0c5d75-4a54-43c8-b782-b20d7431630b"/>
   </cim:ContingencyEquipment>
 <nc:ExceptionalContingency rdf:ID="_8fac3367-7b25-485d-80e9-1bde01a7c516">
     <cim:IdentifiedObject.mRID>8fac3367-7b25-485d-80e9-1bde01a7c516</cim:IdentifiedObject.mRID>
@@ -91,21 +91,27 @@
     <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
     <nc:ExceptionalContingency.kind rdf:resource="https://cim4.eu/ns/nc#ContingencyConditionKind.geographicalLocation"/>
   </nc:ExceptionalContingency>
+  <nc:OrdinaryContingency rdf:ID="_f38b9192-6064-4f1a-b2c6-5459ceb514b0">
+    <cim:IdentifiedObject.mRID>f38b9192-6064-4f1a-b2c6-5459ceb514b0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OCO_BE-Line_1</cim:IdentifiedObject.name>
+    <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
+    <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:OrdinaryContingency>
+  <nc:OrdinaryContingency rdf:ID="_cc276a2f-98f7-4927-8e85-1560af6e223d">
+    <cim:IdentifiedObject.mRID>cc276a2f-98f7-4927-8e85-1560af6e223d</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OCO_BE-TR2_2</cim:IdentifiedObject.name>
+    <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
+    <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
+  </nc:OrdinaryContingency>
   <nc:OrdinaryContingency rdf:ID="_288ac5c2-128e-40cd-b5b2-d3d79779694c">
     <cim:IdentifiedObject.mRID>288ac5c2-128e-40cd-b5b2-d3d79779694c</cim:IdentifiedObject.mRID>
     <cim:IdentifiedObject.name>OCO_BE-G1</cim:IdentifiedObject.name>
     <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
     <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
   </nc:OrdinaryContingency>
-  <nc:OrdinaryContingency rdf:ID="_2f28d2b2-b37f-444b-8661-cb7375299b61">
-    <cim:IdentifiedObject.mRID>2f28d2b2-b37f-444b-8661-cb7375299b61</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>OCO_BE-Line_4</cim:IdentifiedObject.name>
-    <nc:Contingency.normalMustStudy>false</nc:Contingency.normalMustStudy>
-    <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
-  </nc:OrdinaryContingency>
-  <nc:OrdinaryContingency rdf:ID="_cc276a2f-98f7-4927-8e85-1560af6e223d">
-    <cim:IdentifiedObject.mRID>cc276a2f-98f7-4927-8e85-1560af6e223d</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>OCO_BE-TR2_2</cim:IdentifiedObject.name>
+  <nc:OrdinaryContingency rdf:ID="_bea8e271-4901-4ddf-9a3a-b1d13f2bf2e0">
+    <cim:IdentifiedObject.mRID>bea8e271-4901-4ddf-9a3a-b1d13f2bf2e0</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OCO_BE-Line_3</cim:IdentifiedObject.name>
     <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
     <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
   </nc:OrdinaryContingency>
@@ -115,16 +121,10 @@
     <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
     <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A361"/>
   </nc:OrdinaryContingency>
-  <nc:OrdinaryContingency rdf:ID="_bea8e271-4901-4ddf-9a3a-b1d13f2bf2e0">
-    <cim:IdentifiedObject.mRID>bea8e271-4901-4ddf-9a3a-b1d13f2bf2e0</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>OCO_BE-Line_3</cim:IdentifiedObject.name>
-    <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
-    <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
-  </nc:OrdinaryContingency>
-  <nc:OrdinaryContingency rdf:ID="_f38b9192-6064-4f1a-b2c6-5459ceb514b0">
-    <cim:IdentifiedObject.mRID>f38b9192-6064-4f1a-b2c6-5459ceb514b0</cim:IdentifiedObject.mRID>
-    <cim:IdentifiedObject.name>OCO_BE-Line_1</cim:IdentifiedObject.name>
-    <nc:Contingency.normalMustStudy>true</nc:Contingency.normalMustStudy>
+  <nc:OrdinaryContingency rdf:ID="_2f28d2b2-b37f-444b-8661-cb7375299b61">
+    <cim:IdentifiedObject.mRID>2f28d2b2-b37f-444b-8661-cb7375299b61</cim:IdentifiedObject.mRID>
+    <cim:IdentifiedObject.name>OCO_BE-Line_4</cim:IdentifiedObject.name>
+    <nc:Contingency.normalMustStudy>false</nc:Contingency.normalMustStudy>
     <nc:Contingency.EquipmentOperator rdf:resource="https://energy.referencedata.eu/EIC/10X1001A1001A094"/>
   </nc:OrdinaryContingency>
   <nc:OutOfRangeContingency rdf:ID="_ea6a5055-3108-4f86-bfd7-e1320a9473da">

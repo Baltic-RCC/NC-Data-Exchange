@@ -71,7 +71,7 @@ if __name__ == '__main__':
 
     # Building profile graph
     profile = Profile(profile_name='SecurityAnalysisResult')
-    profile.add_document_header(start_date="2023-11-30T12:30:00Z", end_date="2023-11-30T12:30:00Z")
+    profile.add_document_header(startDate="2023-06-20T22:30:00Z", endDate="2023-06-21T21:30:00Z")
     profile.add_element(element=cont_pf_result)
     profile.add_element(element=bc_pf_result)
 

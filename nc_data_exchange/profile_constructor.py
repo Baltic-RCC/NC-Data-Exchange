@@ -87,14 +87,7 @@ class Profile:
             logger.warning(f"Prefix not found of namespace: {ns_value}")
             return str()
 
-    def add_document_header(self,
-                            start_date: str | datetime | None = None,
-                            end_date: str | datetime | None = None,
-                            scenario_time: str | datetime | None = None,
-                            version: str = '1',
-                            description: str | None = None,
-                            was_generated_by: str | None = None,
-                            ):
+    def add_document_header(self, **kwargs):
         """
         Adding FullModel header metadata to graph
         :return: nothing
@@ -102,25 +95,15 @@ class Profile:
         from nc_data_exchange.profiles import DocumentHeader
 
         # Converting datetime objects if necessary
-        if isinstance(start_date, datetime):
-            start_date = start_date.astimezone(pytz.utc).replace(tzinfo=None).isoformat()
-        if isinstance(end_date, datetime):
-            end_date = end_date.astimezone(pytz.utc).replace(tzinfo=None).isoformat()
-        if isinstance(scenario_time, datetime):
-            scenario_time = scenario_time.astimezone(pytz.utc).replace(tzinfo=None).isoformat()
+        for key, val in kwargs.items():
+            if isinstance(val, datetime):
+                kwargs[key] = val.astimezone(pytz.utc).replace(tzinfo=None).isoformat()
 
         # Read profile RDF schema (RDFS)
         rdfs = self.load_rdfs(profile_name='DocumentHeader')
 
         # Creating FullModel document header instances
-        header = DocumentHeader.FullModel(profile_name=self.profile_name,
-                                          startDate=start_date,
-                                          endDate=end_date,
-                                          scenarioTime=scenario_time,
-                                          version=version,
-                                          description=description,
-                                          wasGeneratedBy=was_generated_by,
-                                          )
+        header = DocumentHeader.FullModel(profile_name=self.profile_name, **kwargs)
         self.add_element(element=header, rdfs=rdfs)
 
     def add_element(self, element: object, rdfs: dict = None):
