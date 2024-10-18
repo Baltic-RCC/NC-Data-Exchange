@@ -1,7 +1,7 @@
-from pydantic import Field, field_serializer
+from pydantic import Field, field_serializer, BaseModel
 from typing import Optional
 from nc_data_exchange.profiles.Base import IdentifiedObject
-from nc_data_exchange.profiles.Enumerations import RemedialActionKind, ValueOffsetKind, RelativeDirectionKind
+from nc_data_exchange.profiles.Enumerations import RemedialActionKind, ValueOffsetKind, RelativeDirectionKind, ElementCombinationConstraintKind
 from nc_data_exchange.config import Areas, Borders
 
 """
@@ -148,6 +148,19 @@ class StaticPropertyRange(RangeConstraint):
     @field_serializer('PropertyReference')
     def resource_property(self, value):
         return f"https://energy.referencedata.eu/PropertyReference/{value}"
+
+
+class ContingencyWithRemedialAction(BaseModel):
+    # Class attributes
+    combinationConstraintKind = ElementCombinationConstraintKind.included
+    mRID: str = Field(max_length=36, min_length=36)
+    normalEnabled: Optional[bool] = True
+
+    # References to objects inside profile
+    RemedialAction: str = Field(max_length=36, min_length=36)
+
+    # References to objects outside profile
+    Contingency: str = Field(max_length=36, min_length=36)
 
 
 if __name__ == '__main__':

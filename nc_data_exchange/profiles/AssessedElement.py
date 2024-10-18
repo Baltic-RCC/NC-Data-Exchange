@@ -1,7 +1,8 @@
-from pydantic import Field, field_serializer
+from pydantic import Field, field_serializer, BaseModel
 from typing import Optional
 from nc_data_exchange.profiles.Base import IdentifiedObject
 from nc_data_exchange.config import Areas
+from nc_data_exchange.profiles.Enumerations import ElementCombinationConstraintKind
 
 """
 For simple AssessedElement instance creation workflow is as follows:
@@ -32,6 +33,32 @@ class AssessedElement(IdentifiedObject):
     @field_serializer('ScannedForRegion', 'SecuredForRegion', 'NativeRegion', when_used='unless-none')
     def resource_eic_area(self, value):
         return f"https://energy.referencedata.eu/EIC/{Areas().df.set_index('short_name').loc[value].area_eic}"
+
+
+class AssessedElementWithContingency(BaseModel):
+    # Class attributes
+    combinationConstraintKind = ElementCombinationConstraintKind.included
+    mRID: str = Field(max_length=36, min_length=36)
+    normalEnabled: Optional[bool] = True
+
+    # References to objects inside profile
+    AssessedElement: str = Field(max_length=36, min_length=36)
+
+    # References to objects outside profile
+    Contingency: str = Field(max_length=36, min_length=36)
+
+
+class AssessedElementWithRemedialAction(BaseModel):
+    # Class attributes
+    combinationConstraintKind = ElementCombinationConstraintKind.included
+    mRID: str = Field(max_length=36, min_length=36)
+    normalEnabled: Optional[bool] = True
+
+    # References to objects inside profile
+    AssessedElement: str = Field(max_length=36, min_length=36)
+
+    # References to objects outside profile
+    RemedialAction: str = Field(max_length=36, min_length=36)
 
 
 if __name__ == '__main__':
