@@ -1,6 +1,5 @@
 import json
 import logging
-import config
 from typing import List
 import pandas as pd
 import triplets
@@ -270,8 +269,8 @@ def convert(rdfs_paths: List[str], output_directory: str | None = None):
 
 if __name__ == '__main__':
     # Test conversion from rdfs to json
-    input_path = r"C:\Users\martynas.karobcikas\Downloads\DocumentHeaderProfile_v2_3_RDFSv2030_19Oct2023.rdf"
-    output_path = str(Path(__file__).parent.joinpath(r"profiles\rdfs\rdfs_DocumentHeader.json"))
+    input_path = r"C:\Users\martynas.karobcikas\Downloads\ImpactAssessmentMatrix-AP-Voc-RDFS2020_v2-3-0.rdf"
+    output_path = str(Path(__file__).parent.joinpath(r"rdfs\rdfs_ImpactAssessmentMatrix.json"))
     converted = convert(rdfs_paths=[input_path], output_directory=output_path)
 
     # TODO add FullModel definition if necessary (defined under rdfs_tools
