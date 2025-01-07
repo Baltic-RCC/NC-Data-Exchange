@@ -152,7 +152,7 @@ class StaticPropertyRange(RangeConstraint):
 
 class ContingencyWithRemedialAction(BaseModel):
     # Class attributes
-    combinationConstraintKind = ElementCombinationConstraintKind.included
+    combinationConstraintKind: ElementCombinationConstraintKind = ElementCombinationConstraintKind.included
     mRID: str = Field(max_length=36, min_length=36)
     normalEnabled: Optional[bool] = True
 

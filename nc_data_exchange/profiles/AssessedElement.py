@@ -37,7 +37,7 @@ class AssessedElement(IdentifiedObject):
 
 class AssessedElementWithContingency(BaseModel):
     # Class attributes
-    combinationConstraintKind = ElementCombinationConstraintKind.included
+    combinationConstraintKind: ElementCombinationConstraintKind = ElementCombinationConstraintKind.included
     mRID: str = Field(max_length=36, min_length=36)
     normalEnabled: Optional[bool] = True
 
@@ -50,7 +50,7 @@ class AssessedElementWithContingency(BaseModel):
 
 class AssessedElementWithRemedialAction(BaseModel):
     # Class attributes
-    combinationConstraintKind = ElementCombinationConstraintKind.included
+    combinationConstraintKind: ElementCombinationConstraintKind = ElementCombinationConstraintKind.included
     mRID: str = Field(max_length=36, min_length=36)
     normalEnabled: Optional[bool] = True
 
