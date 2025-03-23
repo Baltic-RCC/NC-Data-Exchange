@@ -1,12 +1,13 @@
-from pydantic import BaseModel, Field, field_serializer
+from pydantic import BaseModel, Field, field_serializer, model_validator
 from typing import Optional
 from nc_data_exchange.config import Areas
+import math
 
 
 class PowerFlowResult(BaseModel):
     atTime: str
     isViolation: bool
-    value: float
+    value: Optional[float] = None
     absoluteValue: Optional[float] = None
     valueA: Optional[float] = None
     valueV: Optional[float] = None
@@ -22,6 +23,15 @@ class PowerFlowResult(BaseModel):
     OperationalLimitValue: Optional[float] = None
     EquipmentName: Optional[str] = None
     Substation: Optional[str] = None
+
+    @model_validator(mode='before')
+    @classmethod
+    def replace_nan_to_none(cls, data):
+        for k, v in data.items():
+            if isinstance(v, float) and math.isnan(v):
+                data[k] = None
+
+        return data
 
     @field_serializer('ReportedByRegion', when_used='unless-none')
     def resource_eic_area(self, value):
