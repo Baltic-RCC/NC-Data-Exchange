@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="nc-data-exchange",
-    version="0.0.3",
+    version="0.1.0",
     author="Martynas Karobcikas",
     author_email="martynas.karobcikas@baltic-rcc.eu",
     description="A package for building NetworkCode data exchange profiles",

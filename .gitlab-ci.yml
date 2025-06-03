@@ -1,13 +1,51 @@
-image: python:3.11
+image: artifactory.elering.sise:443/docker-hub/python:3.11
 
 variables:
-  GITLAB_REGISTRY: "https://git.rsc-gitlab.elering.sise/api/v4/projects/73/packages/pypi"
+  PIP_INDEX_URL: "https://artifactory.elering.sise:443/artifactory/api/pypi/rcc-pypi/simple"
+  ARTIFACTORY_LOCAL_PYPI: "https://artifactory.elering.sise:443/artifactory/api/pypi/rcc-pypi-local"
+  SSL_CERT_FILE: "/etc/ssl/certs/ca-certificates.crt"
+  REQUESTS_CA_BUNDLE: "/etc/ssl/certs/ca-certificates.crt"
 
-# Define stages
 stages:
-  - sync
   - build
   - publish
+  - sync
+
+.cert-setup-template:
+  before_script:
+    - curl -k https://artifactory.elering.sise:443/artifactory/certs/ca/EleringCAchain.cer -o /usr/local/share/ca-certificates/elering_chain.crt
+    - update-ca-certificates
+    - pip install twine
+
+build-package:
+  stage: build
+  before_script:
+    - curl -k https://artifactory.elering.sise:443/artifactory/certs/ca/EleringCAchain.cer -o /usr/local/share/ca-certificates/elering_chain.crt
+    - update-ca-certificates
+    - pip install setuptools wheel
+  script:
+    - python setup.py sdist bdist_wheel
+    - ls -lh dist/
+  artifacts:
+    paths:
+      - dist/*
+  rules:
+    - changes:
+        - setup.py
+      if: '$CI_COMMIT_BRANCH == "main"'
+
+publish-package-artifactory:
+  extends: .cert-setup-template
+  stage: publish
+  needs:
+    - build-package
+  script:
+    - echo ${ARTIFACTORY_URL}
+    - twine upload --repository-url ${ARTIFACTORY_LOCAL_PYPI} dist/* -u $ARTIFACTORY_USER -p $ARTIFACTORY_PASSWORD --cert $SSL_CERT_FILE
+  rules:
+    - changes:
+        - setup.py
+      if: '$CI_COMMIT_BRANCH == "main"'
 
 deploy-to-github:
   stage: sync
@@ -21,33 +59,3 @@ deploy-to-github:
   only:
     - main
   when: manual
-
-build_package:
-  stage: build
-  before_script:
-  - apt-get update && apt-get install -y ca-certificates
-  - curl -k https://artifactory.elering.sise:443/artifactory/certs/ca/EleringCAchain.cer -o /usr/local/share/ca-certificates/elering_chain.crt
-  - update-ca-certificates
-  - python -m pip install --upgrade pip
-  - pip install setuptools wheel twine
-  script:
-    - python setup.py sdist bdist_wheel
-    - ls -lh dist/
-  artifacts:
-    paths:
-      - dist/*
-    expire_in: 1 hour
-  rules:
-    - changes:
-        - setup.py
-      if: '$CI_COMMIT_BRANCH == "main"'
-
-publish_package:
-  stage: publish
-  script:
-    - TWINE_CERT=/usr/local/share/ca-certificates/elering_chain.crt
-    - TWINE_PASSWORD=${CI_TOKEN} TWINE_USERNAME=pip-access-token python -m twine upload --repository-url "$GITLAB_REGISTRY" --skip-existing dist/* --cert $TWINE_CERT
-  rules:
-    - changes:
-        - setup.py
-      if: '$CI_COMMIT_BRANCH == "main"'
