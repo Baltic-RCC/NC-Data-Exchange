@@ -277,8 +277,7 @@ class Profile:
 
         if fix_rdf_about:
             logger.debug(f"Replacing rdf:about by rdf:ID")
-            class_instances = tree.getchildren()
-            for instance in class_instances:
+            for instance in tree.findall('*'):
                 # Skip FullModel header instance
                 if 'FullModel' in instance.tag:
                     continue

@@ -221,6 +221,7 @@ class InputStructuralDataProfile:
             ra = ReferencedRemedialAction(
                 mRID=data.registered_resource,
                 name=data.ra_name,
+                description=data.get('ra_description', None),
                 AppointedToRegion=data.region,
                 RemedialActionSystemOperator=data.operator,
                 isCrossBorderRelevant=data.cross_border_relevant,
@@ -242,6 +243,7 @@ class InputStructuralDataProfile:
                 alteration = ReferencedAlteration(
                     mRID=data.alt_mrid,
                     name=data.alt_name,
+                    description=data.get('alt_description', None),
                     GridStateAlterationRemedialAction=ra,
                     PropertyReference=data.property,
                     normalEnabled=data.normal_enabled,
@@ -268,6 +270,8 @@ class InputStructuralDataProfile:
             if data.rc_mrid:
                 property_range = RemedialAction.StaticPropertyRange(
                     mRID=data.rc_mrid,
+                    name=data.rc_name,
+                    description=data.get('rc_description', None),
                     normalValue=data.normal_value,
                     direction=data.direction,
                     valueKind=data.value_kind,

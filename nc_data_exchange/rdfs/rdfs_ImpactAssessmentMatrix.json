@@ -1,0 +1,400 @@
+{
+    "IAM": {
+        "NamespaceMap": {
+            "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+            "nc": "https://cim4.eu/ns/nc#",
+            "cim": "https://cim.ucaiug.io/ns#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "cims": "http://iec.ch/TC57/1999/rdf-schema-extensions-19990926#",
+            "iam": "https://ap.cim4.eu/ImpactAssessmentMatrix#",
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+            "profcim": "https://cim.ucaiug.io/ns/prof-cim#",
+            "dcterms": "http://purl.org/dc/terms/#"
+        },
+        "ProfileMetadata": {
+            "Type": "Description",
+            "conformsTo": "file://iec61970cim17v40_iec61968cim13v13a_iec62325cim03v17a.eap",
+            "creator": "ENTSO-E CIM WG NC project ",
+            "description": "This vocabulary is describing the impact assessment matrix profile.",
+            "identifier": "urn:uuid:1eb41c0b-3c58-4762-a79b-33220d051d32",
+            "keyword": "IAM",
+            "language": "en-GB",
+            "license": "https://www.apache.org/licenses/LICENSE-2.0",
+            "modified": "2024-03-20",
+            "priorVersion": "http://entsoe.eu/ns/CIM/ImpactAssessmentMatrix-EU/2.2",
+            "publisher": "ENTSO-E",
+            "rightsHolder": "ENTSO-E",
+            "theme": "vocabulary",
+            "title": "Impact Assessment Matrix Vocabulary",
+            "type": "http://www.w3.org/2002/07/owl#Ontology",
+            "versionIRI": "https://ap.cim4.eu/ImpactAssessmentMatrix/2.3",
+            "versionInfo": "2.3.0"
+        },
+        "QualitativeRemedialActionImpact": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the qualitative impact for a remedial action. Relevant remedial action is assumed to have impact when the impact quantity is applied.",
+            "parameters": [
+                "RemedialActionImpact.AssessingSystemOperator",
+                "RemedialActionImpact.RemedialAction",
+                "RemedialActionImpact.impactQuantity",
+                "RemedialActionImpact.kind",
+                "RemedialActionImpact.mRID"
+            ]
+        },
+        "RemedialActionImpact.AssessingSystemOperator": {
+            "description": "The impacted System Operator that assigns a remedial action impact.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "RemedialActionImpact.RemedialAction": {
+            "description": "The remedial action that has an impact.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialAction"
+        },
+        "Float": {
+            "description": "A floating point number. The range is unspecified and not limited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "RemedialActionImpact.impactQuantity": {
+            "description": "Delta, positive or negative, quantity that when it is applied to the remedial action,  it will cause impact on a conducting equipment monitored by the assessed system operator.\nExample of relevant remedial action changes are redispatching, countertrading, change of set point on HVDC systems or change of taps on phase-shifting transformers.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "ImpactAgreementKind.always": {
+            "description": "An agreement is reached that the remedial action is always impacting whichever the intensity.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ImpactAgreementKind.never": {
+            "description": "An agreement is reached that a remedial action is never impacting.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "ImpactAgreementKind.noAgreement": {
+            "description": "No agreement is reached on the qualitative impact of a remedial action.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "RemedialActionImpact.kind": {
+            "description": "The impact agreement kind.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncImpactAgreementKind",
+            "values": [
+                "ImpactAgreementKind.always",
+                "ImpactAgreementKind.never",
+                "ImpactAgreementKind.noAgreement"
+            ]
+        },
+        "String": {
+            "description": "A string consisting of a sequence of characters. The character encoding is UTF-8. The string length is unspecified and unlimited.",
+            "type": "Primitive",
+            "namespace": "https://cim.ucaiug.io/ns#"
+        },
+        "RemedialActionImpact.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "OwnerRemedialActionAssessment": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Owner remedial action assessment of the impact of their remedial action on neighboring system operators.",
+            "parameters": [
+                "OwnerRemedialActionAssessment.ImpactedSystemOperator",
+                "OwnerRemedialActionAssessment.RemedialActionImpact",
+                "OwnerRemedialActionAssessment.mRID"
+            ]
+        },
+        "OwnerRemedialActionAssessment.ImpactedSystemOperator": {
+            "description": "System operator that is evaluated to be impacted by the remedial action done by the remedial action owner.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "OwnerRemedialActionAssessment.RemedialActionImpact": {
+            "description": "Remedial action impact which is evaluated by the owner of the remedial action.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionImpact"
+        },
+        "OwnerRemedialActionAssessment.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "QuantitativeRemedialActionImpact": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Defines the quantitative impact for a remedial action. The value if the impact quantity is derived through offline calculation that has coursed an impact of an element that is monitored by the assessed system operator higher than the relevant threshold for the conducting equipment. ",
+            "parameters": [
+                "QuantitativeRemedialActionImpact.SensitivityArea",
+                "RemedialActionImpact.AssessingSystemOperator",
+                "RemedialActionImpact.RemedialAction",
+                "RemedialActionImpact.impactQuantity",
+                "RemedialActionImpact.kind",
+                "RemedialActionImpact.mRID"
+            ]
+        },
+        "QuantitativeRemedialActionImpact.SensitivityArea": {
+            "description": "Sensitivity area which should be monitored to evaluate the threshold given by the remedial action impact on relevant equipment.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SensitivityArea"
+        },
+        "RemedialActionScheduleOutcomeValue": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Outcome of an impact assessment matrix for a remedial action schedule.",
+            "parameters": [
+                "OutcomeValue.ImpactAssessmentMatrix",
+                "OutcomeValue.ImpactedSystemOperator",
+                "OutcomeValue.mRID",
+                "OutcomeValue.outcome",
+                "RemedialActionScheduleOutcomeValue.RemedialActionSchedule"
+            ]
+        },
+        "OutcomeValue.ImpactAssessmentMatrix": {
+            "description": "the impact assessment matrix which has this value.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#ImpactAssessmentMatrix"
+        },
+        "OutcomeValue.ImpactedSystemOperator": {
+            "description": "The impacted system operator that has an outcome value.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#SystemOperator"
+        },
+        "OutcomeValue.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "OutcomeImpactAssessmentKind.true": {
+            "description": "True.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "OutcomeImpactAssessmentKind.undecided": {
+            "description": "Undecided. Used only for list-based impact assessment matrix.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "OutcomeImpactAssessmentKind.false": {
+            "description": "False.",
+            "namespace": "https://cim4.eu/ns/nc"
+        },
+        "OutcomeValue.outcome": {
+            "description": "Outcome value.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": ""
+            },
+            "type": "Enumeration",
+            "range": "https://cim4.eu/ns/ncOutcomeImpactAssessmentKind",
+            "values": [
+                "OutcomeImpactAssessmentKind.true",
+                "OutcomeImpactAssessmentKind.undecided",
+                "OutcomeImpactAssessmentKind.false"
+            ]
+        },
+        "RemedialActionScheduleOutcomeValue.RemedialActionSchedule": {
+            "description": "The remedial action schedule that has a remedial action schedule outcome value.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialActionSchedule"
+        },
+        "ListBasedImpactAssessmentMatrix": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "List-Based is the impact matrix determined by agreement of the system operators involved. System operators jointly decide which Remedial Action (eventually scaled by the intensity of the remedial action) is impacting.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "IdentifiedObject.description": {
+            "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "IdentifiedObject.mRID": {
+            "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.\nFor CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+            "multiplicity": "1..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "type": "String"
+        },
+        "IdentifiedObject.name": {
+            "description": "The name is any free human readable and possibly non unique text naming the object.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim.ucaiug.io/ns#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "String"
+        },
+        "CalculationBasedImpactAssessmentMatrix": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Calculation based impact assessment matrix. It relates to the remedial action schedule. Calculation-Based is the impact matrix determined by calculating the impact factors (eventually scaled by the intensity of the remedial action) and matching them against a threshold in a determined way described by the methodologies.",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        },
+        "RemedialActionOutcomeValue": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Outcome of an impact assessment matrix for a remedial action.",
+            "parameters": [
+                "OutcomeValue.ImpactAssessmentMatrix",
+                "OutcomeValue.ImpactedSystemOperator",
+                "OutcomeValue.mRID",
+                "OutcomeValue.outcome",
+                "RemedialActionOutcomeValue.RemedialAction",
+                "RemedialActionOutcomeValue.impactQuantity"
+            ]
+        },
+        "RemedialActionOutcomeValue.RemedialAction": {
+            "description": "The remedial action that has a remedial action outcome value.",
+            "multiplicity": "1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "1",
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}resource",
+                "value_prefix": "#_"
+            },
+            "type": "Association",
+            "range": "https://cim4.eu/ns/nc#RemedialAction"
+        },
+        "RemedialActionOutcomeValue.impactQuantity": {
+            "description": "Delta, positive or negative, quantity that when it is applied to the remedial action,  it will cause impact on a conducting equipment monitored by the assessed system operator.\nExample of relevant remedial action changes are redispatching, countertrading, change of set point on HVDC systems or change of taps on phase-shifting transformers.",
+            "multiplicity": "0..1",
+            "namespace": "https://cim4.eu/ns/nc#",
+            "xsd:minOccours": "1",
+            "xsd:maxOccours": "0",
+            "type": "Float"
+        },
+        "ConnectingImpactAssessmentMatrix": {
+            "attrib": {
+                "attribute": "{http://www.w3.org/1999/02/22-rdf-syntax-ns#}ID",
+                "value_prefix": "_"
+            },
+            "namespace": "https://cim4.eu/ns/nc#",
+            "description": "Connecting system operator matrix is the impact matrix indicating which system operators are connecting for that specific remedial action. The concept of connecting system operator for a remedial action is defined by CSAm Article 2.1(14).",
+            "parameters": [
+                "IdentifiedObject.description",
+                "IdentifiedObject.mRID",
+                "IdentifiedObject.name"
+            ]
+        }
+    }
+}

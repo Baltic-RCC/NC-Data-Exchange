@@ -10,6 +10,7 @@ class ProfileKeywords(Enum):
     AE = "AssessedElement"
     SIS = "StateInstructionSchedule"
     SSI = "SteadyStateInstruction"
+    IAM = "ImpactAssessmentMatrix"
 
 
 class ConsistencyStatus(Enum):
@@ -138,3 +139,30 @@ class AvailabilityFunctionKind(Enum):
 
     def __str__(self):
         return f"https://cim4.eu/ns/nc#AvailabilityFunctionKind.{self.value}"
+
+
+class ElementCombinationConstraintKind(Enum):
+    included = "included"
+    excluded = "excluded"
+    considered = "considered"
+
+    def __str__(self):
+        return f"https://cim4.eu/ns/nc#ElementCombinationConstraintKind.{self.value}"
+
+
+class OutcomeImpactAssessmentKind(Enum):
+    true = "true"
+    false = "false"
+    undecided = "undecided"
+
+    def __str__(self):
+        return f"https://cim4.eu/ns/nc#OutcomeImpactAssessmentKind.{self.value}"
+
+
+class ImpactAgreementKind(Enum):
+    noAgreement = "noAgreement"
+    never = "never"
+    always = "always"
+
+    def __str__(self):
+        return f"https://cim4.eu/ns/nc#ImpactAgreementKind.{self.value}"

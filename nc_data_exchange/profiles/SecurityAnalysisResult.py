@@ -1,12 +1,13 @@
-from pydantic import BaseModel, Field, field_serializer
+from pydantic import BaseModel, Field, field_serializer, model_validator
 from typing import Optional
 from nc_data_exchange.config import Areas
+import math
 
 
 class PowerFlowResult(BaseModel):
     atTime: str
     isViolation: bool
-    value: float
+    value: Optional[float] = None
     absoluteValue: Optional[float] = None
     valueA: Optional[float] = None
     valueV: Optional[float] = None
@@ -15,12 +16,22 @@ class PowerFlowResult(BaseModel):
     valueVAR: Optional[float] = None
     valueW: Optional[float] = None
     ACDCTerminal: str = Field(max_length=36, min_length=36)
-    OperationalLimit: Optional[float] = None  # by specification should be referred OperationalLimit class in EQ profile
+    OperationalLimit: Optional[str] = Field(default=None, max_length=36, min_length=36)
     ReportedByRegion: Optional[str] = None
 
     # Custom local attributes which is not in profile specification
+    OperationalLimitValue: Optional[float] = None
     EquipmentName: Optional[str] = None
     Substation: Optional[str] = None
+
+    @model_validator(mode='before')
+    @classmethod
+    def replace_nan_to_none(cls, data):
+        for k, v in data.items():
+            if isinstance(v, float) and math.isnan(v):
+                data[k] = None
+
+        return data
 
     @field_serializer('ReportedByRegion', when_used='unless-none')
     def resource_eic_area(self, value):
@@ -41,6 +52,7 @@ class BaseCasePowerFlowResult(PowerFlowResult):
 
 
 if __name__ == '__main__':
+    import uuid
     # Test data
     cont_pf_result = ContingencyPowerFlowResult(
         atTime='2023-11-30T12:30:00Z',
@@ -48,10 +60,11 @@ if __name__ == '__main__':
         value=115,
         valueA=1150,
         ACDCTerminal="6804e0ba-ba01-44ce-8a8c-84f6fba20c79",
-        OperationalLimit=1000,
+        OperationalLimit=f"{str(uuid.uuid4())}",
         ReportedByRegion="LT",
         EquipmentName='KHAE_T1',
         Substation='KHAE',
+        OperationalLimitValue=1000,
         Contingency="ef8a6b81-6235-445e-aaf1-c61685b16ffe",
     )
 
@@ -61,10 +74,11 @@ if __name__ == '__main__':
         value=98,
         valueA=980,
         ACDCTerminal="6804e0ba-ba01-44ce-8a8c-84f6fba20c79",
-        OperationalLimit=1000,
+        OperationalLimit=f"{str(uuid.uuid4())}",
         ReportedByRegion="LT",
         EquipmentName='KHAE_T1',
         Substation='KHAE',
+        OperationalLimitValue=1000,
     )
 
     from nc_data_exchange.profile_constructor import Profile
