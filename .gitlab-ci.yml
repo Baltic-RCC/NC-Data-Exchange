@@ -15,15 +15,12 @@ stages:
   before_script:
     - curl -k https://artifactory.elering.sise:443/artifactory/certs/ca/EleringCAchain.cer -o /usr/local/share/ca-certificates/elering_chain.crt
     - update-ca-certificates
-    - pip install twine
 
 build-package:
+  extends: .cert-setup-template
   stage: build
-  before_script:
-    - curl -k https://artifactory.elering.sise:443/artifactory/certs/ca/EleringCAchain.cer -o /usr/local/share/ca-certificates/elering_chain.crt
-    - update-ca-certificates
-    - pip install setuptools wheel
   script:
+    - pip install setuptools wheel
     - python setup.py sdist bdist_wheel
     - ls -lh dist/
   artifacts:
@@ -40,6 +37,7 @@ publish-package-artifactory:
   needs:
     - build-package
   script:
+    - pip install twine
     - echo ${ARTIFACTORY_URL}
     - twine upload --repository-url ${ARTIFACTORY_LOCAL_PYPI} dist/* -u $ARTIFACTORY_USER -p $ARTIFACTORY_PASSWORD --cert $SSL_CERT_FILE
   rules:
