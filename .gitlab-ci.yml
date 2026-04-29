@@ -3,6 +3,12 @@ include:
     ref: main
     file: '/python-package.yml'
 
+stages:
+  - package
+  - publish
+  - sync
+
+
 deploy-to-github:
   stage: sync
   script:
