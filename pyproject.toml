@@ -1,8 +1,9 @@
 [project]
 name = "nc-data-exchange"
 version = "0.2.0"
-author="Martynas Karobcikas"
-author_email="martynas.karobcikas@baltic-rcc.eu"
+authors = [
+  {name = "Martynas Karobcikas", email = "martynas.karobcikas@baltic-rcc.eud"}
+]
 description = "A package for building NetworkCode data exchange profiles"
 readme = "README.md"
 license = "MPL-2.0"
