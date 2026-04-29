@@ -11,7 +11,15 @@ stages:
 
 deploy-to-github:
   stage: sync
+  image: $ARTIFACTORY_URL/build-containers/alpine:ssh
   script:
+    - export ALPINE_REPO="https://${ARTIFACTORY_URL}:443/artifactory/alpine/v3.12"
+    - |
+      cat <<EOF > /etc/apk/repositories
+      ${ALPINE_REPO}/main
+      ${ALPINE_REPO}/community
+      EOF
+    # Perform synchronization
     - apk add --no-cache git
     - git config --global http.sslVerify false
     - git clone --branch main --single-branch https://package-distribution:$GITLAB_TOKEN@git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange.git repo
