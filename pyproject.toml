@@ -1,0 +1,17 @@
+[project]
+name = "nc-data-exchange"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "lxml>=6.1.0",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.2",
+    "pydantic>=2.13.3",
+    "pydantic-settings>=2.14.0",
+    "pyshacl>=0.31.0",
+    "rdflib>=7.6.0",
+    "triplets>=0.0.17",
+    "xmltodict>=1.0.4",
+]
