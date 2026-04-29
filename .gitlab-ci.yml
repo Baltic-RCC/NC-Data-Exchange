@@ -1,49 +1,13 @@
-image: artifactory.elering.sise:443/docker-hub/python:3.11
-
-variables:
-  PIP_INDEX_URL: "https://artifactory.elering.sise:443/artifactory/api/pypi/rcc-pypi/simple"
-  ARTIFACTORY_LOCAL_PYPI: "https://artifactory.elering.sise:443/artifactory/api/pypi/rcc-pypi-local"
-  SSL_CERT_FILE: "/etc/ssl/certs/ca-certificates.crt"
-  REQUESTS_CA_BUNDLE: "/etc/ssl/certs/ca-certificates.crt"
+include:
+  - project: 'rsc/templates/ci-pipelines'
+    ref: main
+    file: '/python-package.yml'
 
 stages:
-  - build
+  - package
   - publish
   - sync
 
-.cert-setup-template:
-  before_script:
-    - curl -k https://artifactory.elering.sise:443/artifactory/certs/ca/EleringCAchain.cer -o /usr/local/share/ca-certificates/elering_chain.crt
-    - update-ca-certificates
-
-build-package:
-  extends: .cert-setup-template
-  stage: build
-  script:
-    - pip install setuptools wheel
-    - python setup.py sdist bdist_wheel
-    - ls -lh dist/
-  artifacts:
-    paths:
-      - dist/*
-  rules:
-    - changes:
-        - setup.py
-      if: '$CI_COMMIT_BRANCH == "main"'
-
-publish-package-artifactory:
-  extends: .cert-setup-template
-  stage: publish
-  needs:
-    - build-package
-  script:
-    - pip install twine
-    - echo ${ARTIFACTORY_URL}
-    - twine upload --repository-url ${ARTIFACTORY_LOCAL_PYPI} dist/* -u $ARTIFACTORY_USER -p $ARTIFACTORY_PASSWORD --cert $SSL_CERT_FILE
-  rules:
-    - changes:
-        - setup.py
-      if: '$CI_COMMIT_BRANCH == "main"'
 
 deploy-to-github:
   stage: sync
