@@ -1,13 +1,15 @@
 include:
   - project: 'rsc/templates/ci-pipelines'
     ref: main
-    file: '/python-package.yml'
+    file:
+      - '/python-package.yml'
+      - '/license-refs.yml'
 
 stages:
+  - maintenance
   - package
   - publish
   - sync
-
 
 deploy-to-github:
   stage: sync

@@ -4,7 +4,7 @@ version = "0.2.0"
 authors = [
   {name = "Martynas Karobcikas", email = "martynas.karobcikas@baltic-rcc.eud"}
 ]
-description = "A package for building NetworkCode data exchange profiles"
+description = "Package for building Network Code [NC] data exchange profiles"
 readme = "README.md"
 license = "MPL-2.0"
 requires-python = ">=3.11"
@@ -19,3 +19,15 @@ dependencies = [
     "triplets>=0.0.17",
     "xmltodict>=1.0.4",
 ]
+
+#[[tool.uv.index]]
+#name = "pypi"
+#url = "https://pypi.org/simple"
+
+[[tool.uv.index]]
+name = "local-pypi"
+url = "https://artifactory.elering.sise/artifactory/api/pypi/pssepip/simple"
+default = true
+
+[tool.uv]
+allow-insecure-host = ["artifactory.elering.sise"]
