@@ -4,7 +4,7 @@ version = "0.2.0"
 authors = [
   {name = "Martynas Karobcikas", email = "martynas.karobcikas@baltic-rcc.eud"}
 ]
-description = "A package for building NetworkCode data exchange profiles"
+description = "A package for building NetworkCode [NC] data exchange profiles"
 readme = "README.md"
 license = "MPL-2.0"
 requires-python = ">=3.11"
