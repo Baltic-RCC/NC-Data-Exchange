@@ -143,15 +143,6 @@ if __name__ == '__main__':
     )
 
     # Multi-TSO coordination: proposing entities and their responses
-    proposing_share_litgrid = ProposingRemedialActionScheduleShare(
-        RemedialActionSchedule=remedial_action_schedule,
-        ProposingEntity="38X-LITGRID-----Q",
-    )
-    proposing_share_ast = ProposingRemedialActionScheduleShare(
-        RemedialActionSchedule=remedial_action_schedule,
-        ProposingEntity="38X-AUGSTSPRIEG-N",
-        costSharingFactor=0.5,
-    )
 
     response_litgrid = RemedialActionScheduleResponse(
         RemedialActionSchedule=remedial_action_schedule,
