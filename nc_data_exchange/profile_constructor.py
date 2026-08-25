@@ -28,9 +28,11 @@ class Profile:
         self.profile_name = profile_name
         self.graph = Graph()
         self.nm = self.graph.namespace_manager
+        self._ns_reverse_cache: dict[str, str] = {}
 
         # Bind custom local Baltic RCC namespace
         self.nm.bind(prefix=config.default_ns_prefix, namespace=config.default_ns_uri)
+        self._ns_reverse_cache[config.default_ns_uri] = config.default_ns_prefix  # keep cache in sync
 
         logger.info(f"Constructing network code profile: {self.profile_name}")
 
@@ -40,6 +42,10 @@ class Profile:
     @property
     def rdf_pretty_xml(self) -> str:
         return self.graph.serialize(format='pretty-xml', max_depth=1)
+
+    @property
+    def rdf_xml(self) -> str:
+        return self.graph.serialize(format='xml', max_depth=1)
 
     @property
     def xml_tree(self):
@@ -78,14 +84,14 @@ class Profile:
     def bind_namespaces(self, namespaces: dict):
         for nskey, nsval in namespaces.items():
             self.nm.bind(nskey, nsval, replace=True)
+            self._ns_reverse_cache[str(nsval)] = nskey
 
     def get_namespace_key(self, ns_value) -> str:
-        for prefix, value in dict(self.nm.namespaces()).items():
-            if ns_value == str(value):
-                return prefix
-        else:
+        prefix = self._ns_reverse_cache.get(str(ns_value))
+        if prefix is None:
             logger.warning(f"Prefix not found of namespace: {ns_value}")
             return str()
+        return prefix
 
     def add_document_header(self, **kwargs):
         """
@@ -315,9 +321,10 @@ class Profile:
             return tree
 
     def export_graph(self, output_path):
-        rdf_pretty_xml = self.rdf_pretty_xml
-        with open(output_path, 'w') as file:
-            file.write(rdf_pretty_xml)
+        tree = etree.fromstring(self.rdf_xml.encode('utf-8'))
+        xmlstr = etree.tostring(tree, pretty_print=True, xml_declaration=True, encoding='UTF-8')
+        with open(output_path, 'wb') as file:
+            file.write(xmlstr)
 
     def export_to_excel(self,
                         output_path: str | None = None,

@@ -15,6 +15,7 @@ dependencies = [
     "pydantic>=2.13.3",
     "pydantic-settings>=2.14.0",
     "pyshacl>=0.31.0",
+    "pytz>=2026.3.post1",
     "rdflib>=7.6.0",
     "triplets>=0.0.17",
     "xmltodict>=1.0.4",
