@@ -42,6 +42,27 @@ class RemedialActionScheduleStatusKind(Enum):
         return f"https://cim4.eu/ns/nc#RemedialActionScheduleStatusKind.{self.value}"
 
 
+class RemedialActionScheduleResponseKind(Enum):
+    accepted = "accepted"
+    refused = "refused"
+    timeout = "timeout"
+    waiting = "waiting"
+
+    def __str__(self):
+        return f"https://cim4.eu/ns/nc#RemedialActionScheduleResponseKind.{self.value}"
+
+
+class RejectionReasonKind(Enum):
+    madeAlternative = "madeAlternative"
+    noTimeToImplement = "noTimeToImplement"
+    notAvailable = "notAvailable"
+    securityLimit = "securityLimit"
+    other = "other"
+
+    def __str__(self):
+        return f"https://cim4.eu/ns/nc#RejectionReasonKind.{self.value}"
+
+
 class ValueOffsetKind(Enum):
     absolute = "absolute"
     incremental = "incremental"
