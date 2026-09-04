@@ -2,7 +2,12 @@ from pydantic import BaseModel, Field, field_serializer
 from typing import Optional
 from nc_data_exchange.profiles.Base import IdentifiedObject
 from nc_data_exchange.config import Areas
-from nc_data_exchange.profiles.Enumerations import RemedialActionScheduleStatusKind, TimeSeriesInterpolationKind
+from nc_data_exchange.profiles.Enumerations import (
+    RemedialActionScheduleStatusKind,
+    TimeSeriesInterpolationKind,
+    RemedialActionScheduleResponseKind,
+    RejectionReasonKind,
+)
 
 """
 For simple Remedial Action Schedule instance creation workflow is as follows:
@@ -10,6 +15,11 @@ For simple Remedial Action Schedule instance creation workflow is as follows:
         RemedialActionSchedule -> GridStateIntensitySchedule -> GenericValueTimePoint
     For PowerRemedialAction's:
         RemedialActionSchedule -> PowerSchedule -> PowerScheduleAction (CountertradeScheduleAction, RedispatchScheduleAction) -> PowerTimePoint
+For multiple TSO coordination of one Remedial Action Schedule:
+    For each RemedialActionSchedule:
+        AssignedRegion - None or CCR/SOR EIC
+    For each TSO participating in coordination of Remedial Action Schedule:
+        RemedialActionSchedule -> RemedialActionScheduleResponse(s) -> usual RAS building workflow of GridStateAlterationRemedialAction's/PowerRemedialAction's
 """
 
 
@@ -33,6 +43,24 @@ class RemedialActionSchedule(IdentifiedObject):
     @field_serializer('AssignedRegion', when_used='unless-none')
     def resource_eic_region(self, value):
         return f"https://energy.referencedata.eu/EIC/{Areas().df.set_index('short_name').loc[value].area_eic}"
+
+
+class RemedialActionScheduleResponse(BaseModel):
+    # References to objects inside profile
+    RemedialActionSchedule: object
+
+    # References to reference data
+    RespondingEntity: str
+
+    # Class attributes
+    kind: RemedialActionScheduleResponseKind
+    rejectionReasonKind: Optional[RejectionReasonKind] = None
+    rejectionReason: Optional[str] = None
+    mRID: Optional[str] = None
+
+    @field_serializer('RespondingEntity', when_used='unless-none')
+    def resource_eic(self, value):
+        return f"https://energy.referencedata.eu/EIC/{value}"
 
 
 class BaseTimeSeries(IdentifiedObject):
@@ -119,6 +147,19 @@ if __name__ == '__main__':
         value=0.0
     )
 
+    # Multi-TSO coordination: proposing entities and their responses
+
+    response_litgrid = RemedialActionScheduleResponse(
+        RemedialActionSchedule=remedial_action_schedule,
+        RespondingEntity="LITGRID",
+        kind=RemedialActionScheduleResponseKind.accepted,
+    )
+    response_ast = RemedialActionScheduleResponse(
+        RemedialActionSchedule=remedial_action_schedule,
+        RespondingEntity="AST",
+        kind=RemedialActionScheduleResponseKind.waiting,
+    )
+
     remedial_action_schedule_for_countertrade = RemedialActionSchedule(
         name="Remedial Action Schedule instance for countertrade",
         RemedialAction=f"87c806b5-fa24-4273-93bb-f86d9fb99a64",
@@ -151,6 +192,9 @@ if __name__ == '__main__':
     profile.add_element(element=remedial_action_schedule)
     profile.add_element(element=grid_state_intensity_schedule)
     profile.add_element(element=generic_value_time_point)
+
+    profile.add_element(element=response_litgrid)
+    profile.add_element(element=response_ast)
 
     profile.add_element(element=remedial_action_schedule_for_countertrade)
     profile.add_element(element=power_schedule)
