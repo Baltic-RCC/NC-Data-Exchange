@@ -1,6 +1,6 @@
 [project]
 name = "nc-data-exchange"
-version = "0.2.0"
+version = "0.2.1"
 authors = [
   {name = "Martynas Karobcikas", email = "martynas.karobcikas@baltic-rcc.eud"}
 ]
