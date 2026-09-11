@@ -1,4 +1,6 @@
 # Network code profiles for regional coordination processes
+[![pipeline status](https://git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange/badges/main/pipeline.svg)](https://git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange/-/commits/main)
+[![Latest Release](https://git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange/-/badges/release.svg)](https://git.rsc-gitlab.elering.sise/rsc/it/nc-data-exchange/-/releases)
 
 ## Description
 Package provides a functionality to generate RDF/XML files based on NC RCP v2.3 specification from data stored in Excel or any other format which can be parsed into Pandas dataframe.

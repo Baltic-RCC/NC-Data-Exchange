@@ -1,0 +1,34 @@
+[project]
+name = "nc-data-exchange"
+version = "0.2.0"
+authors = [
+  {name = "Martynas Karobcikas", email = "martynas.karobcikas@baltic-rcc.eud"}
+]
+description = "Package for building Network Code [NC] data exchange profiles"
+readme = "README.md"
+license = "MPL-2.0"
+requires-python = ">=3.11"
+dependencies = [
+    "lxml>=6.1.0",
+    "openpyxl>=3.1.5",
+    "pandas>=3.0.2",
+    "pydantic>=2.13.3",
+    "pydantic-settings>=2.14.0",
+    "pyshacl>=0.31.0",
+    "pytz>=2026.3.post1",
+    "rdflib>=7.6.0",
+    "triplets>=0.0.17",
+    "xmltodict>=1.0.4",
+]
+
+#[[tool.uv.index]]
+#name = "pypi"
+#url = "https://pypi.org/simple"
+
+[[tool.uv.index]]
+name = "local-pypi"
+url = "https://artifactory.elering.sise/artifactory/api/pypi/pssepip/simple"
+default = true
+
+[tool.uv]
+allow-insecure-host = ["artifactory.elering.sise"]
