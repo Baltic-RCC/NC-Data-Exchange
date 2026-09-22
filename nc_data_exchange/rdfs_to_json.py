@@ -13,19 +13,20 @@ logger = logging.getLogger(__name__)
 
 def get_owl_metadata(data: pd.DataFrame):
     """Returns metadata about CIM profile defined in RDFS OWL Ontology"""
-    return data.merge(data.query("KEY == 'type' and VALUE == 'http://www.w3.org/2002/07/owl#Ontology'").ID).set_index("KEY")["VALUE"]
+    return data.merge(data.query("KEY == 'type' and VALUE == 'Ontology'").ID).set_index("KEY")["VALUE"]
 
 
 def concrete_classes_list(data: pd.DataFrame):
     """Returns list of Concrete classes from Triplet"""
-    return list(data.query("VALUE == 'http://iec.ch/TC57/NonStandard/UML#concrete'")["ID"])
+    return list(data.query("VALUE == 'concrete'")["ID"])
 
 
 def get_class_parameters(data: pd.DataFrame, class_name: str):
     """Returns parameters of the class and all the class names it extends"""
     # Get class data
+    class_local_name = class_name.split("#")[-1]
     class_data = {"name": class_name,
-                  "parameters": data.query("VALUE == @class_name & KEY == 'domain'"),
+                  "parameters": data.query("(VALUE == @class_name or VALUE == @class_local_name) & KEY == 'domain'"),
                   "extends": list(data.query("ID == @class_name and KEY == 'subClassOf'")["VALUE"].unique())}
 
     # Usually only one inheritance, warn if not
@@ -76,7 +77,7 @@ def parameters_tableview_all(data: pd.DataFrame, class_name: str):
 
 def parse_multiplicity(uri: str):
     """Converts multiplicity defined in extended RDFS to XSD minOccurs and maxOccurs"""
-    multiplicity = str(uri).split("#M:")[1]
+    multiplicity = str(uri).split("M:")[1]
     min_occurs = multiplicity[-1].replace("n", "unbounded")
     max_occurs = multiplicity[0]
 
@@ -191,7 +192,7 @@ def convert(rdfs_paths: List[str], output_directory: str | None = None):
 
                 # Declare parameter definition
                 parameter_def = {"description": parameter_dict.get("comment", ""),
-                                 "multiplicity": parameter_dict["multiplicity"].split("#M:")[1],
+                                 "multiplicity": parameter_dict["multiplicity"].split("M:")[1],
                                  "namespace": parameter_namespace,
                                  "xsd:minOccours": (parse_multiplicity(parameter_dict["multiplicity"]))[0],
                                  "xsd:maxOccours": (parse_multiplicity(parameter_dict["multiplicity"]))[1]}
@@ -269,8 +270,8 @@ def convert(rdfs_paths: List[str], output_directory: str | None = None):
 
 if __name__ == '__main__':
     # Test conversion from rdfs to json
-    input_path = r"C:\Users\martynas.karobcikas\Downloads\ImpactAssessmentMatrix-AP-Voc-RDFS2020_v2-3-0.rdf"
-    output_path = str(Path(__file__).parent.joinpath(r"rdfs\rdfs_ImpactAssessmentMatrix.json"))
+    input_path = r"C:\Users\lukas.navickas\Downloads\RemedialActionSchedule-AP-Voc-RDFS2020_v2-4-0.rdf"
+    output_path = r"C:\Users\lukas.navickas\Downloads\rdfs_RemedialActionSchedule.json"
     converted = convert(rdfs_paths=[input_path], output_directory=output_path)
 
     # TODO add FullModel definition if necessary (defined under rdfs_tools
