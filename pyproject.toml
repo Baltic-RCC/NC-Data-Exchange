@@ -21,6 +21,13 @@ dependencies = [
     "xmltodict>=1.0.4",
 ]
 
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["nc_data_exchange*"]
+
 #[[tool.uv.index]]
 #name = "pypi"
 #url = "https://pypi.org/simple"
